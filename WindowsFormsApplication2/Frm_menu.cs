@@ -19,7 +19,7 @@ namespace WindowsFormsApplication2
 
         private void factureSurProrataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void bonDeLivraisonToolStripMenuItem_Click(object sender, EventArgs e)
