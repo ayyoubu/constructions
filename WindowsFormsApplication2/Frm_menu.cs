@@ -115,7 +115,7 @@ namespace WindowsFormsApplication2
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // change it to application.exite()
+            // message de test
             this.Close();
         }
 
