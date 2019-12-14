@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C838664-8857-4602-96CF-F44B1F029E58}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsApplication2</RootNamespace>
+    <AssemblyName>WindowsFormsApplication2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Frm_article.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_article.Designer.cs">
+      <DependentUpon>Frm_article.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_avoir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_avoir.Designer.cs">
+      <DependentUpon>Frm_avoir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_bcfrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_bcfrs.Designer.cs">
+      <DependentUpon>Frm_bcfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_blfrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_blfrs.Designer.cs">
+      <DependentUpon>Frm_blfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_brtfrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_brtfrs.Designer.cs">
+      <DependentUpon>Frm_brtfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_catbien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_catbien.Designer.cs">
+      <DependentUpon>Frm_catbien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_catrem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_catrem.Designer.cs">
+      <DependentUpon>Frm_catrem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Cat_pj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Cat_pj.Designer.cs">
+      <DependentUpon>Frm_Cat_pj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_code_tax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_code_tax.Designer.cs">
+      <DependentUpon>Frm_code_tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_devis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_devis.Designer.cs">
+      <DependentUpon>Frm_devis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_facfrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_facfrs.Designer.cs">
+      <DependentUpon>Frm_facfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_identification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_identification.Designer.cs">
+      <DependentUpon>Frm_identification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_idlot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_idlot.Designer.cs">
+      <DependentUpon>Frm_idlot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listefrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listefrs.Designer.cs">
+      <DependentUpon>Frm_listefrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_bureau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_bureau.Designer.cs">
+      <DependentUpon>Frm_bureau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_labo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_labo.Designer.cs">
+      <DependentUpon>Frm_labo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeclient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeclient.Designer.cs">
+      <DependentUpon>Frm_listeclient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_menu.Designer.cs">
+      <DependentUpon>Frm_menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_apropos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_apropos.Designer.cs">
+      <DependentUpon>Frm_apropos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_bordoreau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_bordoreau.Designer.cs">
+      <DependentUpon>Frm_bordoreau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_equipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_equipe.Designer.cs">
+      <DependentUpon>Frm_equipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_client.Designer.cs">
+      <DependentUpon>Frm_client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_frs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_frs.Designer.cs">
+      <DependentUpon>Frm_frs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_famille.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_famille.Designer.cs">
+      <DependentUpon>Frm_famille.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_bien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_bien.Designer.cs">
+      <DependentUpon>Frm_bien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_maitre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_maitre.Designer.cs">
+      <DependentUpon>Frm_maitre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_architecte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_architecte.Designer.cs">
+      <DependentUpon>Frm_architecte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Listechantier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Listechantier.Designer.cs">
+      <DependentUpon>Frm_Listechantier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_moderem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_moderem.Designer.cs">
+      <DependentUpon>Frm_moderem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_poste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_poste.Designer.cs">
+      <DependentUpon>Frm_poste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_idfrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_idfrs.Designer.cs">
+      <DependentUpon>Frm_idfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listefrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listefrs.Designer.cs">
+      <DependentUpon>listefrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Frm_tacheglb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_tacheglb.Designer.cs">
+      <DependentUpon>Frm_tacheglb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_unite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_unite.Designer.cs">
+      <DependentUpon>Frm_unite.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Frm_article.resx">
+      <DependentUpon>Frm_article.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_avoir.resx">
+      <DependentUpon>Frm_avoir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_bcfrs.resx">
+      <DependentUpon>Frm_bcfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_blfrs.resx">
+      <DependentUpon>Frm_blfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_brtfrs.resx">
+      <DependentUpon>Frm_brtfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_catbien.resx">
+      <DependentUpon>Frm_catbien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_catrem.resx">
+      <DependentUpon>Frm_catrem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Cat_pj.resx">
+      <DependentUpon>Frm_Cat_pj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_code_tax.resx">
+      <DependentUpon>Frm_code_tax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_devis.resx">
+      <DependentUpon>Frm_devis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_facfrs.resx">
+      <DependentUpon>Frm_facfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_identification.resx">
+      <DependentUpon>Frm_identification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_idlot.resx">
+      <DependentUpon>Frm_idlot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listefrs.resx">
+      <DependentUpon>Frm_listefrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_bureau.resx">
+      <DependentUpon>Frm_bureau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_labo.resx">
+      <DependentUpon>Frm_labo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeclient.resx">
+      <DependentUpon>Frm_listeclient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_menu.resx">
+      <DependentUpon>Frm_menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_apropos.resx">
+      <DependentUpon>Frm_apropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_bordoreau.resx">
+      <DependentUpon>Frm_bordoreau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_equipe.resx">
+      <DependentUpon>Frm_equipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_client.resx">
+      <DependentUpon>Frm_client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_frs.resx">
+      <DependentUpon>Frm_frs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_famille.resx">
+      <DependentUpon>Frm_famille.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_bien.resx">
+      <DependentUpon>Frm_bien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_maitre.resx">
+      <DependentUpon>Frm_maitre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_architecte.resx">
+      <DependentUpon>Frm_architecte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Listechantier.resx">
+      <DependentUpon>Frm_Listechantier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_moderem.resx">
+      <DependentUpon>Frm_moderem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_poste.resx">
+      <DependentUpon>Frm_poste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_idfrs.resx">
+      <DependentUpon>Frm_idfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listefrs.resx">
+      <DependentUpon>listefrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Frm_tacheglb.resx">
+      <DependentUpon>Frm_tacheglb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_unite.resx">
+      <DependentUpon>Frm_unite.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\construction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emblemok_103757.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\con2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agrandir.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fermer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reduit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sans-titre---3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fer.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
