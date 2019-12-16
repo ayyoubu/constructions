@@ -260,6 +260,9 @@
     <Compile Include="Frm_unite.Designer.cs">
       <DependentUpon>Frm_unite.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form25.resx">
+      <DependentUpon>Form25.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_article.resx">
       <DependentUpon>Frm_article.cs</DependentUpon>
     </EmbeddedResource>
