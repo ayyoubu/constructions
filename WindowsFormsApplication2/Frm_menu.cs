@@ -14,12 +14,14 @@ namespace WindowsFormsApplication2
     {
         public Frm_menu()
         {
+          
             InitializeComponent();
         }
 
         private void factureSurProrataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Frm_facprorata s = new Frm_facprorata();
+            s.ShowDialog();
         }
 
         private void bonDeLivraisonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,7 +117,7 @@ namespace WindowsFormsApplication2
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-         
+            
             this.Close();
         }
 
@@ -231,6 +233,115 @@ namespace WindowsFormsApplication2
             Frm_devis s = new Frm_devis();
             s.ShowDialog();
         }
+
+        private void gestionDeStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_stock s = new Frm_stock();
+            s.ShowDialog();
+        }
+
+        private void factureSurDécompteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_facdecompte S = new Frm_facdecompte();
+            S.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Frm_identification s = new Frm_identification();
+            s.ShowDialog();
+        }
+
+        private void factureSurGarantieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_facgarantie s = new Frm_facgarantie();
+            s.ShowDialog();
+        }
+
+        private void intérrogationBordoreauToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_liste_tab_bordoreau s = new Frm_liste_tab_bordoreau();
+            s.ShowDialog();
+        }
+
+        private void gestionRéglementClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_regclt s = new Frm_regclt();
+            s.ShowDialog();
+        }
+
+        private void gestionRéglementFournisseurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_regfrs s = new Frm_regfrs();
+            s.ShowDialog();
+        }
+
+        private void bonDeCommandeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_listeBC s = new Frm_listeBC();
+            s.ShowDialog();
+        }
+
+        private void bonDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_listeBL s = new Frm_listeBL();
+            s.ShowDialog();
+        }
+
+        private void factureToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_listeFacFRS s = new Frm_listeFacFRS();
+            s.ShowDialog();
+        }
+
+        private void bonDeRetourToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_listeBR s = new Frm_listeBR();
+            s.ShowDialog();
+        }
+
+        private void avoirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_listeAvoir s = new Frm_listeAvoir();
+            s.ShowDialog();
+        }
+
+        private void devisToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_listeDevis s = new Frm_listeDevis();
+            s.ShowDialog();
+        }
+
+        private void factureDeProrataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_listeFacProrata s = new Frm_listeFacProrata();
+            s.ShowDialog();
+        }
+
+        private void factureDeDécompteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_listeFacDecompte s = new Frm_listeFacDecompte();
+            s.ShowDialog();
+        }
+
+        private void factureDeGarantieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_listeFacGarantie s = new Frm_listeFacGarantie();
+            s.ShowDialog();
+        }
+
+        private void pièceJointeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_newPJ s = new Frm_newPJ();
+            s.ShowDialog();
+        }
+
+        private void généralisationDeLotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EtatGeneral s = new EtatGeneral();
+            s.ShowDialog();
+        }
     }
     }
+    
 

@@ -48,11 +48,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form25.cs">
+    <Compile Include="EtatGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form25.Designer.cs">
-      <DependentUpon>Form25.cs</DependentUpon>
+    <Compile Include="EtatGeneral.Designer.cs">
+      <DependentUpon>EtatGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeAvoir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeAvoir.Designer.cs">
+      <DependentUpon>Frm_listeAvoir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeBC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeBC.Designer.cs">
+      <DependentUpon>Frm_listeBC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeBL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeBL.Designer.cs">
+      <DependentUpon>Frm_listeBL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeBR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeBR.Designer.cs">
+      <DependentUpon>Frm_listeBR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeDevis.Designer.cs">
+      <DependentUpon>Frm_listeDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeFacDecompte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeFacDecompte.Designer.cs">
+      <DependentUpon>Frm_listeFacDecompte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeFacFRS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeFacFRS.Designer.cs">
+      <DependentUpon>Frm_listeFacFRS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeFacGarantie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeFacGarantie.Designer.cs">
+      <DependentUpon>Frm_listeFacGarantie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_listeFacProrata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_listeFacProrata.Designer.cs">
+      <DependentUpon>Frm_listeFacProrata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_liste_tab_bordoreau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_liste_tab_bordoreau.Designer.cs">
+      <DependentUpon>Frm_liste_tab_bordoreau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm-facprorata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm-facprorata.Designer.cs">
+      <DependentUpon>Frm-facprorata.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_article.cs">
       <SubType>Form</SubType>
@@ -119,6 +185,24 @@
     </Compile>
     <Compile Include="Frm_facfrs.Designer.cs">
       <DependentUpon>Frm_facfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_facgarantie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_facgarantie.Designer.cs">
+      <DependentUpon>Frm_facgarantie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_factdecompte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_factdecompte.Designer.cs">
+      <DependentUpon>Frm_factdecompte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_idclt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_idclt.Designer.cs">
+      <DependentUpon>Frm_idclt.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_identification.cs">
       <SubType>Form</SubType>
@@ -228,6 +312,24 @@
     <Compile Include="Frm_moderem.Designer.cs">
       <DependentUpon>Frm_moderem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_newPJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_newPJ.Designer.cs">
+      <DependentUpon>Frm_newPJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_new_regl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_new_regl.Designer.cs">
+      <DependentUpon>Frm_new_regl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_new_regltfrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_new_regltfrs.Designer.cs">
+      <DependentUpon>Frm_new_regltfrs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_poste.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +341,30 @@
     </Compile>
     <Compile Include="Frm_idfrs.Designer.cs">
       <DependentUpon>Frm_idfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_regclt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_regclt.Designer.cs">
+      <DependentUpon>Frm_regclt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_regfrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_regfrs.Designer.cs">
+      <DependentUpon>Frm_regfrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_stock.Designer.cs">
+      <DependentUpon>Frm_stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_tab_bordoreau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_tab_bordoreau.Designer.cs">
+      <DependentUpon>Frm_tab_bordoreau.cs</DependentUpon>
     </Compile>
     <Compile Include="listefrs.cs">
       <SubType>Form</SubType>
@@ -260,6 +386,42 @@
     <Compile Include="Frm_unite.Designer.cs">
       <DependentUpon>Frm_unite.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EtatGeneral.resx">
+      <DependentUpon>EtatGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeAvoir.resx">
+      <DependentUpon>Frm_listeAvoir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeBC.resx">
+      <DependentUpon>Frm_listeBC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeBL.resx">
+      <DependentUpon>Frm_listeBL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeBR.resx">
+      <DependentUpon>Frm_listeBR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeDevis.resx">
+      <DependentUpon>Frm_listeDevis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeFacDecompte.resx">
+      <DependentUpon>Frm_listeFacDecompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeFacFRS.resx">
+      <DependentUpon>Frm_listeFacFRS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeFacGarantie.resx">
+      <DependentUpon>Frm_listeFacGarantie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_listeFacProrata.resx">
+      <DependentUpon>Frm_listeFacProrata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_liste_tab_bordoreau.resx">
+      <DependentUpon>Frm_liste_tab_bordoreau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm-facprorata.resx">
+      <DependentUpon>Frm-facprorata.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_article.resx">
       <DependentUpon>Frm_article.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,6 +454,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_facfrs.resx">
       <DependentUpon>Frm_facfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_facgarantie.resx">
+      <DependentUpon>Frm_facgarantie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_factdecompte.resx">
+      <DependentUpon>Frm_factdecompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_idclt.resx">
+      <DependentUpon>Frm_idclt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_identification.resx">
       <DependentUpon>Frm_identification.cs</DependentUpon>
@@ -347,11 +518,32 @@
     <EmbeddedResource Include="Frm_moderem.resx">
       <DependentUpon>Frm_moderem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_newPJ.resx">
+      <DependentUpon>Frm_newPJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_new_regl.resx">
+      <DependentUpon>Frm_new_regl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_new_regltfrs.resx">
+      <DependentUpon>Frm_new_regltfrs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_poste.resx">
       <DependentUpon>Frm_poste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_idfrs.resx">
       <DependentUpon>Frm_idfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_regclt.resx">
+      <DependentUpon>Frm_regclt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_regfrs.resx">
+      <DependentUpon>Frm_regfrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_stock.resx">
+      <DependentUpon>Frm_stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_tab_bordoreau.resx">
+      <DependentUpon>Frm_tab_bordoreau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listefrs.resx">
       <DependentUpon>listefrs.cs</DependentUpon>
@@ -409,6 +601,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\367502-PAXLKG-681.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\identification_icon-icons.com_66294.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\identification_icon-icons.com_66294 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,5 +31,16 @@ namespace WindowsFormsApplication2
         {
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Frm_tab_bordoreau s = new Frm_tab_bordoreau();
+            s.ShowDialog();
+        }
     }
 }

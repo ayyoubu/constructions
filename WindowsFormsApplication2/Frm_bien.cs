@@ -22,19 +22,23 @@ namespace WindowsFormsApplication2
             this.Close();
        
      
-        }
+        } int code=1;
         private void button3_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.Rows.Add(textBox1.Text,textBox2.Text, textBox3.Text, textBox4.Text,textBox5.Text, textBox6.Text);
-            this.textBox1.Text = "";
-            this.textBox2.Clear();
-            this.textBox3.Clear();
-           
-            this.textBox4.Clear();
-            this.textBox5.Clear();
-            this.textBox6.Clear();
+            this.dataGridView1.Rows.Add(code, textBox2.Text, comboBox3.Text, comboBox1.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+            code++;
+            vider();
 
         }
+
+        private void vider()
+        {
+            foreach (Control c in Controls)
+            {
+                if (c is TextBox || c is ComboBox) c.Text = "";
+            }
+        }
+
         int i;
         private void button5_Click(object sender, EventArgs e)
         {
@@ -59,9 +63,9 @@ namespace WindowsFormsApplication2
             try
             {
                 i = dataGridView1.CurrentCell.RowIndex;
-                textBox1.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                comboBox1.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
                 textBox2.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                textBox3.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                comboBox3.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
                 
                 textBox4.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
                 textBox5.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
@@ -79,9 +83,9 @@ namespace WindowsFormsApplication2
             try
             {
                 i = dataGridView1.CurrentCell.RowIndex;
-                textBox1.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                comboBox1.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
                 textBox2.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                textBox3.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                comboBox3.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
                 
                 textBox4.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
                 textBox5.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
@@ -100,13 +104,14 @@ namespace WindowsFormsApplication2
             try
             {
                 i = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows[i].Cells[0].Value = textBox1.Text;
+                dataGridView1.Rows[i].Cells[0].Value = comboBox1.Text;
                 dataGridView1.Rows[i].Cells[1].Value = textBox2.Text;
-                dataGridView1.Rows[i].Cells[2].Value = textBox3.Text;
+                dataGridView1.Rows[i].Cells[2].Value = comboBox3.Text;
                
                 dataGridView1.Rows[i].Cells[4].Value = textBox4.Text;
                 dataGridView1.Rows[i].Cells[5].Value = textBox5.Text;
                 dataGridView1.Rows[i].Cells[6].Value = textBox6.Text;
+                vider();
             }
             catch
             {

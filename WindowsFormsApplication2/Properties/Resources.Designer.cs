@@ -63,6 +63,26 @@ namespace WindowsFormsApplication2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2 {
+            get {
+                object obj = ResourceManager.GetObject("2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _367502_PAXLKG_681 {
+            get {
+                object obj = ResourceManager.GetObject("367502-PAXLKG-681", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agrandir {
             get {
                 object obj = ResourceManager.GetObject("agrandir", resourceCulture);
@@ -116,6 +136,26 @@ namespace WindowsFormsApplication2.Properties {
         internal static System.Drawing.Bitmap fermer {
             get {
                 object obj = ResourceManager.GetObject("fermer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap identification_icon_icons_com_66294 {
+            get {
+                object obj = ResourceManager.GetObject("identification_icon-icons.com_66294", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap identification_icon_icons_com_66294__1_ {
+            get {
+                object obj = ResourceManager.GetObject("identification_icon-icons.com_66294 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

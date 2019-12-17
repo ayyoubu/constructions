@@ -228,6 +228,7 @@
             this.Controls.Add(this.btn_new);
             this.Controls.Add(this.dgv1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Listechantier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Listechantier";

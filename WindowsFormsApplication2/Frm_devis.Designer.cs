@@ -144,6 +144,7 @@
             this.button15.TabIndex = 43;
             this.button15.Text = "Info";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // textBox2
             // 
@@ -486,6 +487,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_devis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_devis";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
