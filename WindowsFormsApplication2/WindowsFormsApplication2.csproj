@@ -366,6 +366,42 @@
     <Compile Include="Frm_tab_bordoreau.Designer.cs">
       <DependentUpon>Frm_tab_bordoreau.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gen_Avoir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gen_Avoir.Designer.cs">
+      <DependentUpon>Gen_Avoir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gen_BC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gen_BC.Designer.cs">
+      <DependentUpon>Gen_BC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gen_Br.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gen_Br.Designer.cs">
+      <DependentUpon>Gen_Br.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gen_BREC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gen_BREC.Designer.cs">
+      <DependentUpon>Gen_BREC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gen_Fac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gen_Fac.Designer.cs">
+      <DependentUpon>Gen_Fac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gen_identification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gen_identification.Designer.cs">
+      <DependentUpon>Gen_identification.cs</DependentUpon>
+    </Compile>
     <Compile Include="listefrs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +421,12 @@
     </Compile>
     <Compile Include="Frm_unite.Designer.cs">
       <DependentUpon>Frm_unite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="EtatGeneral.resx">
       <DependentUpon>EtatGeneral.cs</DependentUpon>
@@ -545,6 +587,24 @@
     <EmbeddedResource Include="Frm_tab_bordoreau.resx">
       <DependentUpon>Frm_tab_bordoreau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gen_Avoir.resx">
+      <DependentUpon>Gen_Avoir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gen_BC.resx">
+      <DependentUpon>Gen_BC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gen_Br.resx">
+      <DependentUpon>Gen_Br.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gen_BREC.resx">
+      <DependentUpon>Gen_BREC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gen_Fac.resx">
+      <DependentUpon>Gen_Fac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gen_identification.resx">
+      <DependentUpon>Gen_identification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="listefrs.resx">
       <DependentUpon>listefrs.cs</DependentUpon>
     </EmbeddedResource>
@@ -563,6 +623,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_unite.resx">
       <DependentUpon>Frm_unite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -613,6 +676,162 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IDENTIFICATION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ETAT MATERIAUX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pointage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\int vente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\int achat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\int sout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sout trait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achat %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IDENTIFICATION1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IDENTIFICATION2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achat %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bord.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mat2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IDENTIFICATION3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piece.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tiers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recap decompte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recap main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\etat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fiche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fiche sout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sans titre - 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recap mat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doc pers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achat2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fermer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fermer1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

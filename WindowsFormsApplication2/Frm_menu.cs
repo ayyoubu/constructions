@@ -341,6 +341,17 @@ namespace WindowsFormsApplication2
             EtatGeneral s = new EtatGeneral();
             s.ShowDialog();
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            
+            Application.Exit();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
     }
     

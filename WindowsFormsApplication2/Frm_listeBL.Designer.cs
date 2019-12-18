@@ -34,16 +34,16 @@
             this.button4 = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.MontantTTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontantTVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontantHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codelot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fournisseur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Référence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Référence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fournisseur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codelot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontantHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontantTVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontantTTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +62,8 @@
             // 
             // button1
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(1010, 644);
             this.button1.Name = "button1";
@@ -75,8 +75,8 @@
             // 
             // button5
             // 
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(170, 644);
             this.button5.Name = "button5";
@@ -88,8 +88,8 @@
             // 
             // button4
             // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(89, 644);
             this.button4.Name = "button4";
@@ -101,8 +101,8 @@
             // 
             // btn_new
             // 
-            this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.btn_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btn_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.Location = new System.Drawing.Point(8, 644);
             this.btn_new.Name = "btn_new";
@@ -133,49 +133,15 @@
             this.dataGridView1.TabIndex = 95;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // panel1
+            // Date
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1097, 28);
-            this.panel1.TabIndex = 94;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
             // 
-            // MontantTTC
+            // Référence
             // 
-            this.MontantTTC.HeaderText = "Montant TTC";
-            this.MontantTTC.Name = "MontantTTC";
-            this.MontantTTC.Width = 110;
-            // 
-            // MontantTVA
-            // 
-            this.MontantTVA.HeaderText = "Montant TVA";
-            this.MontantTVA.Name = "MontantTVA";
-            // 
-            // MontantHT
-            // 
-            this.MontantHT.HeaderText = "Montant HT";
-            this.MontantHT.Name = "MontantHT";
-            // 
-            // lot
-            // 
-            this.lot.HeaderText = "Intitulé de Lot";
-            this.lot.Name = "lot";
-            this.lot.Width = 215;
-            // 
-            // Codelot
-            // 
-            this.Codelot.HeaderText = "Code";
-            this.Codelot.Name = "Codelot";
-            this.Codelot.Width = 60;
-            // 
-            // Fournisseur
-            // 
-            this.Fournisseur.HeaderText = "Fournisseur";
-            this.Fournisseur.Name = "Fournisseur";
-            this.Fournisseur.Width = 205;
+            this.Référence.HeaderText = "Référence";
+            this.Référence.Name = "Référence";
             // 
             // Code
             // 
@@ -183,15 +149,49 @@
             this.Code.Name = "Code";
             this.Code.Width = 60;
             // 
-            // Référence
+            // Fournisseur
             // 
-            this.Référence.HeaderText = "Référence";
-            this.Référence.Name = "Référence";
+            this.Fournisseur.HeaderText = "Fournisseur";
+            this.Fournisseur.Name = "Fournisseur";
+            this.Fournisseur.Width = 205;
             // 
-            // Date
+            // Codelot
             // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
+            this.Codelot.HeaderText = "Code";
+            this.Codelot.Name = "Codelot";
+            this.Codelot.Width = 60;
+            // 
+            // lot
+            // 
+            this.lot.HeaderText = "Intitulé de Lot";
+            this.lot.Name = "lot";
+            this.lot.Width = 215;
+            // 
+            // MontantHT
+            // 
+            this.MontantHT.HeaderText = "Montant HT";
+            this.MontantHT.Name = "MontantHT";
+            // 
+            // MontantTVA
+            // 
+            this.MontantTVA.HeaderText = "Montant TVA";
+            this.MontantTVA.Name = "MontantTVA";
+            // 
+            // MontantTTC
+            // 
+            this.MontantTTC.HeaderText = "Montant TTC";
+            this.MontantTTC.Name = "MontantTTC";
+            this.MontantTTC.Width = 110;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1097, 28);
+            this.panel1.TabIndex = 94;
             // 
             // Frm_listeBL
             // 

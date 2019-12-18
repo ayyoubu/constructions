@@ -37,6 +37,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Refregl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reflot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Datereception = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dateecheance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Montant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -61,14 +69,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Refregl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reflot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Datereception = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dateecheance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Montant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -77,7 +77,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -99,8 +99,8 @@
             // 
             // button12
             // 
-            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Location = new System.Drawing.Point(823, 656);
             this.button12.Name = "button12";
@@ -111,8 +111,8 @@
             // 
             // button5
             // 
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(168, 656);
             this.button5.Name = "button5";
@@ -123,8 +123,8 @@
             // 
             // button4
             // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(87, 656);
             this.button4.Name = "button4";
@@ -135,8 +135,8 @@
             // 
             // button3
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(5, 656);
             this.button3.Name = "button3";
@@ -147,8 +147,8 @@
             // 
             // button2
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(904, 656);
             this.button2.Name = "button2";
@@ -159,8 +159,8 @@
             // 
             // button1
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(985, 656);
             this.button1.Name = "button1";
@@ -187,6 +187,48 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1055, 430);
             this.dataGridView1.TabIndex = 96;
+            // 
+            // Refregl
+            // 
+            this.Refregl.HeaderText = "Réf Régl";
+            this.Refregl.Name = "Refregl";
+            // 
+            // Reflot
+            // 
+            this.Reflot.HeaderText = "Réf Lot";
+            this.Reflot.Name = "Reflot";
+            // 
+            // client
+            // 
+            this.client.HeaderText = "Fournisseur";
+            this.client.Name = "client";
+            this.client.Width = 200;
+            // 
+            // Datereception
+            // 
+            this.Datereception.HeaderText = "Date Récéption";
+            this.Datereception.Name = "Datereception";
+            // 
+            // Dateecheance
+            // 
+            this.Dateecheance.HeaderText = "Date Echéance";
+            this.Dateecheance.Name = "Dateecheance";
+            // 
+            // mode
+            // 
+            this.mode.HeaderText = "Mode";
+            this.mode.Name = "mode";
+            // 
+            // Libelle
+            // 
+            this.Libelle.HeaderText = "Libéllé";
+            this.Libelle.Name = "Libelle";
+            this.Libelle.Width = 207;
+            // 
+            // Montant
+            // 
+            this.Montant.HeaderText = "Montant";
+            this.Montant.Name = "Montant";
             // 
             // groupBox2
             // 
@@ -430,48 +472,6 @@
             this.label3.Size = new System.Drawing.Size(88, 19);
             this.label3.TabIndex = 15;
             this.label3.Text = "Fournisseur";
-            // 
-            // Refregl
-            // 
-            this.Refregl.HeaderText = "Réf Régl";
-            this.Refregl.Name = "Refregl";
-            // 
-            // Reflot
-            // 
-            this.Reflot.HeaderText = "Réf Lot";
-            this.Reflot.Name = "Reflot";
-            // 
-            // client
-            // 
-            this.client.HeaderText = "Fournisseur";
-            this.client.Name = "client";
-            this.client.Width = 200;
-            // 
-            // Datereception
-            // 
-            this.Datereception.HeaderText = "Date Récéption";
-            this.Datereception.Name = "Datereception";
-            // 
-            // Dateecheance
-            // 
-            this.Dateecheance.HeaderText = "Date Echéance";
-            this.Dateecheance.Name = "Dateecheance";
-            // 
-            // mode
-            // 
-            this.mode.HeaderText = "Mode";
-            this.mode.Name = "mode";
-            // 
-            // Libelle
-            // 
-            this.Libelle.HeaderText = "Libéllé";
-            this.Libelle.Name = "Libelle";
-            this.Libelle.Width = 207;
-            // 
-            // Montant
-            // 
-            this.Montant.HeaderText = "Montant";
-            this.Montant.Name = "Montant";
             // 
             // Frm_new_regltfrs
             // 

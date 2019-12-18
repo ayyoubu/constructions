@@ -26,5 +26,32 @@ namespace WindowsFormsApplication2
         {
 
         }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            Frm_listefrs s = new Frm_listefrs();
+            s.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Gen_identification s = new Gen_identification();
+            s.ShowDialog();
+        }
     }
 }

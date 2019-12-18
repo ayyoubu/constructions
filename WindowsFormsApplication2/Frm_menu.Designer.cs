@@ -30,7 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aProposDeLaSociétéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.catégorieDeBienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -116,10 +115,11 @@
             this.etatDavancementDesDécomptesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etatRécapitulatifDuLotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.généralisationDeLotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.aProposDeLaSociétéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,7 +135,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1318, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1259, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,14 +157,6 @@
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
             this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.optionToolStripMenuItem.Text = "&Option";
-            // 
-            // aProposDeLaSociétéToolStripMenuItem
-            // 
-            this.aProposDeLaSociétéToolStripMenuItem.Image = global::WindowsFormsApplication2.Properties.Resources.emblemok_103757;
-            this.aProposDeLaSociétéToolStripMenuItem.Name = "aProposDeLaSociétéToolStripMenuItem";
-            this.aProposDeLaSociétéToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.aProposDeLaSociétéToolStripMenuItem.Text = "A propos de la société";
-            this.aProposDeLaSociétéToolStripMenuItem.Click += new System.EventHandler(this.aProposDeLaSociétéToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -800,39 +792,6 @@
             this.expertToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.expertToolStripMenuItem.Text = "&Expert";
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
-            this.toolStripMenuItem1.Text = "?";
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.Red;
-            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(1291, 0);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(22, 24);
-            this.button14.TabIndex = 43;
-            this.button14.Text = "Info";
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1269, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(22, 24);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Info";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // généralisationDeLotToolStripMenuItem
             // 
             this.généralisationDeLotToolStripMenuItem.Name = "généralisationDeLotToolStripMenuItem";
@@ -840,15 +799,52 @@
             this.généralisationDeLotToolStripMenuItem.Text = "Généralisation de lot";
             this.généralisationDeLotToolStripMenuItem.Click += new System.EventHandler(this.généralisationDeLotToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
+            this.toolStripMenuItem1.Text = "?";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1192, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 24);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Reduire";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::WindowsFormsApplication2.Properties.Resources.fermer2;
+            this.button1.Location = new System.Drawing.Point(1224, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 24);
+            this.button1.TabIndex = 1;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // aProposDeLaSociétéToolStripMenuItem
+            // 
+            this.aProposDeLaSociétéToolStripMenuItem.Image = global::WindowsFormsApplication2.Properties.Resources.emblemok_103757;
+            this.aProposDeLaSociétéToolStripMenuItem.Name = "aProposDeLaSociétéToolStripMenuItem";
+            this.aProposDeLaSociétéToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.aProposDeLaSociétéToolStripMenuItem.Text = "A propos de la société";
+            this.aProposDeLaSociétéToolStripMenuItem.Click += new System.EventHandler(this.aProposDeLaSociétéToolStripMenuItem_Click);
+            // 
             // Frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1318, 798);
+            this.ClientSize = new System.Drawing.Size(1259, 649);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button14);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -945,8 +941,6 @@
         private System.Windows.Forms.ToolStripMenuItem intérrogationDuPersonnelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDuPersonnelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDeSoustraitantToolStripMenuItem;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem gestionDeStockToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem intérrogationBordoreauToolStripMenuItem;
@@ -959,5 +953,7 @@
         private System.Windows.Forms.ToolStripMenuItem saisirDeConditionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionRéglementPersonnelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem généralisationDeLotToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
