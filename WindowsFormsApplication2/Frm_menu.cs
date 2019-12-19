@@ -135,6 +135,7 @@ namespace WindowsFormsApplication2
 
         private void modeDeRémunirationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //the new template
             frm_mode_renumeration s = new frm_mode_renumeration();
             s.ShowDialog();
         }
