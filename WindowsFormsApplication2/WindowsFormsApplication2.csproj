@@ -48,12 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form25.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form25.Designer.cs">
-      <DependentUpon>Form25.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm_article.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,9 +216,7 @@
     <Compile Include="Frm_Listechantier.Designer.cs">
       <DependentUpon>Frm_Listechantier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_moderem.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Frm_moderem.cs" />
     <Compile Include="Frm_moderem.Designer.cs">
       <DependentUpon>Frm_moderem.cs</DependentUpon>
     </Compile>
@@ -260,9 +252,6 @@
     <Compile Include="Frm_unite.Designer.cs">
       <DependentUpon>Frm_unite.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form25.resx">
-      <DependentUpon>Form25.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frm_article.resx">
       <DependentUpon>Frm_article.cs</DependentUpon>
     </EmbeddedResource>
