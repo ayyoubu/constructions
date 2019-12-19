@@ -19,7 +19,8 @@ namespace WindowsFormsApplication2
 
         private void button14_Click(object sender, EventArgs e)
         {
-            
+            Frm_idclt s = new Frm_idclt();
+            s.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,6 +35,12 @@ namespace WindowsFormsApplication2
                 id++;
                 dataGridView1.Rows.Add(id,comboBox1.Text,textBox1.Text,comboBox2.Text,textBox2.Text);
             } catch { }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Frm_idlot s = new Frm_idlot();
+            s.ShowDialog();
         }
     }
 }
