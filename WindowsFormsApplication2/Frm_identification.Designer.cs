@@ -90,8 +90,10 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -489,9 +491,9 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(202, 326);
+            this.textBox8.Location = new System.Drawing.Point(242, 326);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(210, 20);
+            this.textBox8.Size = new System.Drawing.Size(170, 20);
             this.textBox8.TabIndex = 76;
             // 
             // textBox9
@@ -536,6 +538,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox7);
             this.groupBox2.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(24, 274);
             this.groupBox2.Name = "groupBox2";
@@ -715,6 +718,17 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button12_Click);
             // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Items.AddRange(new object[] {
+            "0",
+            "20"});
+            this.comboBox7.Location = new System.Drawing.Point(178, 50);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(34, 24);
+            this.comboBox7.TabIndex = 56;
+            // 
             // Frm_identification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -780,6 +794,7 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -850,5 +865,6 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.ComboBox comboBox7;
     }
 }

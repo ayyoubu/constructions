@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="EtatGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,11 +312,11 @@
     <Compile Include="Frm_Listechantier.Designer.cs">
       <DependentUpon>Frm_Listechantier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_moderem.cs">
+    <Compile Include="frm_mode_renumeration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_moderem.Designer.cs">
-      <DependentUpon>Frm_moderem.cs</DependentUpon>
+    <Compile Include="frm_mode_renumeration.Designer.cs">
+      <DependentUpon>frm_mode_renumeration.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_newPJ.cs">
       <SubType>Form</SubType>
@@ -422,12 +428,16 @@
     <Compile Include="Frm_unite.Designer.cs">
       <DependentUpon>Frm_unite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sqlcon,.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="EtatGeneral.resx">
       <DependentUpon>EtatGeneral.cs</DependentUpon>
     </EmbeddedResource>
@@ -557,8 +567,8 @@
     <EmbeddedResource Include="Frm_Listechantier.resx">
       <DependentUpon>Frm_Listechantier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_moderem.resx">
-      <DependentUpon>Frm_moderem.cs</DependentUpon>
+    <EmbeddedResource Include="frm_mode_renumeration.resx">
+      <DependentUpon>frm_mode_renumeration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_newPJ.resx">
       <DependentUpon>Frm_newPJ.cs</DependentUpon>
@@ -628,6 +638,11 @@
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -832,6 +847,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fermer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

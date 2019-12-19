@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace WindowsFormsApplication2
 {
-    public partial class Frm_catbien : Form
+    public partial class frm_mode_renumeration : Form
     {
-        public Frm_catbien()
+        public frm_mode_renumeration()
         {
             InitializeComponent();
         }
@@ -27,30 +27,32 @@ namespace WindowsFormsApplication2
 
         public void refresh_dgv()
         {
-            try {
-            SqlCommand cmd = new SqlCommand("select * from Cat_bien");
-            cmd.Connection = c.cnx;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from Mode_renum");
+                cmd.Connection = c.cnx;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
 
-            dataGridView1.DataSource = dt;
+                dataGridView1.DataSource = dt;
             }
-             catch{
+            catch
+            {
 
             }
 
         }
         public void add_cat()
         {
-          try
-          {
-                SqlCommand cmd = new SqlCommand("insert into Cat_bien values ('" + textBox2.Text + "')");
+            try
+            {
+                SqlCommand cmd = new SqlCommand("insert into Mode_renum values ('" + textBox2.Text + "')");
                 cmd.Connection = c.cnx;
                 cmd.ExecuteNonQuery();
                 refresh_dgv();
-        }
+            }
             catch { }
 
         }
@@ -59,16 +61,16 @@ namespace WindowsFormsApplication2
             this.Close();
         }
 
-   
+
 
         private void button3_Click(object sender, EventArgs e)
         {
             //this.dataGridView1.Rows.Add(textBox2.Text);
-          if(check_void())
+            if (check_void())
             {
                 MessageBox.Show("intitule est vide !");
             }
-          else add_cat();
+            else add_cat();
             this.textBox2.Text = "";
         }
         public void remove_cat()
@@ -76,7 +78,7 @@ namespace WindowsFormsApplication2
             //   try
             //  {
             int id = (int)dataGridView1.Rows[i].Cells[0].Value;
-            SqlCommand cmd = new SqlCommand("delete from cat_bien where idcatbien = '" + id + "'", c.cnx);
+            SqlCommand cmd = new SqlCommand("delete from Mode_renum where idcatrem = '" + id + "'", c.cnx);
             cmd.ExecuteNonQuery();
             refresh_dgv();
             // }catch { }
@@ -106,7 +108,7 @@ namespace WindowsFormsApplication2
             try
             {
                 int id = (int)dataGridView1.Rows[i].Cells[0].Value;
-                SqlCommand cmd = new SqlCommand("update cat_bien set bien = '" + textBox2.Text + "' where idcatbien =  '" + id + "'", c.cnx);
+                SqlCommand cmd = new SqlCommand("update Mode_renum set intitule = '" + textBox2.Text + "' where idcatrem =  '" + id + "'", c.cnx);
                 cmd.ExecuteNonQuery();
                 refresh_dgv();
             }
@@ -117,7 +119,7 @@ namespace WindowsFormsApplication2
         private void button4_Click(object sender, EventArgs e)
         {
             edit_cat();
-         //   dataGridView1.Rows[i].Cells[1].Value = textBox2.Text;
+            //   dataGridView1.Rows[i].Cells[1].Value = textBox2.Text;
 
         }
 
