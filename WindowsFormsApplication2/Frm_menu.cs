@@ -148,13 +148,13 @@ namespace WindowsFormsApplication2
 
         private void tâcheGlobaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_tacheglb s = new Frm_tacheglb();
+           frm_tache_glob s = new frm_tache_glob();
             s.ShowDialog();
         }
 
         private void unitéToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_unite s = new Frm_unite();
+            form_unite s = new form_unite();
             s.ShowDialog();
         }
 
