@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApplication2
 {
@@ -16,7 +17,7 @@ namespace WindowsFormsApplication2
         {
             InitializeComponent();
         }
-
+        Sqlcon c = new Sqlcon();
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -45,6 +46,29 @@ namespace WindowsFormsApplication2
         {
             this.Close();
             
+        }
+        public void refresh_dgv()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from Fournisseur");
+                cmd.Connection = c.cnx;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = null;
+
+                dataGridView1.DataSource = dt;
+            }
+            catch
+            {
+
+            }
+
+        }
+        private void Frm_listefrs_Load(object sender, EventArgs e)
+        {
+            refresh_dgv();
         }
     }
 }

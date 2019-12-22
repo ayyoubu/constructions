@@ -49,6 +49,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="avoir.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="avoir.Designer.cs">
+      <DependentUpon>avoir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bon_command.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bon_command.Designer.cs">
+      <DependentUpon>bon_command.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bon_reception.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bon_reception.Designer.cs">
+      <DependentUpon>bon_reception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bon_retour.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bon_retour.Designer.cs">
+      <DependentUpon>bon_retour.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,11 +84,29 @@
     <Compile Include="EtatGeneral.Designer.cs">
       <DependentUpon>EtatGeneral.cs</DependentUpon>
     </Compile>
+    <Compile Include="facture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="facture.Designer.cs">
+      <DependentUpon>facture.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_unite.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="form_unite.Designer.cs">
       <DependentUpon>form_unite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_categorie_pj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_categorie_pj.Designer.cs">
+      <DependentUpon>frm_categorie_pj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_code_de_tax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_code_de_tax.Designer.cs">
+      <DependentUpon>frm_code_de_tax.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_listeAvoir.cs">
       <SubType>Form</SubType>
@@ -173,18 +215,6 @@
     </Compile>
     <Compile Include="Frm_catrem.Designer.cs">
       <DependentUpon>Frm_catrem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Cat_pj.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Cat_pj.Designer.cs">
-      <DependentUpon>Frm_Cat_pj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_code_tax.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_code_tax.Designer.cs">
-      <DependentUpon>Frm_code_tax.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_devis.cs">
       <SubType>Form</SubType>
@@ -438,11 +468,32 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="avoir.resx">
+      <DependentUpon>avoir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bon_command.resx">
+      <DependentUpon>bon_command.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bon_reception.resx">
+      <DependentUpon>bon_reception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bon_retour.resx">
+      <DependentUpon>bon_retour.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EtatGeneral.resx">
       <DependentUpon>EtatGeneral.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="facture.resx">
+      <DependentUpon>facture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_unite.resx">
       <DependentUpon>form_unite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_categorie_pj.resx">
+      <DependentUpon>frm_categorie_pj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_code_de_tax.resx">
+      <DependentUpon>frm_code_de_tax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_listeAvoir.resx">
       <DependentUpon>Frm_listeAvoir.cs</DependentUpon>
@@ -497,12 +548,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_catrem.resx">
       <DependentUpon>Frm_catrem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Cat_pj.resx">
-      <DependentUpon>Frm_Cat_pj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_code_tax.resx">
-      <DependentUpon>Frm_code_tax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_devis.resx">
       <DependentUpon>Frm_devis.cs</DependentUpon>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApplication2
 {
@@ -16,18 +17,70 @@ namespace WindowsFormsApplication2
         {
             InitializeComponent();
         }
-
+        DataClasses1DataContext dc = new DataClasses1DataContext();
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
        
      
-        } int code=1;
+        }
+        Sqlcon c = new Sqlcon();
+        public void fill_combo_unite()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from Unite", c.cnx);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                combo_unité.DataSource = dt;
+                combo_unité.DisplayMember = "intitule";
+                combo_unité.ValueMember = "idunite";
+            }
+            catch
+            { }
+        }
+        public void fill_combo_famille()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from Famille", c.cnx);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                combo_famille.DataSource = dt;
+                combo_famille.DisplayMember = "intitule";
+                combo_famille.ValueMember = "idfamille";
+            }
+            catch
+            { }
+        }
+        public void add_bien()
+        {
+            try {
+
+            bien b = new bien();
+                b.intitule = txt_intitulé.Text;
+            b.idfamille =(int) combo_famille.SelectedValue;
+            b.idunite = (int)combo_unité.SelectedValue;
+            b.PAHT =Convert.ToDouble( txt_pa_ht.Text);
+            b.PATTC = Convert.ToDouble(txt_ttc.Text);
+            b.Tva = Convert.ToDouble(combo_tva2.Text);
+            dc.biens.InsertOnSubmit(b);
+            dc.SubmitChanges();
+
+            } catch { }
+         
+
+
+        }
         private void button3_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.Rows.Add(code, textBox2.Text, comboBox3.Text, comboBox1.Text, textBox4.Text, textBox5.Text, textBox6.Text);
-            code++;
+            //this.dataGridView1.Rows.Add(code, txt_intitulé.Text, combo_famille.Text, combo_unité.Text, txt_pa_ht.Text, combo_tva2.Text, txt_ttc.Text);
+            //code++;
+            add_bien();
             vider();
+            refresh_dgv();
 
         }
 
@@ -63,13 +116,13 @@ namespace WindowsFormsApplication2
             try
             {
                 i = dataGridView1.CurrentCell.RowIndex;
-                comboBox1.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                textBox2.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                comboBox3.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                combo_unité.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                txt_intitulé.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                combo_famille.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
                 
-                textBox4.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
-                textBox5.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-                textBox6.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+                txt_pa_ht.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                combo_tva2.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                txt_ttc.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
 
             }
             catch
@@ -83,13 +136,13 @@ namespace WindowsFormsApplication2
             try
             {
                 i = dataGridView1.CurrentCell.RowIndex;
-                comboBox1.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
-                textBox2.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                comboBox3.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                combo_unité.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                txt_intitulé.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                combo_famille.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
                 
-                textBox4.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
-                textBox5.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-                textBox6.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+                txt_pa_ht.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                combo_tva2.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                txt_ttc.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
 
 
             }
@@ -104,13 +157,13 @@ namespace WindowsFormsApplication2
             try
             {
                 i = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows[i].Cells[0].Value = comboBox1.Text;
-                dataGridView1.Rows[i].Cells[1].Value = textBox2.Text;
-                dataGridView1.Rows[i].Cells[2].Value = comboBox3.Text;
+                dataGridView1.Rows[i].Cells[0].Value = combo_unité.Text;
+                dataGridView1.Rows[i].Cells[1].Value = txt_intitulé.Text;
+                dataGridView1.Rows[i].Cells[2].Value = combo_famille.Text;
                
-                dataGridView1.Rows[i].Cells[4].Value = textBox4.Text;
-                dataGridView1.Rows[i].Cells[5].Value = textBox5.Text;
-                dataGridView1.Rows[i].Cells[6].Value = textBox6.Text;
+                dataGridView1.Rows[i].Cells[4].Value = txt_pa_ht.Text;
+                dataGridView1.Rows[i].Cells[5].Value = combo_tva2.Text;
+                dataGridView1.Rows[i].Cells[6].Value = txt_ttc.Text;
                 vider();
             }
             catch
@@ -118,25 +171,52 @@ namespace WindowsFormsApplication2
 
             }
         }
+        public void refresh_dgv()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from bien");
+                cmd.Connection = c.cnx;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
+
+                dataGridView1.DataSource = dt;
+            }
+            catch
+            {
+
+            }
+
+        }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            double ph = Convert.ToDouble(textBox4.Text);
-            if (ph >= 0 &&  Convert.ToInt64( comboBox2.Text )== 0)
+            try {
+                double ph = Convert.ToDouble(txt_pa_ht.Text);
+            if (ph >= 0 &&  Convert.ToInt64( combo_tva1.Text )== 0)
             {
-                textBox5.Text = "0.000";
-                textBox6.Text =  ph.ToString();
+                combo_tva2.Text = "0.000";
+                txt_ttc.Text =  ph.ToString();
             }
-            else if (ph >= 0 && Convert.ToInt64(comboBox2.Text) == 20)
+            else if (ph >= 0 && Convert.ToInt64(combo_tva1.Text) == 20)
             {
-                textBox5.Text = (ph*0.2).ToString();
-                textBox6.Text =(ph + Convert.ToDouble( textBox5.Text)).ToString();
-            }
+                combo_tva2.Text = (ph*0.2).ToString();
+                txt_ttc.Text =(ph + Convert.ToDouble( combo_tva2.Text)).ToString();
+            }} catch { }
+       
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Frm_bien_Load(object sender, EventArgs e)
+        {
+            fill_combo_unite();
+            fill_combo_famille();
+            refresh_dgv();
         }
     }
 }

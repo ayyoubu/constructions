@@ -631,6 +631,7 @@
             this.intérrogationDachatToolStripMenuItem.Name = "intérrogationDachatToolStripMenuItem";
             this.intérrogationDachatToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
             this.intérrogationDachatToolStripMenuItem.Text = "Intérrogation d\'achat";
+            this.intérrogationDachatToolStripMenuItem.Click += new System.EventHandler(this.intérrogationDachatToolStripMenuItem_Click);
             // 
             // bonDeCommandeToolStripMenuItem1
             // 

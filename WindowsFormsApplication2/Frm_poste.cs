@@ -22,7 +22,7 @@ namespace WindowsFormsApplication2
        
         public void refresh_dgv()
         {
-          //  try {
+           try {
                 SqlCommand cmd = new SqlCommand("select * from Poste");
             cmd.Connection = c.cnx;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -31,21 +31,21 @@ namespace WindowsFormsApplication2
           
             
             dataGridView2.DataSource = dt;
-        //}
-          //  catch{
+        }
+           catch{
                
-           // }
+           }
      
         }
         public void  remove_post()
         {
-         //   try
-          //  {
+           try
+            {
               int id = (int)dataGridView2.Rows[i].Cells[0].Value;
             SqlCommand cmd = new SqlCommand("delete from Poste where idposte = '" + id + "'", c.cnx);
             cmd.ExecuteNonQuery();
                 refresh_dgv();
-           // }catch { }
+           }catch { }
           
         }
         public void add_post()

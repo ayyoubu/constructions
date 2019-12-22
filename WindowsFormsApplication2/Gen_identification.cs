@@ -25,33 +25,38 @@ namespace WindowsFormsApplication2
         private void button1_Click(object sender, EventArgs e)
         {
              
-       UserControl1 u = new UserControl1();
+       bon_command u = new bon_command();
             panel3.Controls.Clear();
             u.Parent = panel3;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Gen_BREC s = new Gen_BREC();
-            s.ShowDialog();
+            bon_reception u = new bon_reception();
+            panel3.Controls.Clear();
+            u.Parent = panel3;
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Gen_Br s= new Gen_Br();
-            s.ShowDialog();
+            bon_retour u= new bon_retour();
+            panel3.Controls.Clear();
+            u.Parent = panel3;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Gen_Fac s = new Gen_Fac();
-            s.ShowDialog();
+            facture u = new facture();
+            panel3.Controls.Clear();
+            u.Parent = panel3;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Gen_Avoir s = new Gen_Avoir();
-            s.ShowDialog();
+            avoir u = new avoir();
+            panel3.Controls.Clear();
+            u.Parent = panel3;
         }
     }
 }

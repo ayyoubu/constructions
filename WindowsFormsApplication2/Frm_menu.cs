@@ -213,13 +213,13 @@ namespace WindowsFormsApplication2
 
         private void codeDeTaxeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_code_tax s = new Frm_code_tax();
+            frm_code_de_tax s = new frm_code_de_tax();
             s.ShowDialog();
         }
 
         private void catégoriePJToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Cat_pj s = new Frm_Cat_pj();
+            frm_categorie_pj s = new frm_categorie_pj();
             s.ShowDialog();
         }
 
@@ -352,6 +352,11 @@ namespace WindowsFormsApplication2
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void intérrogationDachatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }

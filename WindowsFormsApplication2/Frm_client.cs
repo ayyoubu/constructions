@@ -16,7 +16,34 @@ namespace WindowsFormsApplication2
         {
             InitializeComponent();
         }
+        DataClasses1DataContext dc = new DataClasses1DataContext();
+        public void add()
+        {
+            try {
 
+            Client c = new Client();
+            c.Adresse = txt_adress.Text;
+            c.Contact = txt_contact.Text;
+            c.Cp = txt_cp.Text;
+            c.Email = txt_email.Text;
+            c.Fix = txt_fix.Text;
+            c.ICE = Convert.ToInt32( txt_ice.Text);
+            c.Intitulé = txt_intitule.Text;
+            c.NIF = Convert.ToInt32(txt_if.Text);
+            c.Qualité = txt_qlt.Text;
+            c.RC = Convert.ToInt32(txt_rc.Text);
+            c.Telephone = txt_tel.Text;
+            c.TP = Convert.ToInt32(txt_tp.Text);
+            c.Ville = txt_ville.Text;
+            c.website = txt_siteweb.Text;
+            dc.Clients.InsertOnSubmit(c);
+                dc.SubmitChanges();
+
+            } catch { }
+          
+       
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -26,12 +53,14 @@ namespace WindowsFormsApplication2
         {
             
         }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
+            add();
             Frm_listeclient Fgrid = new Frm_listeclient();
-            Fgrid.dataGridView1.Rows.Add(textBox5.Text, textBox6.Text, textBox7.Text, textBox9.Text, textBox11.Text, textBox12.Text, textBox14.Text, textBox13.Text, textBox1.Text, textBox4.Text);
-            Fgrid.ShowDialog();
+            Fgrid.Show();
+            //Fgrid.dataGridView1.Rows.Add(textBox5.Text, txt_intitule.Text, txt_adress.Text, txt_ville.Text, txt_ice.Text, txt_rc.Text, txt_if.Text, txt_tp.Text, txt_tel.Text, txt_email.Text);
+            //Fgrid.ShowDialog();
         }
     }
 }

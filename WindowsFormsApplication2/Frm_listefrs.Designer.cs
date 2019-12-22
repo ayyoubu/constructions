@@ -35,16 +35,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id_client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Intitule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adresse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NTP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,11 +52,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Maiandra GD", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(2, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 29);
+            this.label1.Size = new System.Drawing.Size(215, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Liste Fournisseur";
             this.label1.UseMnemonic = false;
@@ -127,77 +117,10 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_client,
-            this.Intitule,
-            this.Adresse,
-            this.Ville,
-            this.ICE,
-            this.NRC,
-            this.NIF,
-            this.NTP,
-            this.Tel,
-            this.Email});
             this.dataGridView1.Location = new System.Drawing.Point(1, 32);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1095, 611);
             this.dataGridView1.TabIndex = 90;
-            // 
-            // id_client
-            // 
-            this.id_client.HeaderText = "Code";
-            this.id_client.Name = "id_client";
-            this.id_client.Width = 70;
-            // 
-            // Intitule
-            // 
-            this.Intitule.HeaderText = "Intitulé Client";
-            this.Intitule.Name = "Intitule";
-            this.Intitule.Width = 150;
-            // 
-            // Adresse
-            // 
-            this.Adresse.HeaderText = "Adresse";
-            this.Adresse.Name = "Adresse";
-            this.Adresse.Width = 120;
-            // 
-            // Ville
-            // 
-            this.Ville.HeaderText = "Ville";
-            this.Ville.Name = "Ville";
-            this.Ville.Width = 80;
-            // 
-            // ICE
-            // 
-            this.ICE.HeaderText = "ICE";
-            this.ICE.Name = "ICE";
-            this.ICE.Width = 120;
-            // 
-            // NRC
-            // 
-            this.NRC.HeaderText = "N° RC";
-            this.NRC.Name = "NRC";
-            // 
-            // NIF
-            // 
-            this.NIF.HeaderText = "N° IF";
-            this.NIF.Name = "NIF";
-            // 
-            // NTP
-            // 
-            this.NTP.HeaderText = "N° TP";
-            this.NTP.Name = "NTP";
-            // 
-            // Tel
-            // 
-            this.Tel.HeaderText = "Téléphone";
-            this.Tel.Name = "Tel";
-            this.Tel.Width = 120;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "E-mail";
-            this.Email.Name = "Email";
             // 
             // Frm_listefrs
             // 
@@ -214,6 +137,7 @@
             this.Name = "Frm_listefrs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_listefrs";
+            this.Load += new System.EventHandler(this.Frm_listefrs_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -230,15 +154,5 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn_new;
         public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Intitule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adresse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ville;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ICE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NRC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NIF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NTP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
     }
 }
