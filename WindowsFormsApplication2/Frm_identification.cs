@@ -84,7 +84,7 @@ namespace WindowsFormsApplication2
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Frm_bureau s = new Frm_bureau();
+            bureau_etude s = new bureau_etude();
             s.ShowDialog();
         }
 

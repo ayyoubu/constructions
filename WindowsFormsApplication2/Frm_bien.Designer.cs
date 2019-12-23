@@ -38,7 +38,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_pa_ht = new System.Windows.Forms.TextBox();
-            this.combo_tva2 = new System.Windows.Forms.TextBox();
+            this.txt_tva = new System.Windows.Forms.TextBox();
             this.combo_tva1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
@@ -148,12 +148,12 @@
             this.txt_pa_ht.Size = new System.Drawing.Size(180, 20);
             this.txt_pa_ht.TabIndex = 52;
             // 
-            // combo_tva2
+            // txt_tva
             // 
-            this.combo_tva2.Location = new System.Drawing.Point(125, 161);
-            this.combo_tva2.Name = "combo_tva2";
-            this.combo_tva2.Size = new System.Drawing.Size(139, 20);
-            this.combo_tva2.TabIndex = 53;
+            this.txt_tva.Location = new System.Drawing.Point(125, 161);
+            this.txt_tva.Name = "txt_tva";
+            this.txt_tva.Size = new System.Drawing.Size(139, 20);
+            this.txt_tva.TabIndex = 53;
             // 
             // combo_tva1
             // 
@@ -270,7 +270,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.combo_tva1);
             this.Controls.Add(this.txt_ttc);
-            this.Controls.Add(this.combo_tva2);
+            this.Controls.Add(this.txt_tva);
             this.Controls.Add(this.txt_pa_ht);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -305,7 +305,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_pa_ht;
-        private System.Windows.Forms.TextBox combo_tva2;
+        private System.Windows.Forms.TextBox txt_tva;
         private System.Windows.Forms.ComboBox combo_tva1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button5;

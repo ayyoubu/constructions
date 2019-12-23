@@ -73,6 +73,12 @@
     <Compile Include="bon_retour.Designer.cs">
       <DependentUpon>bon_retour.cs</DependentUpon>
     </Compile>
+    <Compile Include="bureau_etude.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bureau_etude.Designer.cs">
+      <DependentUpon>bureau_etude.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +95,18 @@
     </Compile>
     <Compile Include="facture.Designer.cs">
       <DependentUpon>facture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_labo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_labo.Designer.cs">
+      <DependentUpon>form_labo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_maitre_ouvrage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_maitre_ouvrage.Designer.cs">
+      <DependentUpon>form_maitre_ouvrage.cs</DependentUpon>
     </Compile>
     <Compile Include="form_unite.cs">
       <SubType>Form</SubType>
@@ -263,12 +281,6 @@
     </Compile>
     <Compile Include="Frm_listefrs.Designer.cs">
       <DependentUpon>Frm_listefrs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_bureau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_bureau.Designer.cs">
-      <DependentUpon>Frm_bureau.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_labo.cs">
       <SubType>Form</SubType>
@@ -480,11 +492,20 @@
     <EmbeddedResource Include="bon_retour.resx">
       <DependentUpon>bon_retour.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="bureau_etude.resx">
+      <DependentUpon>bureau_etude.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EtatGeneral.resx">
       <DependentUpon>EtatGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="facture.resx">
       <DependentUpon>facture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_labo.resx">
+      <DependentUpon>form_labo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_maitre_ouvrage.resx">
+      <DependentUpon>form_maitre_ouvrage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_unite.resx">
       <DependentUpon>form_unite.cs</DependentUpon>
@@ -572,9 +593,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_listefrs.resx">
       <DependentUpon>Frm_listefrs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_bureau.resx">
-      <DependentUpon>Frm_bureau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_labo.resx">
       <DependentUpon>Frm_labo.cs</DependentUpon>

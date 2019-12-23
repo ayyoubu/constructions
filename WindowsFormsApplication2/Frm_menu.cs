@@ -88,19 +88,19 @@ namespace WindowsFormsApplication2
 
         private void maitreDouvrageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_maitre s = new Frm_maitre();
+            form_maitre_ouvrage s = new form_maitre_ouvrage();
             s.ShowDialog();
         }
 
         private void laboratoireToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_labo s = new Frm_labo();
+            form_labo s = new form_labo();
             s.ShowDialog();
         }
 
         private void bureauDétudeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_bureau s = new Frm_bureau();
+            bureau_etude s = new bureau_etude();
             s.ShowDialog();
         }
 
