@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication2
 {
-    partial class Frm_listeclient
+    partial class list_maitre
     {
         /// <summary>
         /// Required designer variable.
@@ -143,7 +143,7 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 87;
             // 
-            // Frm_listeclient
+            // list_maitre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,9 +157,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_listeclient";
+            this.Name = "list_maitre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_listeclient";
+            this.Text = "list_maitre";
             this.Load += new System.EventHandler(this.Frm_listeclient_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

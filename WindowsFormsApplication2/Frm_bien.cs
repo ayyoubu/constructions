@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApplication2
 {
@@ -174,25 +175,39 @@ namespace WindowsFormsApplication2
 
             }
         }
-        
+        //Sqlcon c = new Sqlcon();
+
+        public void add_post()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(" INSERT INTO bien values ('"+txt_intitulé.Text+"','"+ Convert.ToInt32(combo_famille.SelectedValue)+ "','" + Convert.ToInt32 (combo_unité.SelectedValue) + "','"+double.Parse(txt_pa_ht.Text)+ "','" + double.Parse(txt_tva.Text) + "','" + double.Parse(txt_ttc.Text) + "')");
+                cmd.Connection = c.cnx;
+                cmd.ExecuteNonQuery();
+                refresh_dgv();
+            }
+            catch { }
+
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             //string format problem when converting to double
             //try
             //{
-            //NumberFormatInfo numberInfo = CultureInfo.CurrentCulture.NumberFormat;
-            //i = dataGridView1.CurrentCell.RowIndex;
-            //    int id =(int) dataGridView1.Rows[i].Cells[0].Value;
-            //    bien b = dc.biens.Single(bb => bb.idbien == id);
-            //    b.idfamille = (int)combo_famille.SelectedValue;
-            //    b.idunite = (int)combo_unité.SelectedValue;
-            //    b.intitule = txt_intitulé.Text;
-            //    b.PAHT =double.Parse( txt_pa_ht.Text, CultureInfo.InvariantCulture);
-            //    b.PATTC = double.Parse(txt_ttc.Text, CultureInfo.InvariantCulture);
-            //    b.Tva = double.Parse(txt_tva.Text, CultureInfo.InvariantCulture);
-            //    dc.SubmitChanges();
-            //
-                refresh_dgv();
+            NumberFormatInfo numberInfo = CultureInfo.CurrentCulture.NumberFormat;
+            i = dataGridView1.CurrentCell.RowIndex;
+            int id = (int)dataGridView1.Rows[i].Cells[0].Value;
+            bien b = dc.biens.Single(bb => bb.idbien == id);
+            b.idfamille = (int)combo_famille.SelectedValue;
+            b.idunite = (int)combo_unité.SelectedValue;
+            b.intitule = txt_intitulé.Text;
+            b.PAHT = double.Parse(txt_pa_ht.Text, numberInfo);
+            b.PATTC = double.Parse(txt_ttc.Text, numberInfo);
+            b.Tva = double.Parse(txt_tva.Text, numberInfo);
+            dc.SubmitChanges();
+
+            refresh_dgv();
                 vider();
             //}
             //catch

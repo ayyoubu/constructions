@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace WindowsFormsApplication2
 {
-    public partial class Frm_listeclient : Form
+    public partial class list_maitre : Form
     {
-        public Frm_listeclient()
+        public list_maitre()
         {
             InitializeComponent();
         }
@@ -30,24 +30,26 @@ namespace WindowsFormsApplication2
 
         public void refresh_dgv()
         {
-              try {
-            SqlCommand cmd = new SqlCommand("select * from Client");
-            cmd.Connection = c.cnx;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from Maitre");
+                cmd.Connection = c.cnx;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = dt;
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = dt;
             }
-              catch{
+            catch
+            {
 
-             }
+            }
 
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,7 +88,7 @@ namespace WindowsFormsApplication2
 
         private void Frm_listeclient_Load(object sender, EventArgs e)
         {
-           
+
             refresh_dgv();
 
         }
@@ -105,12 +107,12 @@ namespace WindowsFormsApplication2
 
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

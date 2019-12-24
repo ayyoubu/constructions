@@ -24,8 +24,8 @@ namespace WindowsFormsApplication2
         DataClasses1DataContext dc = new DataClasses1DataContext();
         public void add()
         {
-            try
-            {
+            //try
+            //{
 
                 Fournisseur c = new Fournisseur();
                 c.Adresse = txt_adress.Text;
@@ -45,8 +45,8 @@ namespace WindowsFormsApplication2
                 dc.Fournisseurs.InsertOnSubmit(c);
                 dc.SubmitChanges();
 
-            }
-            catch { }
+            //}
+            //catch { }
 
 
 
@@ -56,24 +56,7 @@ namespace WindowsFormsApplication2
             add();
             Frm_listefrs Fgrid = new Frm_listefrs();
             Fgrid.Show();
-            //Fgrid.dataGridView1.Rows.Add(textBox5.Text, textBox6.Text, textBox7.Text, textBox9.Text, textBox11.Text, textBox12.Text, textBox14.Text, textBox13.Text, textBox1.Text, textBox4.Text);
-            //Fgrid.ShowDialog();
-            //this.textBox5.Text = "";
-            //this.textBox5.Clear();
-            //this.textBox6.Clear();
-            //this.textBox7.Clear();
-            //this.textBox9.Clear();
-            //this.textBox11.Clear();
-            //this.textBox12.Clear();
-            //this.textBox13.Clear();
-            //this.textBox14.Clear();
-            //this.textBox1.Clear();
-            //this.textBox4.Clear();
-            //this.textBox8.Clear();
-            //this.textBox15.Clear();
-            //this.textBox10.Clear();
-            //this.textBox3.Clear();
-            //this.textBox2.Clear();
+    
 
         }
     }

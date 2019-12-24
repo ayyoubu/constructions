@@ -19,7 +19,7 @@ namespace WindowsFormsApplication2
         DataClasses1DataContext dc = new DataClasses1DataContext();
         public void add()
         {
-            try {
+             try {
 
             Client c = new Client();
             c.Adresse = txt_adress.Text;
@@ -39,7 +39,7 @@ namespace WindowsFormsApplication2
             dc.Clients.InsertOnSubmit(c);
                 dc.SubmitChanges();
 
-            } catch { }
+           } catch { }
           
        
 

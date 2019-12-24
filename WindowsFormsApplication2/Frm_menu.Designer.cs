@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aProposDeLaSociétéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.catégorieDeBienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -119,7 +120,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.aProposDeLaSociétéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,6 +157,14 @@
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
             this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.optionToolStripMenuItem.Text = "&Option";
+            // 
+            // aProposDeLaSociétéToolStripMenuItem
+            // 
+            this.aProposDeLaSociétéToolStripMenuItem.Image = global::WindowsFormsApplication2.Properties.Resources.emblemok_103757;
+            this.aProposDeLaSociétéToolStripMenuItem.Name = "aProposDeLaSociétéToolStripMenuItem";
+            this.aProposDeLaSociétéToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.aProposDeLaSociétéToolStripMenuItem.Text = "A propos de la société";
+            this.aProposDeLaSociétéToolStripMenuItem.Click += new System.EventHandler(this.aProposDeLaSociétéToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -829,14 +837,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // aProposDeLaSociétéToolStripMenuItem
-            // 
-            this.aProposDeLaSociétéToolStripMenuItem.Image = global::WindowsFormsApplication2.Properties.Resources.emblemok_103757;
-            this.aProposDeLaSociétéToolStripMenuItem.Name = "aProposDeLaSociétéToolStripMenuItem";
-            this.aProposDeLaSociétéToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.aProposDeLaSociétéToolStripMenuItem.Text = "A propos de la société";
-            this.aProposDeLaSociétéToolStripMenuItem.Click += new System.EventHandler(this.aProposDeLaSociétéToolStripMenuItem_Click);
-            // 
             // Frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -848,7 +848,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Frm_menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

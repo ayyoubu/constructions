@@ -79,6 +79,7 @@
     <Compile Include="bureau_etude.Designer.cs">
       <DependentUpon>bureau_etude.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -468,6 +469,12 @@
     <Compile Include="listefrs.Designer.cs">
       <DependentUpon>listefrs.cs</DependentUpon>
     </Compile>
+    <Compile Include="list_maitre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="list_maitre.Designer.cs">
+      <DependentUpon>list_maitre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sqlcon,.cs" />
@@ -686,6 +693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="listefrs.resx">
       <DependentUpon>listefrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="list_maitre.resx">
+      <DependentUpon>list_maitre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
