@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication2
 {
-    partial class Frm_article
+    partial class article_template
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idbien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.intitule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categorie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PTTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,47 +47,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idbien,
-            this.intitule,
-            this.Categorie,
-            this.PHT,
-            this.PTTC});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 10);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(765, 446);
+            this.dataGridView1.Size = new System.Drawing.Size(765, 410);
             this.dataGridView1.TabIndex = 38;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // idbien
-            // 
-            this.idbien.HeaderText = "Référence";
-            this.idbien.Name = "idbien";
-            // 
-            // intitule
-            // 
-            this.intitule.HeaderText = "Intitulé du bien";
-            this.intitule.Name = "intitule";
-            this.intitule.Width = 320;
-            // 
-            // Categorie
-            // 
-            this.Categorie.HeaderText = "Catégorie";
-            this.Categorie.Name = "Categorie";
-            // 
-            // PHT
-            // 
-            this.PHT.HeaderText = "Prix HT";
-            this.PHT.Name = "PHT";
-            // 
-            // PTTC
-            // 
-            this.PTTC.HeaderText = "Prix TTC";
-            this.PTTC.Name = "PTTC";
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // button3
             // 
@@ -131,7 +97,7 @@
             this.button2.Text = "Valider";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Frm_article
+            // article_template
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,9 +108,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_article";
+            this.Name = "article_template";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_article";
+            this.Text = "article_template";
             this.Load += new System.EventHandler(this.Frm_article_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -155,11 +121,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idbien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn intitule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categorie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PHT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PTTC;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

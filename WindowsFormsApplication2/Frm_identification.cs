@@ -159,6 +159,7 @@ namespace WindowsFormsApplication2
             {
                 identification ii = new identification();
                 ii.Datecontrat = textBox6.Text;
+                ii.Référence_lot = ref_lot.Text;
                 ii.IdArchitecte = (int)combo_arch.SelectedValue;
                 ii.IdBureau = (int)combo_bureau.SelectedValue;
                 ii.idClient = (int)combo_client.SelectedValue;

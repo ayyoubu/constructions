@@ -24,10 +24,11 @@ namespace WindowsFormsApplication2
         DataClasses1DataContext dc = new DataClasses1DataContext();
         public void add()
         {
-            //try
-            //{
+            try
+            {
 
                 Fournisseur c = new Fournisseur();
+               
                 c.Adresse = txt_adress.Text;
                 c.Contact = txt_contact.Text;
                 c.Cp = txt_cp.Text;
@@ -42,11 +43,12 @@ namespace WindowsFormsApplication2
                 c.TP = Convert.ToInt32(txt_tp.Text);
                 c.Ville = txt_ville.Text;
                 c.website = txt_siteweb.Text;
+            
                 dc.Fournisseurs.InsertOnSubmit(c);
                 dc.SubmitChanges();
 
-            //}
-            //catch { }
+            }
+            catch { }
 
 
 

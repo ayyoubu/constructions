@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="article_template.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="article_template.Designer.cs">
+      <DependentUpon>article_template.cs</DependentUpon>
+    </Compile>
     <Compile Include="avoir.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -487,6 +493,9 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="article_template.resx">
+      <DependentUpon>article_template.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="avoir.resx">
       <DependentUpon>avoir.cs</DependentUpon>
     </EmbeddedResource>

@@ -45,10 +45,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt2 = new System.Windows.Forms.TextBox();
-            this.txt3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txt_fournis = new System.Windows.Forms.TextBox();
+            this.txt_lot = new System.Windows.Forms.TextBox();
+            this.combo_frns = new System.Windows.Forms.ComboBox();
+            this.comb_lot = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -258,35 +258,38 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Intitulé de Lot";
             // 
-            // txt2
+            // txt_fournis
             // 
-            this.txt2.Location = new System.Drawing.Point(161, 140);
-            this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(370, 20);
-            this.txt2.TabIndex = 19;
+            this.txt_fournis.Location = new System.Drawing.Point(161, 140);
+            this.txt_fournis.Name = "txt_fournis";
+            this.txt_fournis.Size = new System.Drawing.Size(370, 20);
+            this.txt_fournis.TabIndex = 19;
             // 
-            // txt3
+            // txt_lot
             // 
-            this.txt3.Location = new System.Drawing.Point(161, 193);
-            this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(370, 20);
-            this.txt3.TabIndex = 20;
+            this.txt_lot.Location = new System.Drawing.Point(161, 193);
+            this.txt_lot.Name = "txt_lot";
+            this.txt_lot.Size = new System.Drawing.Size(370, 20);
+            this.txt_lot.TabIndex = 20;
             // 
-            // comboBox1
+            // combo_frns
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(161, 113);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 21);
-            this.comboBox1.TabIndex = 21;
+            this.combo_frns.FormattingEnabled = true;
+            this.combo_frns.Location = new System.Drawing.Point(161, 113);
+            this.combo_frns.Name = "combo_frns";
+            this.combo_frns.Size = new System.Drawing.Size(168, 21);
+            this.combo_frns.TabIndex = 21;
+            this.combo_frns.Text = "Choisi un fournisseur";
+            this.combo_frns.SelectedIndexChanged += new System.EventHandler(this.combo_frns_SelectedIndexChanged);
             // 
-            // comboBox2
+            // comb_lot
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(161, 166);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(168, 21);
-            this.comboBox2.TabIndex = 22;
+            this.comb_lot.FormattingEnabled = true;
+            this.comb_lot.Location = new System.Drawing.Point(161, 166);
+            this.comb_lot.Name = "comb_lot";
+            this.comb_lot.Size = new System.Drawing.Size(168, 21);
+            this.comb_lot.TabIndex = 22;
+            this.comb_lot.SelectedIndexChanged += new System.EventHandler(this.comb_lot_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -495,6 +498,7 @@
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Identification";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button15
             // 
@@ -585,6 +589,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(113, 20);
             this.textBox1.TabIndex = 42;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             // 
             // textBox2
             // 
@@ -592,6 +598,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(595, 20);
             this.textBox2.TabIndex = 43;
+            this.textBox2.DoubleClick += new System.EventHandler(this.textBox2_DoubleClick);
             // 
             // textBox3
             // 
@@ -633,10 +640,10 @@
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.txt3);
-            this.Controls.Add(this.txt2);
+            this.Controls.Add(this.comb_lot);
+            this.Controls.Add(this.combo_frns);
+            this.Controls.Add(this.txt_lot);
+            this.Controls.Add(this.txt_fournis);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -653,6 +660,7 @@
             this.Name = "Frm_bcfrs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_bcfrs";
+            this.Load += new System.EventHandler(this.Frm_bcfrs_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -684,10 +692,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt2;
-        private System.Windows.Forms.TextBox txt3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txt_fournis;
+        private System.Windows.Forms.TextBox txt_lot;
+        private System.Windows.Forms.ComboBox combo_frns;
+        private System.Windows.Forms.ComboBox comb_lot;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;

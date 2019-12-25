@@ -85,25 +85,6 @@
       <Column Name="idcatbien" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Fournisseur" Member="Fournisseurs">
-    <Type Name="Fournisseur">
-      <Column Name="Idfournisseur" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Qualité" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Ville" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Cp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="RC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NIF" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.labo" Member="labos">
     <Type Name="labo">
       <Column Name="Idlabo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -194,8 +175,8 @@
       <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Fournisseur" Member="Fournisseur1s">
-    <Type Name="Fournisseur1">
+  <Table Name="dbo.Fournisseur" Member="Fournisseurs">
+    <Type Name="Fournisseur">
       <Column Name="Idfournisseur" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
