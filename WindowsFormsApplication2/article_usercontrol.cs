@@ -22,11 +22,13 @@ namespace WindowsFormsApplication2
         public string id;
         public string pu;
         public string desc;
+        public double mont;
+   
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Parent = null;
         }
-
+    
         private void article_usercontrol_Load(object sender, EventArgs e)
         {
             txt_id.Text = id;
@@ -38,6 +40,8 @@ namespace WindowsFormsApplication2
         {
             try {
                 txt_montant.Text = (double.Parse(txt_qte.Text) * double.Parse(txt_pu.Text)).ToString();
+                article_model.total_mont += double.Parse( txt_montant.Text);
+                //mont = txt_montant.Text;
             }
             catch { }
         }

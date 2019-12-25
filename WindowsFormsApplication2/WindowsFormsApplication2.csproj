@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="article_model.cs" />
     <Compile Include="article_template.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +68,7 @@
     <Compile Include="avoir.Designer.cs">
       <DependentUpon>avoir.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bien_model.cs" />
     <Compile Include="bon_command.cs">
       <SubType>UserControl</SubType>
     </Compile>

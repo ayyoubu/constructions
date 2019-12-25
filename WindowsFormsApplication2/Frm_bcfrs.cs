@@ -32,16 +32,32 @@ namespace WindowsFormsApplication2
             Frm_idfrs s = new Frm_idfrs();
             s.ShowDialog();
         }
+        public void calc_ht()
+        {
+            double sm = 0;
+            for(int i =0; i<= u_list.Count; i++)
+            {
+                sm += u_list[i].mont;
+            }
+            MessageBox.Show(sm.ToString());
+            txt_total_ht.Text = sm.ToString();
+        }
         int user_c = 0;
+        List<article_usercontrol> u_list = new List<article_usercontrol>();
+
         private void button3_Click(object sender, EventArgs e)
         {
             try {
                 article_usercontrol u = new article_usercontrol(textBox1.Text,textBox2.Text,textBox4.Text);
                 u.Tag = user_c;
                 user_c++;
+                u_list.Add(u);
                 flowLayoutPanel2.Controls.Add(u);
+                calc_ht();
+                
             }
             catch { }
+            calc_ht();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -118,13 +134,7 @@ namespace WindowsFormsApplication2
           
           fill_lot();
         }
-        public void calc_somme()
-        {
-            foreach(Control c in flowLayoutPanel2.Controls)
-            {
-                
-            }
-        }
+   
         private void combo_frns_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_fournis.Text = combo_frns.SelectedValue.ToString();

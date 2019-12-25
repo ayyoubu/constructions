@@ -54,9 +54,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_total_tva = new System.Windows.Forms.TextBox();
+            this.txt_total_ttc = new System.Windows.Forms.TextBox();
+            this.txt_total_ht = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button15 = new System.Windows.Forms.Button();
@@ -320,9 +320,9 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txt_total_tva);
+            this.groupBox2.Controls.Add(this.txt_total_ttc);
+            this.groupBox2.Controls.Add(this.txt_total_ht);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
@@ -364,32 +364,32 @@
             this.label10.TabIndex = 37;
             this.label10.Text = "DHS";
             // 
-            // textBox8
+            // txt_total_tva
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(306, 50);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(171, 16);
-            this.textBox8.TabIndex = 34;
+            this.txt_total_tva.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt_total_tva.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_total_tva.Location = new System.Drawing.Point(306, 50);
+            this.txt_total_tva.Name = "txt_total_tva";
+            this.txt_total_tva.Size = new System.Drawing.Size(171, 16);
+            this.txt_total_tva.TabIndex = 34;
             // 
-            // textBox7
+            // txt_total_ttc
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(306, 80);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(171, 16);
-            this.textBox7.TabIndex = 33;
+            this.txt_total_ttc.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt_total_ttc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_total_ttc.Location = new System.Drawing.Point(306, 80);
+            this.txt_total_ttc.Name = "txt_total_ttc";
+            this.txt_total_ttc.Size = new System.Drawing.Size(171, 16);
+            this.txt_total_ttc.TabIndex = 33;
             // 
-            // textBox6
+            // txt_total_ht
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(306, 22);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(171, 16);
-            this.textBox6.TabIndex = 32;
+            this.txt_total_ht.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt_total_ht.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_total_ht.Location = new System.Drawing.Point(306, 22);
+            this.txt_total_ht.Name = "txt_total_ht";
+            this.txt_total_ht.Size = new System.Drawing.Size(171, 16);
+            this.txt_total_ht.TabIndex = 32;
             // 
             // button11
             // 
@@ -629,9 +629,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_total_tva;
+        private System.Windows.Forms.TextBox txt_total_ttc;
+        private System.Windows.Forms.TextBox txt_total_ht;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txt1;
