@@ -68,9 +68,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -368,27 +366,30 @@
             // 
             this.txt_total_tva.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_total_tva.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_total_tva.Location = new System.Drawing.Point(306, 50);
+            this.txt_total_tva.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_total_tva.Location = new System.Drawing.Point(195, 52);
             this.txt_total_tva.Name = "txt_total_tva";
-            this.txt_total_tva.Size = new System.Drawing.Size(171, 16);
+            this.txt_total_tva.Size = new System.Drawing.Size(171, 20);
             this.txt_total_tva.TabIndex = 34;
             // 
             // txt_total_ttc
             // 
             this.txt_total_ttc.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_total_ttc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_total_ttc.Location = new System.Drawing.Point(306, 80);
+            this.txt_total_ttc.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_total_ttc.Location = new System.Drawing.Point(195, 82);
             this.txt_total_ttc.Name = "txt_total_ttc";
-            this.txt_total_ttc.Size = new System.Drawing.Size(171, 16);
+            this.txt_total_ttc.Size = new System.Drawing.Size(171, 20);
             this.txt_total_ttc.TabIndex = 33;
             // 
             // txt_total_ht
             // 
             this.txt_total_ht.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_total_ht.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_total_ht.Location = new System.Drawing.Point(306, 22);
+            this.txt_total_ht.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_total_ht.Location = new System.Drawing.Point(195, 24);
             this.txt_total_ht.Name = "txt_total_ht";
-            this.txt_total_ht.Size = new System.Drawing.Size(171, 16);
+            this.txt_total_ht.Size = new System.Drawing.Size(171, 20);
             this.txt_total_ht.TabIndex = 32;
             // 
             // button11
@@ -521,26 +522,12 @@
             this.textBox2.TabIndex = 43;
             this.textBox2.DoubleClick += new System.EventHandler(this.textBox2_DoubleClick);
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(765, 236);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(97, 20);
-            this.textBox3.TabIndex = 44;
-            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(868, 236);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(104, 20);
             this.textBox4.TabIndex = 45;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(978, 236);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(104, 20);
-            this.textBox5.TabIndex = 46;
             // 
             // flowLayoutPanel2
             // 
@@ -551,6 +538,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1096, 434);
             this.flowLayoutPanel2.TabIndex = 49;
+            this.flowLayoutPanel2.DoubleClick += new System.EventHandler(this.flowLayoutPanel2_DoubleClick);
             // 
             // Frm_bcfrs
             // 
@@ -559,9 +547,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1096, 728);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button13);
@@ -643,9 +629,7 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

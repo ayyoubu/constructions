@@ -26,22 +26,29 @@ namespace WindowsFormsApplication2
    
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            txt_montant.Text = "0";
+            mont = double.Parse(txt_montant.Text);
+            if (this.StatusUpdated != null)
+                this.StatusUpdated(this, new EventArgs());
             this.Parent = null;
         }
-    
+        public event EventHandler StatusUpdated;
+
         private void article_usercontrol_Load(object sender, EventArgs e)
         {
             txt_id.Text = id;
             txt_desc.Text = desc;
             txt_pu.Text = pu;
         }
-
+        article_model ar = new article_model();
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             try {
                 txt_montant.Text = (double.Parse(txt_qte.Text) * double.Parse(txt_pu.Text)).ToString();
-                article_model.total_mont += double.Parse( txt_montant.Text);
-                //mont = txt_montant.Text;
+                //ar.total_mont += double.Parse( txt_montant.Text);
+                mont = double.Parse( txt_montant.Text);
+                if (this.StatusUpdated != null)
+                    this.StatusUpdated(this, new EventArgs());
             }
             catch { }
         }
