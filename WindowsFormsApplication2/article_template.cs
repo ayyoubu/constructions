@@ -25,6 +25,7 @@ namespace WindowsFormsApplication2
         Sqlcon c = new Sqlcon();
         public int id_bien;
         public string desc;
+        public float pu;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -34,6 +35,7 @@ namespace WindowsFormsApplication2
                 i = dataGridView1.CurrentCell.RowIndex;
                 this.id_bien = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value.ToString());
                 this.desc =dataGridView1.Rows[i].Cells[1].Value.ToString();
+                this.pu =float.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
 
                 this.DialogResult = DialogResult.OK;
             }
@@ -88,6 +90,7 @@ namespace WindowsFormsApplication2
                 i = dataGridView1.CurrentCell.RowIndex;
                 this.id_bien = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value.ToString());
                 this.desc = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                this.pu = float.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -102,6 +105,7 @@ namespace WindowsFormsApplication2
                 i = dataGridView1.CurrentCell.RowIndex;
                 this.id_bien = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value.ToString());
                 this.desc = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                this.pu = float.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

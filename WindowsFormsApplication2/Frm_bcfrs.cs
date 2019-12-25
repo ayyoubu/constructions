@@ -32,11 +32,14 @@ namespace WindowsFormsApplication2
             Frm_idfrs s = new Frm_idfrs();
             s.ShowDialog();
         }
-
+        int user_c = 0;
         private void button3_Click(object sender, EventArgs e)
         {
             try {
-                //need some calculations..
+                article_usercontrol u = new article_usercontrol(textBox1.Text,textBox2.Text,textBox4.Text);
+                u.Tag = user_c;
+                user_c++;
+                flowLayoutPanel2.Controls.Add(u);
             }
             catch { }
         }
@@ -50,7 +53,7 @@ namespace WindowsFormsApplication2
         {
             try {
 
-                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+             
             } catch { }
         }
 
@@ -115,7 +118,13 @@ namespace WindowsFormsApplication2
           
           fill_lot();
         }
-
+        public void calc_somme()
+        {
+            foreach(Control c in flowLayoutPanel2.Controls)
+            {
+                
+            }
+        }
         private void combo_frns_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_fournis.Text = combo_frns.SelectedValue.ToString();
@@ -146,6 +155,7 @@ namespace WindowsFormsApplication2
                     {
                         textBox2.Text = f.desc.ToString();
                         textBox1.Text = f.id_bien.ToString();
+                        textBox4.Text = f.pu.ToString();
                     }
 
                 }
@@ -174,6 +184,7 @@ namespace WindowsFormsApplication2
                     {
                         textBox2.Text = f.desc.ToString();
                         textBox1.Text = f.id_bien.ToString();
+                        textBox4.Text = f.pu.ToString();
                     }
 
                 }

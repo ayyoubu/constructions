@@ -73,9 +73,69 @@ namespace WindowsFormsApplication2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _201_2016395_oojs_ui_icon_trash_destructive_google_drive_share {
+            get {
+                object obj = ResourceManager.GetObject("201-2016395_oojs-ui-icon-trash-destructive-google-drive-share", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _201_2016395_oojs_ui_icon_trash_destructive_google_drive_share1 {
+            get {
+                object obj = ResourceManager.GetObject("201-2016395_oojs-ui-icon-trash-destructive-google-drive-share1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _201_2016395_oojs_ui_icon_trash_destructive_google_drive_share2 {
+            get {
+                object obj = ResourceManager.GetObject("201-2016395_oojs-ui-icon-trash-destructive-google-drive-share2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _228_2283495_trash_icon_png_google_drive_share_icon {
+            get {
+                object obj = ResourceManager.GetObject("228-2283495_trash-icon-png-google-drive-share-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _367502_PAXLKG_681 {
             get {
                 object obj = ResourceManager.GetObject("367502-PAXLKG-681", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _82750_preview {
+            get {
+                object obj = ResourceManager.GetObject("82750_preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _82750_preview1 {
+            get {
+                object obj = ResourceManager.GetObject("82750_preview1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

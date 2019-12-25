@@ -55,6 +55,12 @@
     <Compile Include="article_template.Designer.cs">
       <DependentUpon>article_template.cs</DependentUpon>
     </Compile>
+    <Compile Include="article_usercontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="article_usercontrol.Designer.cs">
+      <DependentUpon>article_usercontrol.cs</DependentUpon>
+    </Compile>
     <Compile Include="avoir.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -496,6 +502,9 @@
     <EmbeddedResource Include="article_template.resx">
       <DependentUpon>article_template.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="article_usercontrol.resx">
+      <DependentUpon>article_usercontrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="avoir.resx">
       <DependentUpon>avoir.cs</DependentUpon>
     </EmbeddedResource>
@@ -932,6 +941,24 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\82750_preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\82750_preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\201-2016395_oojs-ui-icon-trash-destructive-google-drive-share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\201-2016395_oojs-ui-icon-trash-destructive-google-drive-share1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\201-2016395_oojs-ui-icon-trash-destructive-google-drive-share2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\228-2283495_trash-icon-png-google-drive-share-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
