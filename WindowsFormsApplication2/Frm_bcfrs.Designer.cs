@@ -442,6 +442,7 @@
             this.txt_desc.Size = new System.Drawing.Size(586, 20);
             this.txt_desc.TabIndex = 43;
             this.txt_desc.DoubleClick += new System.EventHandler(this.textBox2_DoubleClick);
+            this.txt_desc.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_desc_PreviewKeyDown);
             // 
             // txt_qte
             // 

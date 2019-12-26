@@ -33,7 +33,16 @@ namespace WindowsFormsApplication2
         private void button14_Click(object sender, EventArgs e)
         {
             Frm_idfrs s = new Frm_idfrs();
-            s.ShowDialog();
+            try
+            {
+                if (s.ShowDialog() == DialogResult.OK)
+                {
+                    combo_frns.SelectedText = s.id;
+                    combo_frns.SelectedValue = s.desc;
+                }
+            }
+            catch { }
+         
         }
         public void calc_ht()
         {
@@ -150,6 +159,7 @@ namespace WindowsFormsApplication2
                     if (!existed_bien(txt_ref.Text))
                     {
                         add_item();
+                        calc_totals();
                         txt_montant.Text = "";
                         txt_pu.Text = "";
                         txt_qte.Text = "";
@@ -158,8 +168,9 @@ namespace WindowsFormsApplication2
                     }
                     else
                     {
-                        MessageBox.Show("edit");
+                        
                         edit_item();
+                        calc_totals();
 
                     }
                 }
@@ -192,10 +203,29 @@ namespace WindowsFormsApplication2
                 dataGridView1.Rows[i].Cells[2].Value = txt_qte.Text;
                 dataGridView1.Rows[i].Cells[3].Value = txt_pu.Text;
                 dataGridView1.Rows[i].Cells[4].Value = txt_montant.Text;
-            MessageBox.Show(i.ToString());
+          
       
         }
 
+        public void calc_totals()
+        {
+           try { 
+                double ht=0;
+            double tva=0;
+            double ttc=0;
+            for(int j = 0 ; j<dataGridView1.Rows.Count;j++)
+            {
+                ht +=Convert.ToDouble( dataGridView1.Rows[j].Cells[4].Value.ToString()) ;                     
+            }
+            txt_total_ht.Text = ht.ToString();
+                tva = ht * 0.2;
+                ttc = ht + tva;
+                txt_total_ttc.Text = ttc.ToString();
+                txt_total_tva.Text = tva.ToString();
+            }
+            catch { }
+
+        }
         private void MyEventHandlerFunction_deleted(object sender, EventArgs e)
         {
             MessageBox.Show("deleyted user");
@@ -224,7 +254,7 @@ namespace WindowsFormsApplication2
 
         private void button12_Click(object sender, EventArgs e)
         {
-
+            calc_totals();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -281,15 +311,85 @@ namespace WindowsFormsApplication2
       
         private void Frm_bcfrs_Load(object sender, EventArgs e)
         {
+            this.txt_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnterKeyPress);
+            
 
-
-         fill_fournis();
+            fill_fournis();
           
           fill_lot();
           
             
         }
-   
+        private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+
+            {
+                try
+                {
+
+
+                    if (!isepty())
+                    {
+                        if (!existed_bien(txt_ref.Text))
+                        {
+                            add_item();
+                            calc_totals();
+                            txt_montant.Text = "";
+                            txt_pu.Text = "";
+                            txt_qte.Text = "";
+                            txt_desc.Text = "";
+                            txt_ref.Text = "";
+                        }
+                        else
+                        {
+
+                            edit_item();
+                            calc_totals();
+
+                        }
+                    }
+
+
+                }
+                catch { }
+
+            }
+          
+            if (e.KeyChar == (char)Keys.F1)
+            {
+                MessageBox.Show("tab");
+                try
+                {
+                   
+                        if (txt_desc.Text != "")
+                    {
+                        
+                        string idd = txt_desc.Text;
+                        article_template f = new article_template(idd, "inti");
+
+                        if (f.ShowDialog() == DialogResult.OK)
+                        {
+                            if (!existed_bien(f.id_bien.ToString()))
+                            {
+                                txt_desc.Text = f.desc.ToString();
+                                txt_ref.Text = f.id_bien.ToString();
+                                txt_qte.Text = 1.ToString();
+                                txt_pu.Text = f.pu.ToString();
+                                txt_montant.Text = f.pu.ToString();
+                            }
+
+
+                        }
+
+                    }
+
+                }
+                catch { }
+            }
+            { }
+        }
+            
         private void combo_frns_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_fournis.Text = combo_frns.SelectedValue.ToString();
@@ -432,6 +532,41 @@ namespace WindowsFormsApplication2
                 txt_montant.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
             }
             catch { }
+        }
+
+        private void txt_desc_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Tab)
+            {
+               
+                try
+                {
+
+                    if (txt_desc.Text != "")
+                    {
+
+                        string idd = txt_desc.Text;
+                        article_template f = new article_template(idd, "inti");
+
+                        if (f.ShowDialog() == DialogResult.OK)
+                        {
+                            if (!existed_bien(f.id_bien.ToString()))
+                            {
+                                txt_desc.Text = f.desc.ToString();
+                                txt_ref.Text = f.id_bien.ToString();
+                                txt_qte.Text = 1.ToString();
+                                txt_pu.Text = f.pu.ToString();
+                                txt_montant.Text = f.pu.ToString();
+                            }
+
+
+                        }
+
+                    }
+
+                }
+                catch { }
+            }
         }
     }
 }
