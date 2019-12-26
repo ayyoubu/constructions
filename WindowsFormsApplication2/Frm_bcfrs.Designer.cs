@@ -41,11 +41,6 @@
             this.txt_lot = new System.Windows.Forms.TextBox();
             this.combo_frns = new System.Windows.Forms.ComboBox();
             this.comb_lot = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,14 +60,21 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txt_ref = new System.Windows.Forms.TextBox();
+            this.txt_desc = new System.Windows.Forms.TextBox();
+            this.txt_qte = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idcmd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.puHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Montant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_montant = new System.Windows.Forms.TextBox();
+            this.txt_pu = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -209,72 +211,6 @@
             this.comb_lot.Size = new System.Drawing.Size(168, 21);
             this.comb_lot.TabIndex = 22;
             this.comb_lot.SelectedIndexChanged += new System.EventHandler(this.comb_lot_SelectedIndexChanged);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(802, 164);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(35, 23);
-            this.button6.TabIndex = 23;
-            this.button6.Text = "NV";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(843, 164);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(35, 23);
-            this.button7.TabIndex = 24;
-            this.button7.Text = "Liste";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(884, 164);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(35, 23);
-            this.button8.TabIndex = 25;
-            this.button8.Text = "Info";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(925, 164);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(35, 23);
-            this.button9.TabIndex = 26;
-            this.button9.Text = "Info";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(966, 164);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(35, 23);
-            this.button10.TabIndex = 27;
-            this.button10.Text = "Info";
-            this.button10.UseVisualStyleBackColor = false;
             // 
             // dateTimePicker1
             // 
@@ -490,55 +426,94 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button13
+            // txt_ref
             // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button13.Location = new System.Drawing.Point(1006, 164);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 41;
-            this.button13.Text = "Ajouter";
-            this.button13.UseVisualStyleBackColor = false;
+            this.txt_ref.Location = new System.Drawing.Point(59, 240);
+            this.txt_ref.Name = "txt_ref";
+            this.txt_ref.Size = new System.Drawing.Size(105, 20);
+            this.txt_ref.TabIndex = 42;
+            this.txt_ref.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_ref.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             // 
-            // textBox1
+            // txt_desc
             // 
-            this.textBox1.Location = new System.Drawing.Point(48, 237);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 20);
-            this.textBox1.TabIndex = 42;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
+            this.txt_desc.Location = new System.Drawing.Point(170, 240);
+            this.txt_desc.Name = "txt_desc";
+            this.txt_desc.Size = new System.Drawing.Size(586, 20);
+            this.txt_desc.TabIndex = 43;
+            this.txt_desc.DoubleClick += new System.EventHandler(this.textBox2_DoubleClick);
             // 
-            // textBox2
+            // txt_qte
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 236);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(595, 20);
-            this.textBox2.TabIndex = 43;
-            this.textBox2.DoubleClick += new System.EventHandler(this.textBox2_DoubleClick);
+            this.txt_qte.Location = new System.Drawing.Point(762, 240);
+            this.txt_qte.Name = "txt_qte";
+            this.txt_qte.Size = new System.Drawing.Size(99, 20);
+            this.txt_qte.TabIndex = 45;
+            this.txt_qte.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox4
+            // dataGridView1
             // 
-            this.textBox4.Location = new System.Drawing.Point(868, 236);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(104, 20);
-            this.textBox4.TabIndex = 45;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idcmd,
+            this.designation,
+            this.qtte,
+            this.puHT,
+            this.Montant});
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 266);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1072, 431);
+            this.dataGridView1.TabIndex = 67;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             // 
-            // flowLayoutPanel2
+            // idcmd
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 263);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1096, 434);
-            this.flowLayoutPanel2.TabIndex = 49;
-            this.flowLayoutPanel2.DoubleClick += new System.EventHandler(this.flowLayoutPanel2_DoubleClick);
+            this.idcmd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idcmd.HeaderText = "Référence";
+            this.idcmd.Name = "idcmd";
+            // 
+            // designation
+            // 
+            this.designation.HeaderText = "Désignation";
+            this.designation.Name = "designation";
+            this.designation.Width = 600;
+            // 
+            // qtte
+            // 
+            this.qtte.HeaderText = "Qantité";
+            this.qtte.Name = "qtte";
+            // 
+            // puHT
+            // 
+            this.puHT.HeaderText = "P.U (HT)";
+            this.puHT.Name = "puHT";
+            // 
+            // Montant
+            // 
+            this.Montant.HeaderText = "Montant";
+            this.Montant.Name = "Montant";
+            this.Montant.Width = 120;
+            // 
+            // txt_montant
+            // 
+            this.txt_montant.Location = new System.Drawing.Point(967, 240);
+            this.txt_montant.Name = "txt_montant";
+            this.txt_montant.Size = new System.Drawing.Size(117, 20);
+            this.txt_montant.TabIndex = 68;
+            // 
+            // txt_pu
+            // 
+            this.txt_pu.Location = new System.Drawing.Point(867, 240);
+            this.txt_pu.Name = "txt_pu";
+            this.txt_pu.Size = new System.Drawing.Size(94, 20);
+            this.txt_pu.TabIndex = 69;
+            this.txt_pu.TextChanged += new System.EventHandler(this.txt_pu_TextChanged);
             // 
             // Frm_bcfrs
             // 
@@ -546,18 +521,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1096, 728);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button13);
+            this.Controls.Add(this.txt_pu);
+            this.Controls.Add(this.txt_montant);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.txt_qte);
+            this.Controls.Add(this.txt_desc);
+            this.Controls.Add(this.txt_ref);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.comb_lot);
             this.Controls.Add(this.combo_frns);
             this.Controls.Add(this.txt_lot);
@@ -582,6 +553,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,11 +574,6 @@
         private System.Windows.Forms.TextBox txt_lot;
         private System.Windows.Forms.ComboBox combo_frns;
         private System.Windows.Forms.ComboBox comb_lot;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -624,12 +591,18 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.TextBox txt_ref;
+        private System.Windows.Forms.TextBox txt_desc;
+        private System.Windows.Forms.TextBox txt_qte;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcmd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn puHT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Montant;
+        private System.Windows.Forms.TextBox txt_montant;
+        private System.Windows.Forms.TextBox txt_pu;
     }
 }

@@ -54,6 +54,30 @@ namespace WindowsFormsApplication2
               
         
         }
+        public void refresh_totals()
+        {
+            try
+            {
+                double sm = 0;
+                for (int i = 0; i < u_list.Count; i++)
+                {
+                  if(u_list[i].Parent==null)
+                    {
+                        bien bn = dc.biens.Single(b => b.idbien == int.Parse(u_list[i].id));
+                        decrease_biens(Convert.ToDouble(bn.Tva), Convert.ToDouble(bn?.PATTC));
+                    }
+
+                }
+
+                txt_total_ht.Text = sm.ToString();
+            }
+            catch
+            {
+
+            }
+
+
+        }
         int user_c = 0;
         List<article_usercontrol> u_list = new List<article_usercontrol>();
         double some_tva = 0;
@@ -61,40 +85,128 @@ namespace WindowsFormsApplication2
 
         public void calc_biens(double tva, double ttc)
         {
-            //try
-            //{
+            try
+            {
 
                 some_tva += tva;
                 some_ttc += ttc;
                 txt_total_ttc.Text = some_ttc.ToString();
                 txt_total_tva.Text = some_tva.ToString();
 
-            //}
-            //catch { }
+            }
+            catch { }
         }
+        public void decrease_biens(double tva, double ttc)
+        {
+            try
+            {
+
+                some_tva -= tva;
+                some_ttc -= ttc;
+                txt_total_ttc.Text = some_ttc.ToString();
+                txt_total_tva.Text = some_tva.ToString();
+
+            }
+            catch { }
+        }
+        public bool existed_bien(string id)
+        {
+            bool check = false;
+            try
+            {
+                if (dataGridView1.Rows.Count > 0) {
+                    for (int i = 0; i <= dataGridView1.Rows.Count; i++)
+                    {
+                        if (id == dataGridView1.Rows[i].Cells[0].Value.ToString())
+                        {
+                            check = true;
+                        }
+                    }
+                }
+        
+          
+            }catch { }
+            return check;
+        }
+        
         private void button3_Click(object sender, EventArgs e)
         {
-            try {
-                article_usercontrol u = new article_usercontrol(textBox1.Text,textBox2.Text,textBox4.Text);
-                u.Tag = user_c;
-                user_c++;
-                u_list.Add(u);
-                calc_ht();
-                flowLayoutPanel2.Controls.Add(u);
-                u.StatusUpdated += new EventHandler(MyEventHandlerFunction_StatusUpdated);
-                bien bn = dc.biens.Single(b => b.idbien == int.Parse(textBox1.Text));
-               
-                calc_biens(Convert.ToDouble(bn.Tva), Convert.ToDouble(bn.PATTC));
+         try {
 
+                //article_usercontrol u = new article_usercontrol(txt_ref.Text,txt_desc.Text,txt_qte.Text);
+                //u.Tag = user_c;
+                //user_c++;
+                //u_list.Add(u);
+                //calc_ht();
+
+                //u.StatusUpdated += new EventHandler(MyEventHandlerFunction_StatusUpdated);
+                //u.deleted += new EventHandler(MyEventHandlerFunction_deleted);
+
+                //bien bn = dc.biens.Single(b => b.idbien == int.Parse(txt_ref.Text));
+
+                //calc_biens(Convert.ToDouble(bn.Tva), Convert.ToDouble(bn.PATTC));
+                if(!isepty())
+                {
+                    if (!existed_bien(txt_ref.Text))
+                    {
+                        add_item();
+                        txt_montant.Text = "";
+                        txt_pu.Text = "";
+                        txt_qte.Text = "";
+                        txt_desc.Text = "";
+                        txt_ref.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("edit");
+                        edit_item();
+
+                    }
+                }
+             
 
             }
             catch { }
            
         }
+        public bool isepty()
+        {
+            bool check = true;
+            if (txt_ref.Text != "" && txt_desc.Text != "" && txt_qte.Text != "" && txt_pu.Text != "" && txt_montant.Text != "")
+                 check = false;
+            return check;
+        }
+        private void edit_item()
+        {
+          
+                int i = -1;
+                for (int j = 0; j < dataGridView1.Rows.Count; j++)
+                {
+                    if (dataGridView1.Rows[j].Cells[0].Value.ToString() == txt_ref.Text)
+                        i = j;
+
+                }
+
+                dataGridView1.Rows[i].Cells[0].Value = txt_ref.Text;
+                dataGridView1.Rows[i].Cells[1].Value = txt_desc.Text;
+                dataGridView1.Rows[i].Cells[2].Value = txt_qte.Text;
+                dataGridView1.Rows[i].Cells[3].Value = txt_pu.Text;
+                dataGridView1.Rows[i].Cells[4].Value = txt_montant.Text;
+            MessageBox.Show(i.ToString());
+      
+        }
+
+        private void MyEventHandlerFunction_deleted(object sender, EventArgs e)
+        {
+            MessageBox.Show("deleyted user");
+            refresh_totals();
+        }
 
         private void MyEventHandlerFunction_StatusUpdated(object sender, EventArgs e)
         {
             calc_ht();
+         
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -193,6 +305,16 @@ namespace WindowsFormsApplication2
         {
 
         }
+        public void add_item()
+        {
+            try
+            {
+              
+                dataGridView1.Rows.Add(txt_ref.Text, txt_desc.Text, txt_qte.Text, txt_pu.Text, txt_montant.Text);
+            }
+            catch { }
+
+        }
   
         DataClasses1DataContext dc = new DataClasses1DataContext();
         private void textBox1_DoubleClick(object sender, EventArgs e)
@@ -200,17 +322,18 @@ namespace WindowsFormsApplication2
             try
             {
 
-                if (textBox1.Text != "")
+                if (txt_ref.Text != "")
                 {
-                    string idd = textBox1.Text;
+                    string idd = txt_ref.Text;
                     article_template f = new article_template(idd,"id");
 
                     if (f.ShowDialog() == DialogResult.OK)
                     {
-                        textBox2.Text = f.desc.ToString();
-                        textBox1.Text = f.id_bien.ToString();
-                        textBox4.Text = f.pu.ToString();
-                      
+                        txt_desc.Text = f.desc.ToString();
+                        txt_ref.Text = f.id_bien.ToString();
+                        txt_qte.Text = 1.ToString();
+                        txt_pu.Text = f.pu.ToString();
+                        txt_montant.Text = f.pu.ToString();                      
 
                     }
 
@@ -231,16 +354,23 @@ namespace WindowsFormsApplication2
             try
             {
 
-                if (textBox2.Text != "")
+                if (txt_desc.Text != "")
                 {
-                    string idd = textBox2.Text;
+                    string idd = txt_desc.Text;
                     article_template f = new article_template(idd, "inti");
 
                     if (f.ShowDialog() == DialogResult.OK)
                     {
-                        textBox2.Text = f.desc.ToString();
-                        textBox1.Text = f.id_bien.ToString();
-                        textBox4.Text = f.pu.ToString();
+                        if(!existed_bien(f.id_bien.ToString()))
+                            {
+                            txt_desc.Text = f.desc.ToString();
+                            txt_ref.Text = f.id_bien.ToString();
+                            txt_qte.Text = 1.ToString();
+                            txt_pu.Text = f.pu.ToString();
+                            txt_montant.Text = f.pu.ToString();
+                        }
+                  
+
                     }
 
                 }
@@ -252,6 +382,56 @@ namespace WindowsFormsApplication2
         private void flowLayoutPanel2_DoubleClick(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_qte.Text != "")
+                {
+                    txt_montant.Text = (int.Parse(txt_qte.Text) * int.Parse(txt_pu.Text)).ToString();
+                }
+                else
+
+                    txt_qte.Text = "1";
+            }
+            catch { }
+
+        }
+
+        private void txt_pu_TextChanged(object sender, EventArgs e)
+        {
+  
+
+        }
+        int i;
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                i = dataGridView1.CurrentCell.RowIndex;
+                txt_ref.Text = dataGridView1.Rows[i].Cells[0].Value.ToString() ;
+                txt_desc.Text = dataGridView1.Rows[i].Cells[1].Value.ToString() ;
+                txt_qte.Text = dataGridView1.Rows[i].Cells[2].Value.ToString() ;
+                txt_pu.Text = dataGridView1.Rows[i].Cells[3].Value.ToString() ;
+                txt_montant.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            }
+            catch { }
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                i = dataGridView1.CurrentCell.RowIndex;
+                txt_ref.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                txt_desc.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                txt_qte.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                txt_pu.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                txt_montant.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            }
+            catch { }
         }
     }
 }

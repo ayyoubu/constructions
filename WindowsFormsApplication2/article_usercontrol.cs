@@ -23,16 +23,20 @@ namespace WindowsFormsApplication2
         public string pu;
         public string desc;
         public double mont;
-   
+        public bool issdeleted = false;
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             txt_montant.Text = "0";
             mont = double.Parse(txt_montant.Text);
             if (this.StatusUpdated != null)
                 this.StatusUpdated(this, new EventArgs());
+            if (this.deleted != null)
+                this.deleted(this, new EventArgs());
+
             this.Parent = null;
         }
         public event EventHandler StatusUpdated;
+        public event EventHandler deleted;
 
         private void article_usercontrol_Load(object sender, EventArgs e)
         {
@@ -49,6 +53,8 @@ namespace WindowsFormsApplication2
                 mont = double.Parse( txt_montant.Text);
                 if (this.StatusUpdated != null)
                     this.StatusUpdated(this, new EventArgs());
+
+               
             }
             catch { }
         }
