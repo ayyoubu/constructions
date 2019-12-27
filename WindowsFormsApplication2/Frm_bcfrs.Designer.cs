@@ -71,6 +71,7 @@
             this.Montant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_montant = new System.Windows.Forms.TextBox();
             this.txt_pu = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -451,6 +452,7 @@
             this.txt_qte.Size = new System.Drawing.Size(99, 20);
             this.txt_qte.TabIndex = 45;
             this.txt_qte.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txt_qte.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_qte_PreviewKeyDown);
             // 
             // dataGridView1
             // 
@@ -515,6 +517,20 @@
             this.txt_pu.Size = new System.Drawing.Size(94, 20);
             this.txt_pu.TabIndex = 69;
             this.txt_pu.TextChanged += new System.EventHandler(this.txt_pu_TextChanged);
+            this.txt_pu.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_pu_PreviewKeyDown);
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(85, 703);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 70;
+            this.button4.Text = "Supprimer";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // Frm_bcfrs
             // 
@@ -522,6 +538,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1096, 728);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.txt_pu);
             this.Controls.Add(this.txt_montant);
             this.Controls.Add(this.dataGridView1);
@@ -605,5 +622,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Montant;
         private System.Windows.Forms.TextBox txt_montant;
         private System.Windows.Forms.TextBox txt_pu;
+        private System.Windows.Forms.Button button4;
     }
 }

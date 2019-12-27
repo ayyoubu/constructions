@@ -491,6 +491,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="search_lot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_lot.Designer.cs">
+      <DependentUpon>search_lot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sqlcon,.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -727,6 +733,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="search_lot.resx">
+      <DependentUpon>search_lot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
