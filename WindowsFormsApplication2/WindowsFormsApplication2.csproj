@@ -69,17 +69,41 @@
       <DependentUpon>avoir.cs</DependentUpon>
     </Compile>
     <Compile Include="Bien_model.cs" />
+    <Compile Include="bon_avoir1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bon_avoir1.Designer.cs">
+      <DependentUpon>bon_avoir1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bon_facture1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bon_facture1.Designer.cs">
+      <DependentUpon>bon_facture1.cs</DependentUpon>
+    </Compile>
     <Compile Include="bon_reception.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="bon_reception.Designer.cs">
       <DependentUpon>bon_reception.cs</DependentUpon>
     </Compile>
+    <Compile Include="bon_reception_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bon_reception_1.Designer.cs">
+      <DependentUpon>bon_reception_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="bon_retour.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="bon_retour.Designer.cs">
       <DependentUpon>bon_retour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bon_retour1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bon_retour1.Designer.cs">
+      <DependentUpon>bon_retour1.cs</DependentUpon>
     </Compile>
     <Compile Include="bureau_etude.cs">
       <SubType>Form</SubType>
@@ -510,11 +534,23 @@
     <EmbeddedResource Include="avoir.resx">
       <DependentUpon>avoir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="bon_avoir1.resx">
+      <DependentUpon>bon_avoir1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bon_facture1.resx">
+      <DependentUpon>bon_facture1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bon_reception.resx">
       <DependentUpon>bon_reception.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="bon_reception_1.resx">
+      <DependentUpon>bon_reception_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bon_retour.resx">
       <DependentUpon>bon_retour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bon_retour1.resx">
+      <DependentUpon>bon_retour1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bureau_etude.resx">
       <DependentUpon>bureau_etude.cs</DependentUpon>

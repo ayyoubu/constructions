@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace WindowsFormsApplication2
 {
-    public partial class Frm_bcfrs : Form
+    public partial class bon_retour1 : Form
     {
-        public Frm_bcfrs()
+        public bon_retour1()
         {
             InitializeComponent();
 
@@ -25,7 +25,7 @@ namespace WindowsFormsApplication2
         bool valid = false;
         private void button1_Click(object sender, EventArgs e)
         {
-       
+
             if (dataGridView1.Rows.Count > 0 && !valid)
             {
                 try
@@ -37,7 +37,8 @@ namespace WindowsFormsApplication2
                         this.Close();
 
 
-                    }else if (res == DialogResult.No)
+                    }
+                    else if (res == DialogResult.No)
                     {
                         this.Close();
                     }
@@ -49,7 +50,7 @@ namespace WindowsFormsApplication2
             else
             {
                 this.Close();
-              
+
             }
         }
 
@@ -217,23 +218,25 @@ namespace WindowsFormsApplication2
         }
         private void edit_item()
         {
-            try { int i = -1;
-            for (int j = 0; j < dataGridView1.Rows.Count; j++)
+            try
             {
-                if (dataGridView1.Rows[j].Cells[0].Value.ToString() == txt_ref.Text)
-                    i = j;
+                int i = -1;
+                for (int j = 0; j < dataGridView1.Rows.Count; j++)
+                {
+                    if (dataGridView1.Rows[j].Cells[0].Value.ToString() == txt_ref.Text)
+                        i = j;
 
-            }
+                }
 
-            dataGridView1.Rows[i].Cells[0].Value = txt_ref.Text;
-            dataGridView1.Rows[i].Cells[1].Value = txt_desc.Text;
-            dataGridView1.Rows[i].Cells[2].Value = txt_qte.Text;
-            dataGridView1.Rows[i].Cells[3].Value = txt_pu.Text;
-            dataGridView1.Rows[i].Cells[4].Value = txt_montant.Text;
-            vider();
+                dataGridView1.Rows[i].Cells[0].Value = txt_ref.Text;
+                dataGridView1.Rows[i].Cells[1].Value = txt_desc.Text;
+                dataGridView1.Rows[i].Cells[2].Value = txt_qte.Text;
+                dataGridView1.Rows[i].Cells[3].Value = txt_pu.Text;
+                dataGridView1.Rows[i].Cells[4].Value = txt_montant.Text;
+                vider();
             }
             catch { }
-           
+
 
         }
 
@@ -259,7 +262,7 @@ namespace WindowsFormsApplication2
         }
         private void MyEventHandlerFunction_deleted(object sender, EventArgs e)
         {
-            MessageBox.Show("deleyted user");
+           
             refresh_totals();
         }
 
@@ -293,14 +296,15 @@ namespace WindowsFormsApplication2
         private void button2_Click(object sender, EventArgs e)
         {
             valider();
-           
+            this.Close();
+
         }
 
         private void valider()
         {
             try
             {
-                bon_command bn = new bon_command();
+                bon_retourr bn = new bon_retourr();
                 bn.date_com = dateTimePicker1.Value;
                 bn.desc_fournis = txt_fournis.Text;
                 bn.desc_lot = txt_lot.Text;
@@ -310,10 +314,11 @@ namespace WindowsFormsApplication2
                 bn.montant_ttc = Convert.ToDecimal(txt_total_ttc.Text);
                 bn.montant_tva = Convert.ToDecimal(txt_total_tva.Text);
 
-                dc.bon_commands.InsertOnSubmit(bn);
+                dc.bon_retourrs.InsertOnSubmit(bn);
                 dc.SubmitChanges();
+                
                 valid = true;
-                this.Close();
+
             }
             catch { }
         }
@@ -381,20 +386,23 @@ namespace WindowsFormsApplication2
 
         private void Frm_bcfrs_Load(object sender, EventArgs e)
         {
-            try {     this.txt_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnterKeyPress);
-         
-                int count=0;
-            SqlCommand cmd = new SqlCommand("select * from bon_command ", c.cnx);
-            SqlDataReader dr = cmd.ExecuteReader();
-          while(  dr.Read())
+            try
+            {
+                this.txt_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnterKeyPress);
+
+                int count = 0;
+                SqlCommand cmd = new SqlCommand("select * from bon_retourr ", c.cnx);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
 
                     count++;
-            }dr.Close();
-            txt1.Text = "BC-"+(count+1)  ;
+                }
+                dr.Close();
+                txt1.Text = "BR-" + (count + 1);
             }
             catch { }
-        
+
         }
         private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
@@ -436,7 +444,7 @@ namespace WindowsFormsApplication2
 
             if (e.KeyChar == (char)Keys.F1)
             {
-                MessageBox.Show("tab");
+              
                 try
                 {
 
@@ -659,7 +667,7 @@ namespace WindowsFormsApplication2
                     vider();
 
                 }
-               
+
             }
             catch { }
 
@@ -704,7 +712,7 @@ namespace WindowsFormsApplication2
 
             }
         }
-        
+
 
         private void txt_pu_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {

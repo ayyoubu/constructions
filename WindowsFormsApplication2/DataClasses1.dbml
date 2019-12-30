@@ -48,6 +48,86 @@
       <Column Name="PATTC" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.bon_avoir" Member="bon_avoirs">
+    <Type Name="bon_avoir">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date_com" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ref" Type="System.String" DbType="VarChar(19)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="id_fournis" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_fournis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montant_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_tva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Fournisseur_bon_avoir" Member="Fournisseur" ThisKey="id_fournis" OtherKey="Idfournisseur" Type="Fournisseur" IsForeignKey="true" />
+      <Association Name="identification_bon_avoir" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bon_command" Member="bon_commands">
+    <Type Name="bon_command">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date_com" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ref" Type="System.String" DbType="VarChar(19)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="id_fournis" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_fournis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montant_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_tva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Fournisseur_bon_command" Member="Fournisseur" ThisKey="id_fournis" OtherKey="Idfournisseur" Type="Fournisseur" IsForeignKey="true" />
+      <Association Name="identification_bon_command" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bon_facture" Member="bon_factures">
+    <Type Name="bon_facture">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date_com" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ref" Type="System.String" DbType="VarChar(20)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="id_fournis" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_fournis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montant_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_tva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Fournisseur_bon_facture" Member="Fournisseur" ThisKey="id_fournis" OtherKey="Idfournisseur" Type="Fournisseur" IsForeignKey="true" />
+      <Association Name="identification_bon_facture" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bon_recep" Member="bon_receps">
+    <Type Name="bon_recep">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date_com" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ref" Type="System.String" DbType="VarChar(20)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="id_fournis" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_fournis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montant_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_tva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Fournisseur_bon_recep" Member="Fournisseur" ThisKey="id_fournis" OtherKey="Idfournisseur" Type="Fournisseur" IsForeignKey="true" />
+      <Association Name="identification_bon_recep" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bon_retourr" Member="bon_retourrs">
+    <Type Name="bon_retourr">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date_com" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ref" Type="System.String" DbType="VarChar(19)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="id_fournis" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_fournis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montant_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_tva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Fournisseur_bon_retourr" Member="Fournisseur" ThisKey="id_fournis" OtherKey="Idfournisseur" Type="Fournisseur" IsForeignKey="true" />
+      <Association Name="identification_bon_retourr" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.bordoreau" Member="bordoreaus">
     <Type Name="bordoreau">
       <Column Name="idtache" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -118,6 +198,30 @@
       <Column Name="idcatbien" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Fournisseur" Member="Fournisseurs">
+    <Type Name="Fournisseur">
+      <Column Name="Idfournisseur" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Qualité" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ville" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NIF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Fournisseur_bon_avoir" Member="bon_avoirs" ThisKey="Idfournisseur" OtherKey="id_fournis" Type="bon_avoir" />
+      <Association Name="Fournisseur_bon_command" Member="bon_commands" ThisKey="Idfournisseur" OtherKey="id_fournis" Type="bon_command" />
+      <Association Name="Fournisseur_bon_facture" Member="bon_factures" ThisKey="Idfournisseur" OtherKey="id_fournis" Type="bon_facture" />
+      <Association Name="Fournisseur_bon_recep" Member="bon_receps" ThisKey="Idfournisseur" OtherKey="id_fournis" Type="bon_recep" />
+      <Association Name="Fournisseur_bon_retourr" Member="bon_retourrs" ThisKey="Idfournisseur" OtherKey="id_fournis" Type="bon_retourr" />
+    </Type>
+  </Table>
   <Table Name="dbo.identification" Member="identifications">
     <Type Name="identification">
       <Column Name="idlot" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -141,7 +245,11 @@
       <Column Name="IdBureau" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IdLaboratoire" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IdArchitecte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="identification_bon_avoir" Member="bon_avoirs" ThisKey="idlot" OtherKey="id_lot" Type="bon_avoir" />
       <Association Name="identification_bon_command" Member="bon_commands" ThisKey="idlot" OtherKey="id_lot" Type="bon_command" />
+      <Association Name="identification_bon_facture" Member="bon_factures" ThisKey="idlot" OtherKey="id_lot" Type="bon_facture" />
+      <Association Name="identification_bon_recep" Member="bon_receps" ThisKey="idlot" OtherKey="id_lot" Type="bon_recep" />
+      <Association Name="identification_bon_retourr" Member="bon_retourrs" ThisKey="idlot" OtherKey="id_lot" Type="bon_retourr" />
     </Type>
   </Table>
   <Table Name="dbo.labo" Member="labos">
@@ -193,42 +301,6 @@
     <Type Name="Tach_glob">
       <Column Name="idtachglob" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.bon_command" Member="bon_commands">
-    <Type Name="bon_command">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="date_com" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ref" Type="System.String" DbType="VarChar(19)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="id_fournis" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="desc_fournis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="desc_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="montant_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="montant_tva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="montant_ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Association Name="identification_bon_command" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
-      <Association Name="Fournisseur_bon_command" Member="Fournisseur" ThisKey="id_fournis" OtherKey="Idfournisseur" Type="Fournisseur" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Fournisseur" Member="Fournisseurs">
-    <Type Name="Fournisseur">
-      <Column Name="Idfournisseur" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Qualité" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Ville" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Cp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="RC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NIF" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Fournisseur_bon_command" Member="bon_commands" ThisKey="Idfournisseur" OtherKey="id_fournis" Type="bon_command" />
     </Type>
   </Table>
 </Database>

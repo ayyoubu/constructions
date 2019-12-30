@@ -26,7 +26,7 @@ namespace WindowsFormsApplication2
 
         private void bonDeLivraisonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_blfrs s = new Frm_blfrs();
+            bon_reception_1 s = new bon_reception_1();
             s.ShowDialog();
         }
 
@@ -194,13 +194,13 @@ namespace WindowsFormsApplication2
 
         private void bonDeRetourToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_brtfrs s = new Frm_brtfrs ();
+            bon_retour1 s = new bon_retour1();
             s.ShowDialog();
         }
 
         private void factureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_facfrs s = new Frm_facfrs();
+            bon_facture1 s = new bon_facture1();
             s.ShowDialog();
         }
 
@@ -225,7 +225,7 @@ namespace WindowsFormsApplication2
 
         private void avoirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_avoir s = new Frm_avoir();
+            bon_avoir1  s = new bon_avoir1();
             s.ShowDialog();
         }
 

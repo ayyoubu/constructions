@@ -42,6 +42,21 @@ namespace WindowsFormsApplication2
     partial void Insertbien(bien instance);
     partial void Updatebien(bien instance);
     partial void Deletebien(bien instance);
+    partial void Insertbon_avoir(bon_avoir instance);
+    partial void Updatebon_avoir(bon_avoir instance);
+    partial void Deletebon_avoir(bon_avoir instance);
+    partial void Insertbon_command(bon_command instance);
+    partial void Updatebon_command(bon_command instance);
+    partial void Deletebon_command(bon_command instance);
+    partial void Insertbon_facture(bon_facture instance);
+    partial void Updatebon_facture(bon_facture instance);
+    partial void Deletebon_facture(bon_facture instance);
+    partial void Insertbon_recep(bon_recep instance);
+    partial void Updatebon_recep(bon_recep instance);
+    partial void Deletebon_recep(bon_recep instance);
+    partial void Insertbon_retourr(bon_retourr instance);
+    partial void Updatebon_retourr(bon_retourr instance);
+    partial void Deletebon_retourr(bon_retourr instance);
     partial void Insertbordoreau(bordoreau instance);
     partial void Updatebordoreau(bordoreau instance);
     partial void Deletebordoreau(bordoreau instance);
@@ -66,6 +81,9 @@ namespace WindowsFormsApplication2
     partial void InsertFamille(Famille instance);
     partial void UpdateFamille(Famille instance);
     partial void DeleteFamille(Famille instance);
+    partial void InsertFournisseur(Fournisseur instance);
+    partial void UpdateFournisseur(Fournisseur instance);
+    partial void DeleteFournisseur(Fournisseur instance);
     partial void Insertidentification(identification instance);
     partial void Updateidentification(identification instance);
     partial void Deleteidentification(identification instance);
@@ -87,12 +105,6 @@ namespace WindowsFormsApplication2
     partial void InsertTach_glob(Tach_glob instance);
     partial void UpdateTach_glob(Tach_glob instance);
     partial void DeleteTach_glob(Tach_glob instance);
-    partial void Insertbon_command(bon_command instance);
-    partial void Updatebon_command(bon_command instance);
-    partial void Deletebon_command(bon_command instance);
-    partial void InsertFournisseur(Fournisseur instance);
-    partial void UpdateFournisseur(Fournisseur instance);
-    partial void DeleteFournisseur(Fournisseur instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -154,6 +166,46 @@ namespace WindowsFormsApplication2
 			get
 			{
 				return this.GetTable<bien>();
+			}
+		}
+		
+		public System.Data.Linq.Table<bon_avoir> bon_avoirs
+		{
+			get
+			{
+				return this.GetTable<bon_avoir>();
+			}
+		}
+		
+		public System.Data.Linq.Table<bon_command> bon_commands
+		{
+			get
+			{
+				return this.GetTable<bon_command>();
+			}
+		}
+		
+		public System.Data.Linq.Table<bon_facture> bon_factures
+		{
+			get
+			{
+				return this.GetTable<bon_facture>();
+			}
+		}
+		
+		public System.Data.Linq.Table<bon_recep> bon_receps
+		{
+			get
+			{
+				return this.GetTable<bon_recep>();
+			}
+		}
+		
+		public System.Data.Linq.Table<bon_retourr> bon_retourrs
+		{
+			get
+			{
+				return this.GetTable<bon_retourr>();
 			}
 		}
 		
@@ -221,6 +273,14 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
+		public System.Data.Linq.Table<Fournisseur> Fournisseurs
+		{
+			get
+			{
+				return this.GetTable<Fournisseur>();
+			}
+		}
+		
 		public System.Data.Linq.Table<identification> identifications
 		{
 			get
@@ -274,22 +334,6 @@ namespace WindowsFormsApplication2
 			get
 			{
 				return this.GetTable<Tach_glob>();
-			}
-		}
-		
-		public System.Data.Linq.Table<bon_command> bon_commands
-		{
-			get
-			{
-				return this.GetTable<bon_command>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Fournisseur> Fournisseurs
-		{
-			get
-			{
-				return this.GetTable<Fournisseur>();
 			}
 		}
 	}
@@ -1189,6 +1233,1806 @@ namespace WindowsFormsApplication2
 					this._PATTC = value;
 					this.SendPropertyChanged("PATTC");
 					this.OnPATTCChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bon_avoir")]
+	public partial class bon_avoir : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<System.DateTime> _date_com;
+		
+		private string _ref;
+		
+		private int _id_fournis;
+		
+		private string _desc_fournis;
+		
+		private System.Nullable<int> _id_lot;
+		
+		private string _desc_lot;
+		
+		private System.Nullable<decimal> _montant_ht;
+		
+		private System.Nullable<decimal> _montant_tva;
+		
+		private System.Nullable<decimal> _montant_ttc;
+		
+		private EntityRef<Fournisseur> _Fournisseur;
+		
+		private EntityRef<identification> _identification;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void Ondate_comChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_comChanged();
+    partial void OnrefChanging(string value);
+    partial void OnrefChanged();
+    partial void Onid_fournisChanging(int value);
+    partial void Onid_fournisChanged();
+    partial void Ondesc_fournisChanging(string value);
+    partial void Ondesc_fournisChanged();
+    partial void Onid_lotChanging(System.Nullable<int> value);
+    partial void Onid_lotChanged();
+    partial void Ondesc_lotChanging(string value);
+    partial void Ondesc_lotChanged();
+    partial void Onmontant_htChanging(System.Nullable<decimal> value);
+    partial void Onmontant_htChanged();
+    partial void Onmontant_tvaChanging(System.Nullable<decimal> value);
+    partial void Onmontant_tvaChanged();
+    partial void Onmontant_ttcChanging(System.Nullable<decimal> value);
+    partial void Onmontant_ttcChanged();
+    #endregion
+		
+		public bon_avoir()
+		{
+			this._Fournisseur = default(EntityRef<Fournisseur>);
+			this._identification = default(EntityRef<identification>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_com", DbType="Date")]
+		public System.Nullable<System.DateTime> date_com
+		{
+			get
+			{
+				return this._date_com;
+			}
+			set
+			{
+				if ((this._date_com != value))
+				{
+					this.Ondate_comChanging(value);
+					this.SendPropertyChanging();
+					this._date_com = value;
+					this.SendPropertyChanged("date_com");
+					this.Ondate_comChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ref", Storage="_ref", AutoSync=AutoSync.Always, DbType="VarChar(19)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string @ref
+		{
+			get
+			{
+				return this._ref;
+			}
+			set
+			{
+				if ((this._ref != value))
+				{
+					this.OnrefChanging(value);
+					this.SendPropertyChanging();
+					this._ref = value;
+					this.SendPropertyChanged("@ref");
+					this.OnrefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_fournis", DbType="Int NOT NULL")]
+		public int id_fournis
+		{
+			get
+			{
+				return this._id_fournis;
+			}
+			set
+			{
+				if ((this._id_fournis != value))
+				{
+					if (this._Fournisseur.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._id_fournis = value;
+					this.SendPropertyChanged("id_fournis");
+					this.Onid_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_fournis", DbType="VarChar(100)")]
+		public string desc_fournis
+		{
+			get
+			{
+				return this._desc_fournis;
+			}
+			set
+			{
+				if ((this._desc_fournis != value))
+				{
+					this.Ondesc_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._desc_fournis = value;
+					this.SendPropertyChanged("desc_fournis");
+					this.Ondesc_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lot", DbType="Int")]
+		public System.Nullable<int> id_lot
+		{
+			get
+			{
+				return this._id_lot;
+			}
+			set
+			{
+				if ((this._id_lot != value))
+				{
+					if (this._identification.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_lotChanging(value);
+					this.SendPropertyChanging();
+					this._id_lot = value;
+					this.SendPropertyChanged("id_lot");
+					this.Onid_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_lot", DbType="VarChar(100)")]
+		public string desc_lot
+		{
+			get
+			{
+				return this._desc_lot;
+			}
+			set
+			{
+				if ((this._desc_lot != value))
+				{
+					this.Ondesc_lotChanging(value);
+					this.SendPropertyChanging();
+					this._desc_lot = value;
+					this.SendPropertyChanged("desc_lot");
+					this.Ondesc_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ht", DbType="Money")]
+		public System.Nullable<decimal> montant_ht
+		{
+			get
+			{
+				return this._montant_ht;
+			}
+			set
+			{
+				if ((this._montant_ht != value))
+				{
+					this.Onmontant_htChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ht = value;
+					this.SendPropertyChanged("montant_ht");
+					this.Onmontant_htChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_tva", DbType="Money")]
+		public System.Nullable<decimal> montant_tva
+		{
+			get
+			{
+				return this._montant_tva;
+			}
+			set
+			{
+				if ((this._montant_tva != value))
+				{
+					this.Onmontant_tvaChanging(value);
+					this.SendPropertyChanging();
+					this._montant_tva = value;
+					this.SendPropertyChanged("montant_tva");
+					this.Onmontant_tvaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ttc", DbType="Money")]
+		public System.Nullable<decimal> montant_ttc
+		{
+			get
+			{
+				return this._montant_ttc;
+			}
+			set
+			{
+				if ((this._montant_ttc != value))
+				{
+					this.Onmontant_ttcChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ttc = value;
+					this.SendPropertyChanged("montant_ttc");
+					this.Onmontant_ttcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_avoir", Storage="_Fournisseur", ThisKey="id_fournis", OtherKey="Idfournisseur", IsForeignKey=true)]
+		public Fournisseur Fournisseur
+		{
+			get
+			{
+				return this._Fournisseur.Entity;
+			}
+			set
+			{
+				Fournisseur previousValue = this._Fournisseur.Entity;
+				if (((previousValue != value) 
+							|| (this._Fournisseur.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fournisseur.Entity = null;
+						previousValue.bon_avoirs.Remove(this);
+					}
+					this._Fournisseur.Entity = value;
+					if ((value != null))
+					{
+						value.bon_avoirs.Add(this);
+						this._id_fournis = value.Idfournisseur;
+					}
+					else
+					{
+						this._id_fournis = default(int);
+					}
+					this.SendPropertyChanged("Fournisseur");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_avoir", Storage="_identification", ThisKey="id_lot", OtherKey="idlot", IsForeignKey=true)]
+		public identification identification
+		{
+			get
+			{
+				return this._identification.Entity;
+			}
+			set
+			{
+				identification previousValue = this._identification.Entity;
+				if (((previousValue != value) 
+							|| (this._identification.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._identification.Entity = null;
+						previousValue.bon_avoirs.Remove(this);
+					}
+					this._identification.Entity = value;
+					if ((value != null))
+					{
+						value.bon_avoirs.Add(this);
+						this._id_lot = value.idlot;
+					}
+					else
+					{
+						this._id_lot = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("identification");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bon_command")]
+	public partial class bon_command : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<System.DateTime> _date_com;
+		
+		private string _ref;
+		
+		private int _id_fournis;
+		
+		private string _desc_fournis;
+		
+		private System.Nullable<int> _id_lot;
+		
+		private string _desc_lot;
+		
+		private System.Nullable<decimal> _montant_ht;
+		
+		private System.Nullable<decimal> _montant_tva;
+		
+		private System.Nullable<decimal> _montant_ttc;
+		
+		private EntityRef<Fournisseur> _Fournisseur;
+		
+		private EntityRef<identification> _identification;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void Ondate_comChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_comChanged();
+    partial void OnrefChanging(string value);
+    partial void OnrefChanged();
+    partial void Onid_fournisChanging(int value);
+    partial void Onid_fournisChanged();
+    partial void Ondesc_fournisChanging(string value);
+    partial void Ondesc_fournisChanged();
+    partial void Onid_lotChanging(System.Nullable<int> value);
+    partial void Onid_lotChanged();
+    partial void Ondesc_lotChanging(string value);
+    partial void Ondesc_lotChanged();
+    partial void Onmontant_htChanging(System.Nullable<decimal> value);
+    partial void Onmontant_htChanged();
+    partial void Onmontant_tvaChanging(System.Nullable<decimal> value);
+    partial void Onmontant_tvaChanged();
+    partial void Onmontant_ttcChanging(System.Nullable<decimal> value);
+    partial void Onmontant_ttcChanged();
+    #endregion
+		
+		public bon_command()
+		{
+			this._Fournisseur = default(EntityRef<Fournisseur>);
+			this._identification = default(EntityRef<identification>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_com", DbType="Date")]
+		public System.Nullable<System.DateTime> date_com
+		{
+			get
+			{
+				return this._date_com;
+			}
+			set
+			{
+				if ((this._date_com != value))
+				{
+					this.Ondate_comChanging(value);
+					this.SendPropertyChanging();
+					this._date_com = value;
+					this.SendPropertyChanged("date_com");
+					this.Ondate_comChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ref", Storage="_ref", AutoSync=AutoSync.Always, DbType="VarChar(19)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string @ref
+		{
+			get
+			{
+				return this._ref;
+			}
+			set
+			{
+				if ((this._ref != value))
+				{
+					this.OnrefChanging(value);
+					this.SendPropertyChanging();
+					this._ref = value;
+					this.SendPropertyChanged("@ref");
+					this.OnrefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_fournis", DbType="Int NOT NULL")]
+		public int id_fournis
+		{
+			get
+			{
+				return this._id_fournis;
+			}
+			set
+			{
+				if ((this._id_fournis != value))
+				{
+					if (this._Fournisseur.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._id_fournis = value;
+					this.SendPropertyChanged("id_fournis");
+					this.Onid_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_fournis", DbType="VarChar(100)")]
+		public string desc_fournis
+		{
+			get
+			{
+				return this._desc_fournis;
+			}
+			set
+			{
+				if ((this._desc_fournis != value))
+				{
+					this.Ondesc_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._desc_fournis = value;
+					this.SendPropertyChanged("desc_fournis");
+					this.Ondesc_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lot", DbType="Int")]
+		public System.Nullable<int> id_lot
+		{
+			get
+			{
+				return this._id_lot;
+			}
+			set
+			{
+				if ((this._id_lot != value))
+				{
+					if (this._identification.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_lotChanging(value);
+					this.SendPropertyChanging();
+					this._id_lot = value;
+					this.SendPropertyChanged("id_lot");
+					this.Onid_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_lot", DbType="VarChar(100)")]
+		public string desc_lot
+		{
+			get
+			{
+				return this._desc_lot;
+			}
+			set
+			{
+				if ((this._desc_lot != value))
+				{
+					this.Ondesc_lotChanging(value);
+					this.SendPropertyChanging();
+					this._desc_lot = value;
+					this.SendPropertyChanged("desc_lot");
+					this.Ondesc_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ht", DbType="Money")]
+		public System.Nullable<decimal> montant_ht
+		{
+			get
+			{
+				return this._montant_ht;
+			}
+			set
+			{
+				if ((this._montant_ht != value))
+				{
+					this.Onmontant_htChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ht = value;
+					this.SendPropertyChanged("montant_ht");
+					this.Onmontant_htChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_tva", DbType="Money")]
+		public System.Nullable<decimal> montant_tva
+		{
+			get
+			{
+				return this._montant_tva;
+			}
+			set
+			{
+				if ((this._montant_tva != value))
+				{
+					this.Onmontant_tvaChanging(value);
+					this.SendPropertyChanging();
+					this._montant_tva = value;
+					this.SendPropertyChanged("montant_tva");
+					this.Onmontant_tvaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ttc", DbType="Money")]
+		public System.Nullable<decimal> montant_ttc
+		{
+			get
+			{
+				return this._montant_ttc;
+			}
+			set
+			{
+				if ((this._montant_ttc != value))
+				{
+					this.Onmontant_ttcChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ttc = value;
+					this.SendPropertyChanged("montant_ttc");
+					this.Onmontant_ttcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_command", Storage="_Fournisseur", ThisKey="id_fournis", OtherKey="Idfournisseur", IsForeignKey=true)]
+		public Fournisseur Fournisseur
+		{
+			get
+			{
+				return this._Fournisseur.Entity;
+			}
+			set
+			{
+				Fournisseur previousValue = this._Fournisseur.Entity;
+				if (((previousValue != value) 
+							|| (this._Fournisseur.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fournisseur.Entity = null;
+						previousValue.bon_commands.Remove(this);
+					}
+					this._Fournisseur.Entity = value;
+					if ((value != null))
+					{
+						value.bon_commands.Add(this);
+						this._id_fournis = value.Idfournisseur;
+					}
+					else
+					{
+						this._id_fournis = default(int);
+					}
+					this.SendPropertyChanged("Fournisseur");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_command", Storage="_identification", ThisKey="id_lot", OtherKey="idlot", IsForeignKey=true)]
+		public identification identification
+		{
+			get
+			{
+				return this._identification.Entity;
+			}
+			set
+			{
+				identification previousValue = this._identification.Entity;
+				if (((previousValue != value) 
+							|| (this._identification.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._identification.Entity = null;
+						previousValue.bon_commands.Remove(this);
+					}
+					this._identification.Entity = value;
+					if ((value != null))
+					{
+						value.bon_commands.Add(this);
+						this._id_lot = value.idlot;
+					}
+					else
+					{
+						this._id_lot = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("identification");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bon_facture")]
+	public partial class bon_facture : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<System.DateTime> _date_com;
+		
+		private string _ref;
+		
+		private int _id_fournis;
+		
+		private string _desc_fournis;
+		
+		private System.Nullable<int> _id_lot;
+		
+		private string _desc_lot;
+		
+		private System.Nullable<decimal> _montant_ht;
+		
+		private System.Nullable<decimal> _montant_tva;
+		
+		private System.Nullable<decimal> _montant_ttc;
+		
+		private EntityRef<Fournisseur> _Fournisseur;
+		
+		private EntityRef<identification> _identification;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void Ondate_comChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_comChanged();
+    partial void OnrefChanging(string value);
+    partial void OnrefChanged();
+    partial void Onid_fournisChanging(int value);
+    partial void Onid_fournisChanged();
+    partial void Ondesc_fournisChanging(string value);
+    partial void Ondesc_fournisChanged();
+    partial void Onid_lotChanging(System.Nullable<int> value);
+    partial void Onid_lotChanged();
+    partial void Ondesc_lotChanging(string value);
+    partial void Ondesc_lotChanged();
+    partial void Onmontant_htChanging(System.Nullable<decimal> value);
+    partial void Onmontant_htChanged();
+    partial void Onmontant_tvaChanging(System.Nullable<decimal> value);
+    partial void Onmontant_tvaChanged();
+    partial void Onmontant_ttcChanging(System.Nullable<decimal> value);
+    partial void Onmontant_ttcChanged();
+    #endregion
+		
+		public bon_facture()
+		{
+			this._Fournisseur = default(EntityRef<Fournisseur>);
+			this._identification = default(EntityRef<identification>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_com", DbType="Date")]
+		public System.Nullable<System.DateTime> date_com
+		{
+			get
+			{
+				return this._date_com;
+			}
+			set
+			{
+				if ((this._date_com != value))
+				{
+					this.Ondate_comChanging(value);
+					this.SendPropertyChanging();
+					this._date_com = value;
+					this.SendPropertyChanged("date_com");
+					this.Ondate_comChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ref", Storage="_ref", AutoSync=AutoSync.Always, DbType="VarChar(20)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string @ref
+		{
+			get
+			{
+				return this._ref;
+			}
+			set
+			{
+				if ((this._ref != value))
+				{
+					this.OnrefChanging(value);
+					this.SendPropertyChanging();
+					this._ref = value;
+					this.SendPropertyChanged("@ref");
+					this.OnrefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_fournis", DbType="Int NOT NULL")]
+		public int id_fournis
+		{
+			get
+			{
+				return this._id_fournis;
+			}
+			set
+			{
+				if ((this._id_fournis != value))
+				{
+					if (this._Fournisseur.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._id_fournis = value;
+					this.SendPropertyChanged("id_fournis");
+					this.Onid_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_fournis", DbType="VarChar(100)")]
+		public string desc_fournis
+		{
+			get
+			{
+				return this._desc_fournis;
+			}
+			set
+			{
+				if ((this._desc_fournis != value))
+				{
+					this.Ondesc_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._desc_fournis = value;
+					this.SendPropertyChanged("desc_fournis");
+					this.Ondesc_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lot", DbType="Int")]
+		public System.Nullable<int> id_lot
+		{
+			get
+			{
+				return this._id_lot;
+			}
+			set
+			{
+				if ((this._id_lot != value))
+				{
+					if (this._identification.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_lotChanging(value);
+					this.SendPropertyChanging();
+					this._id_lot = value;
+					this.SendPropertyChanged("id_lot");
+					this.Onid_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_lot", DbType="VarChar(100)")]
+		public string desc_lot
+		{
+			get
+			{
+				return this._desc_lot;
+			}
+			set
+			{
+				if ((this._desc_lot != value))
+				{
+					this.Ondesc_lotChanging(value);
+					this.SendPropertyChanging();
+					this._desc_lot = value;
+					this.SendPropertyChanged("desc_lot");
+					this.Ondesc_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ht", DbType="Money")]
+		public System.Nullable<decimal> montant_ht
+		{
+			get
+			{
+				return this._montant_ht;
+			}
+			set
+			{
+				if ((this._montant_ht != value))
+				{
+					this.Onmontant_htChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ht = value;
+					this.SendPropertyChanged("montant_ht");
+					this.Onmontant_htChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_tva", DbType="Money")]
+		public System.Nullable<decimal> montant_tva
+		{
+			get
+			{
+				return this._montant_tva;
+			}
+			set
+			{
+				if ((this._montant_tva != value))
+				{
+					this.Onmontant_tvaChanging(value);
+					this.SendPropertyChanging();
+					this._montant_tva = value;
+					this.SendPropertyChanged("montant_tva");
+					this.Onmontant_tvaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ttc", DbType="Money")]
+		public System.Nullable<decimal> montant_ttc
+		{
+			get
+			{
+				return this._montant_ttc;
+			}
+			set
+			{
+				if ((this._montant_ttc != value))
+				{
+					this.Onmontant_ttcChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ttc = value;
+					this.SendPropertyChanged("montant_ttc");
+					this.Onmontant_ttcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_facture", Storage="_Fournisseur", ThisKey="id_fournis", OtherKey="Idfournisseur", IsForeignKey=true)]
+		public Fournisseur Fournisseur
+		{
+			get
+			{
+				return this._Fournisseur.Entity;
+			}
+			set
+			{
+				Fournisseur previousValue = this._Fournisseur.Entity;
+				if (((previousValue != value) 
+							|| (this._Fournisseur.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fournisseur.Entity = null;
+						previousValue.bon_factures.Remove(this);
+					}
+					this._Fournisseur.Entity = value;
+					if ((value != null))
+					{
+						value.bon_factures.Add(this);
+						this._id_fournis = value.Idfournisseur;
+					}
+					else
+					{
+						this._id_fournis = default(int);
+					}
+					this.SendPropertyChanged("Fournisseur");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_facture", Storage="_identification", ThisKey="id_lot", OtherKey="idlot", IsForeignKey=true)]
+		public identification identification
+		{
+			get
+			{
+				return this._identification.Entity;
+			}
+			set
+			{
+				identification previousValue = this._identification.Entity;
+				if (((previousValue != value) 
+							|| (this._identification.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._identification.Entity = null;
+						previousValue.bon_factures.Remove(this);
+					}
+					this._identification.Entity = value;
+					if ((value != null))
+					{
+						value.bon_factures.Add(this);
+						this._id_lot = value.idlot;
+					}
+					else
+					{
+						this._id_lot = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("identification");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bon_recep")]
+	public partial class bon_recep : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<System.DateTime> _date_com;
+		
+		private string _ref;
+		
+		private int _id_fournis;
+		
+		private string _desc_fournis;
+		
+		private System.Nullable<int> _id_lot;
+		
+		private string _desc_lot;
+		
+		private System.Nullable<decimal> _montant_ht;
+		
+		private System.Nullable<decimal> _montant_tva;
+		
+		private System.Nullable<decimal> _montant_ttc;
+		
+		private EntityRef<Fournisseur> _Fournisseur;
+		
+		private EntityRef<identification> _identification;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void Ondate_comChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_comChanged();
+    partial void OnrefChanging(string value);
+    partial void OnrefChanged();
+    partial void Onid_fournisChanging(int value);
+    partial void Onid_fournisChanged();
+    partial void Ondesc_fournisChanging(string value);
+    partial void Ondesc_fournisChanged();
+    partial void Onid_lotChanging(System.Nullable<int> value);
+    partial void Onid_lotChanged();
+    partial void Ondesc_lotChanging(string value);
+    partial void Ondesc_lotChanged();
+    partial void Onmontant_htChanging(System.Nullable<decimal> value);
+    partial void Onmontant_htChanged();
+    partial void Onmontant_tvaChanging(System.Nullable<decimal> value);
+    partial void Onmontant_tvaChanged();
+    partial void Onmontant_ttcChanging(System.Nullable<decimal> value);
+    partial void Onmontant_ttcChanged();
+    #endregion
+		
+		public bon_recep()
+		{
+			this._Fournisseur = default(EntityRef<Fournisseur>);
+			this._identification = default(EntityRef<identification>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_com", DbType="Date")]
+		public System.Nullable<System.DateTime> date_com
+		{
+			get
+			{
+				return this._date_com;
+			}
+			set
+			{
+				if ((this._date_com != value))
+				{
+					this.Ondate_comChanging(value);
+					this.SendPropertyChanging();
+					this._date_com = value;
+					this.SendPropertyChanged("date_com");
+					this.Ondate_comChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ref", Storage="_ref", AutoSync=AutoSync.Always, DbType="VarChar(20)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string @ref
+		{
+			get
+			{
+				return this._ref;
+			}
+			set
+			{
+				if ((this._ref != value))
+				{
+					this.OnrefChanging(value);
+					this.SendPropertyChanging();
+					this._ref = value;
+					this.SendPropertyChanged("@ref");
+					this.OnrefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_fournis", DbType="Int NOT NULL")]
+		public int id_fournis
+		{
+			get
+			{
+				return this._id_fournis;
+			}
+			set
+			{
+				if ((this._id_fournis != value))
+				{
+					if (this._Fournisseur.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._id_fournis = value;
+					this.SendPropertyChanged("id_fournis");
+					this.Onid_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_fournis", DbType="VarChar(100)")]
+		public string desc_fournis
+		{
+			get
+			{
+				return this._desc_fournis;
+			}
+			set
+			{
+				if ((this._desc_fournis != value))
+				{
+					this.Ondesc_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._desc_fournis = value;
+					this.SendPropertyChanged("desc_fournis");
+					this.Ondesc_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lot", DbType="Int")]
+		public System.Nullable<int> id_lot
+		{
+			get
+			{
+				return this._id_lot;
+			}
+			set
+			{
+				if ((this._id_lot != value))
+				{
+					if (this._identification.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_lotChanging(value);
+					this.SendPropertyChanging();
+					this._id_lot = value;
+					this.SendPropertyChanged("id_lot");
+					this.Onid_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_lot", DbType="VarChar(100)")]
+		public string desc_lot
+		{
+			get
+			{
+				return this._desc_lot;
+			}
+			set
+			{
+				if ((this._desc_lot != value))
+				{
+					this.Ondesc_lotChanging(value);
+					this.SendPropertyChanging();
+					this._desc_lot = value;
+					this.SendPropertyChanged("desc_lot");
+					this.Ondesc_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ht", DbType="Money")]
+		public System.Nullable<decimal> montant_ht
+		{
+			get
+			{
+				return this._montant_ht;
+			}
+			set
+			{
+				if ((this._montant_ht != value))
+				{
+					this.Onmontant_htChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ht = value;
+					this.SendPropertyChanged("montant_ht");
+					this.Onmontant_htChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_tva", DbType="Money")]
+		public System.Nullable<decimal> montant_tva
+		{
+			get
+			{
+				return this._montant_tva;
+			}
+			set
+			{
+				if ((this._montant_tva != value))
+				{
+					this.Onmontant_tvaChanging(value);
+					this.SendPropertyChanging();
+					this._montant_tva = value;
+					this.SendPropertyChanged("montant_tva");
+					this.Onmontant_tvaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ttc", DbType="Money")]
+		public System.Nullable<decimal> montant_ttc
+		{
+			get
+			{
+				return this._montant_ttc;
+			}
+			set
+			{
+				if ((this._montant_ttc != value))
+				{
+					this.Onmontant_ttcChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ttc = value;
+					this.SendPropertyChanged("montant_ttc");
+					this.Onmontant_ttcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_recep", Storage="_Fournisseur", ThisKey="id_fournis", OtherKey="Idfournisseur", IsForeignKey=true)]
+		public Fournisseur Fournisseur
+		{
+			get
+			{
+				return this._Fournisseur.Entity;
+			}
+			set
+			{
+				Fournisseur previousValue = this._Fournisseur.Entity;
+				if (((previousValue != value) 
+							|| (this._Fournisseur.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fournisseur.Entity = null;
+						previousValue.bon_receps.Remove(this);
+					}
+					this._Fournisseur.Entity = value;
+					if ((value != null))
+					{
+						value.bon_receps.Add(this);
+						this._id_fournis = value.Idfournisseur;
+					}
+					else
+					{
+						this._id_fournis = default(int);
+					}
+					this.SendPropertyChanged("Fournisseur");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_recep", Storage="_identification", ThisKey="id_lot", OtherKey="idlot", IsForeignKey=true)]
+		public identification identification
+		{
+			get
+			{
+				return this._identification.Entity;
+			}
+			set
+			{
+				identification previousValue = this._identification.Entity;
+				if (((previousValue != value) 
+							|| (this._identification.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._identification.Entity = null;
+						previousValue.bon_receps.Remove(this);
+					}
+					this._identification.Entity = value;
+					if ((value != null))
+					{
+						value.bon_receps.Add(this);
+						this._id_lot = value.idlot;
+					}
+					else
+					{
+						this._id_lot = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("identification");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bon_retourr")]
+	public partial class bon_retourr : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<System.DateTime> _date_com;
+		
+		private string _ref;
+		
+		private int _id_fournis;
+		
+		private string _desc_fournis;
+		
+		private System.Nullable<int> _id_lot;
+		
+		private string _desc_lot;
+		
+		private System.Nullable<decimal> _montant_ht;
+		
+		private System.Nullable<decimal> _montant_tva;
+		
+		private System.Nullable<decimal> _montant_ttc;
+		
+		private EntityRef<Fournisseur> _Fournisseur;
+		
+		private EntityRef<identification> _identification;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void Ondate_comChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_comChanged();
+    partial void OnrefChanging(string value);
+    partial void OnrefChanged();
+    partial void Onid_fournisChanging(int value);
+    partial void Onid_fournisChanged();
+    partial void Ondesc_fournisChanging(string value);
+    partial void Ondesc_fournisChanged();
+    partial void Onid_lotChanging(System.Nullable<int> value);
+    partial void Onid_lotChanged();
+    partial void Ondesc_lotChanging(string value);
+    partial void Ondesc_lotChanged();
+    partial void Onmontant_htChanging(System.Nullable<decimal> value);
+    partial void Onmontant_htChanged();
+    partial void Onmontant_tvaChanging(System.Nullable<decimal> value);
+    partial void Onmontant_tvaChanged();
+    partial void Onmontant_ttcChanging(System.Nullable<decimal> value);
+    partial void Onmontant_ttcChanged();
+    #endregion
+		
+		public bon_retourr()
+		{
+			this._Fournisseur = default(EntityRef<Fournisseur>);
+			this._identification = default(EntityRef<identification>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_com", DbType="Date")]
+		public System.Nullable<System.DateTime> date_com
+		{
+			get
+			{
+				return this._date_com;
+			}
+			set
+			{
+				if ((this._date_com != value))
+				{
+					this.Ondate_comChanging(value);
+					this.SendPropertyChanging();
+					this._date_com = value;
+					this.SendPropertyChanged("date_com");
+					this.Ondate_comChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ref", Storage="_ref", AutoSync=AutoSync.Always, DbType="VarChar(19)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string @ref
+		{
+			get
+			{
+				return this._ref;
+			}
+			set
+			{
+				if ((this._ref != value))
+				{
+					this.OnrefChanging(value);
+					this.SendPropertyChanging();
+					this._ref = value;
+					this.SendPropertyChanged("@ref");
+					this.OnrefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_fournis", DbType="Int NOT NULL")]
+		public int id_fournis
+		{
+			get
+			{
+				return this._id_fournis;
+			}
+			set
+			{
+				if ((this._id_fournis != value))
+				{
+					if (this._Fournisseur.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._id_fournis = value;
+					this.SendPropertyChanged("id_fournis");
+					this.Onid_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_fournis", DbType="VarChar(100)")]
+		public string desc_fournis
+		{
+			get
+			{
+				return this._desc_fournis;
+			}
+			set
+			{
+				if ((this._desc_fournis != value))
+				{
+					this.Ondesc_fournisChanging(value);
+					this.SendPropertyChanging();
+					this._desc_fournis = value;
+					this.SendPropertyChanged("desc_fournis");
+					this.Ondesc_fournisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lot", DbType="Int")]
+		public System.Nullable<int> id_lot
+		{
+			get
+			{
+				return this._id_lot;
+			}
+			set
+			{
+				if ((this._id_lot != value))
+				{
+					if (this._identification.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_lotChanging(value);
+					this.SendPropertyChanging();
+					this._id_lot = value;
+					this.SendPropertyChanged("id_lot");
+					this.Onid_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_lot", DbType="VarChar(100)")]
+		public string desc_lot
+		{
+			get
+			{
+				return this._desc_lot;
+			}
+			set
+			{
+				if ((this._desc_lot != value))
+				{
+					this.Ondesc_lotChanging(value);
+					this.SendPropertyChanging();
+					this._desc_lot = value;
+					this.SendPropertyChanged("desc_lot");
+					this.Ondesc_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ht", DbType="Money")]
+		public System.Nullable<decimal> montant_ht
+		{
+			get
+			{
+				return this._montant_ht;
+			}
+			set
+			{
+				if ((this._montant_ht != value))
+				{
+					this.Onmontant_htChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ht = value;
+					this.SendPropertyChanged("montant_ht");
+					this.Onmontant_htChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_tva", DbType="Money")]
+		public System.Nullable<decimal> montant_tva
+		{
+			get
+			{
+				return this._montant_tva;
+			}
+			set
+			{
+				if ((this._montant_tva != value))
+				{
+					this.Onmontant_tvaChanging(value);
+					this.SendPropertyChanging();
+					this._montant_tva = value;
+					this.SendPropertyChanged("montant_tva");
+					this.Onmontant_tvaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ttc", DbType="Money")]
+		public System.Nullable<decimal> montant_ttc
+		{
+			get
+			{
+				return this._montant_ttc;
+			}
+			set
+			{
+				if ((this._montant_ttc != value))
+				{
+					this.Onmontant_ttcChanging(value);
+					this.SendPropertyChanging();
+					this._montant_ttc = value;
+					this.SendPropertyChanged("montant_ttc");
+					this.Onmontant_ttcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_retourr", Storage="_Fournisseur", ThisKey="id_fournis", OtherKey="Idfournisseur", IsForeignKey=true)]
+		public Fournisseur Fournisseur
+		{
+			get
+			{
+				return this._Fournisseur.Entity;
+			}
+			set
+			{
+				Fournisseur previousValue = this._Fournisseur.Entity;
+				if (((previousValue != value) 
+							|| (this._Fournisseur.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fournisseur.Entity = null;
+						previousValue.bon_retourrs.Remove(this);
+					}
+					this._Fournisseur.Entity = value;
+					if ((value != null))
+					{
+						value.bon_retourrs.Add(this);
+						this._id_fournis = value.Idfournisseur;
+					}
+					else
+					{
+						this._id_fournis = default(int);
+					}
+					this.SendPropertyChanged("Fournisseur");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_retourr", Storage="_identification", ThisKey="id_lot", OtherKey="idlot", IsForeignKey=true)]
+		public identification identification
+		{
+			get
+			{
+				return this._identification.Entity;
+			}
+			set
+			{
+				identification previousValue = this._identification.Entity;
+				if (((previousValue != value) 
+							|| (this._identification.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._identification.Entity = null;
+						previousValue.bon_retourrs.Remove(this);
+					}
+					this._identification.Entity = value;
+					if ((value != null))
+					{
+						value.bon_retourrs.Add(this);
+						this._id_lot = value.idlot;
+					}
+					else
+					{
+						this._id_lot = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("identification");
 				}
 			}
 		}
@@ -2430,6 +4274,544 @@ namespace WindowsFormsApplication2
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fournisseur")]
+	public partial class Fournisseur : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Idfournisseur;
+		
+		private string _Intitulé;
+		
+		private string _Adresse;
+		
+		private string _Qualité;
+		
+		private string _Ville;
+		
+		private string _Contact;
+		
+		private string _Cp;
+		
+		private System.Nullable<int> _RC;
+		
+		private System.Nullable<int> _ICE;
+		
+		private System.Nullable<int> _NIF;
+		
+		private System.Nullable<int> _TP;
+		
+		private string _Telephone;
+		
+		private string _Fix;
+		
+		private string _Email;
+		
+		private string _website;
+		
+		private EntitySet<bon_avoir> _bon_avoirs;
+		
+		private EntitySet<bon_command> _bon_commands;
+		
+		private EntitySet<bon_facture> _bon_factures;
+		
+		private EntitySet<bon_recep> _bon_receps;
+		
+		private EntitySet<bon_retourr> _bon_retourrs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdfournisseurChanging(int value);
+    partial void OnIdfournisseurChanged();
+    partial void OnIntituléChanging(string value);
+    partial void OnIntituléChanged();
+    partial void OnAdresseChanging(string value);
+    partial void OnAdresseChanged();
+    partial void OnQualitéChanging(string value);
+    partial void OnQualitéChanged();
+    partial void OnVilleChanging(string value);
+    partial void OnVilleChanged();
+    partial void OnContactChanging(string value);
+    partial void OnContactChanged();
+    partial void OnCpChanging(string value);
+    partial void OnCpChanged();
+    partial void OnRCChanging(System.Nullable<int> value);
+    partial void OnRCChanged();
+    partial void OnICEChanging(System.Nullable<int> value);
+    partial void OnICEChanged();
+    partial void OnNIFChanging(System.Nullable<int> value);
+    partial void OnNIFChanged();
+    partial void OnTPChanging(System.Nullable<int> value);
+    partial void OnTPChanged();
+    partial void OnTelephoneChanging(string value);
+    partial void OnTelephoneChanged();
+    partial void OnFixChanging(string value);
+    partial void OnFixChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnwebsiteChanging(string value);
+    partial void OnwebsiteChanged();
+    #endregion
+		
+		public Fournisseur()
+		{
+			this._bon_avoirs = new EntitySet<bon_avoir>(new Action<bon_avoir>(this.attach_bon_avoirs), new Action<bon_avoir>(this.detach_bon_avoirs));
+			this._bon_commands = new EntitySet<bon_command>(new Action<bon_command>(this.attach_bon_commands), new Action<bon_command>(this.detach_bon_commands));
+			this._bon_factures = new EntitySet<bon_facture>(new Action<bon_facture>(this.attach_bon_factures), new Action<bon_facture>(this.detach_bon_factures));
+			this._bon_receps = new EntitySet<bon_recep>(new Action<bon_recep>(this.attach_bon_receps), new Action<bon_recep>(this.detach_bon_receps));
+			this._bon_retourrs = new EntitySet<bon_retourr>(new Action<bon_retourr>(this.attach_bon_retourrs), new Action<bon_retourr>(this.detach_bon_retourrs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idfournisseur", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Idfournisseur
+		{
+			get
+			{
+				return this._Idfournisseur;
+			}
+			set
+			{
+				if ((this._Idfournisseur != value))
+				{
+					this.OnIdfournisseurChanging(value);
+					this.SendPropertyChanging();
+					this._Idfournisseur = value;
+					this.SendPropertyChanged("Idfournisseur");
+					this.OnIdfournisseurChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Intitulé", DbType="VarChar(50)")]
+		public string Intitulé
+		{
+			get
+			{
+				return this._Intitulé;
+			}
+			set
+			{
+				if ((this._Intitulé != value))
+				{
+					this.OnIntituléChanging(value);
+					this.SendPropertyChanging();
+					this._Intitulé = value;
+					this.SendPropertyChanged("Intitulé");
+					this.OnIntituléChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adresse", DbType="VarChar(100)")]
+		public string Adresse
+		{
+			get
+			{
+				return this._Adresse;
+			}
+			set
+			{
+				if ((this._Adresse != value))
+				{
+					this.OnAdresseChanging(value);
+					this.SendPropertyChanging();
+					this._Adresse = value;
+					this.SendPropertyChanged("Adresse");
+					this.OnAdresseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Qualité", DbType="VarChar(50)")]
+		public string Qualité
+		{
+			get
+			{
+				return this._Qualité;
+			}
+			set
+			{
+				if ((this._Qualité != value))
+				{
+					this.OnQualitéChanging(value);
+					this.SendPropertyChanging();
+					this._Qualité = value;
+					this.SendPropertyChanged("Qualité");
+					this.OnQualitéChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ville", DbType="VarChar(50)")]
+		public string Ville
+		{
+			get
+			{
+				return this._Ville;
+			}
+			set
+			{
+				if ((this._Ville != value))
+				{
+					this.OnVilleChanging(value);
+					this.SendPropertyChanging();
+					this._Ville = value;
+					this.SendPropertyChanged("Ville");
+					this.OnVilleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contact", DbType="VarChar(50)")]
+		public string Contact
+		{
+			get
+			{
+				return this._Contact;
+			}
+			set
+			{
+				if ((this._Contact != value))
+				{
+					this.OnContactChanging(value);
+					this.SendPropertyChanging();
+					this._Contact = value;
+					this.SendPropertyChanged("Contact");
+					this.OnContactChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cp", DbType="VarChar(50)")]
+		public string Cp
+		{
+			get
+			{
+				return this._Cp;
+			}
+			set
+			{
+				if ((this._Cp != value))
+				{
+					this.OnCpChanging(value);
+					this.SendPropertyChanging();
+					this._Cp = value;
+					this.SendPropertyChanged("Cp");
+					this.OnCpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RC", DbType="Int")]
+		public System.Nullable<int> RC
+		{
+			get
+			{
+				return this._RC;
+			}
+			set
+			{
+				if ((this._RC != value))
+				{
+					this.OnRCChanging(value);
+					this.SendPropertyChanging();
+					this._RC = value;
+					this.SendPropertyChanged("RC");
+					this.OnRCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ICE", DbType="Int")]
+		public System.Nullable<int> ICE
+		{
+			get
+			{
+				return this._ICE;
+			}
+			set
+			{
+				if ((this._ICE != value))
+				{
+					this.OnICEChanging(value);
+					this.SendPropertyChanging();
+					this._ICE = value;
+					this.SendPropertyChanged("ICE");
+					this.OnICEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIF", DbType="Int")]
+		public System.Nullable<int> NIF
+		{
+			get
+			{
+				return this._NIF;
+			}
+			set
+			{
+				if ((this._NIF != value))
+				{
+					this.OnNIFChanging(value);
+					this.SendPropertyChanging();
+					this._NIF = value;
+					this.SendPropertyChanged("NIF");
+					this.OnNIFChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TP", DbType="Int")]
+		public System.Nullable<int> TP
+		{
+			get
+			{
+				return this._TP;
+			}
+			set
+			{
+				if ((this._TP != value))
+				{
+					this.OnTPChanging(value);
+					this.SendPropertyChanging();
+					this._TP = value;
+					this.SendPropertyChanged("TP");
+					this.OnTPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="VarChar(50)")]
+		public string Telephone
+		{
+			get
+			{
+				return this._Telephone;
+			}
+			set
+			{
+				if ((this._Telephone != value))
+				{
+					this.OnTelephoneChanging(value);
+					this.SendPropertyChanging();
+					this._Telephone = value;
+					this.SendPropertyChanged("Telephone");
+					this.OnTelephoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fix", DbType="VarChar(50)")]
+		public string Fix
+		{
+			get
+			{
+				return this._Fix;
+			}
+			set
+			{
+				if ((this._Fix != value))
+				{
+					this.OnFixChanging(value);
+					this.SendPropertyChanging();
+					this._Fix = value;
+					this.SendPropertyChanged("Fix");
+					this.OnFixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_website", DbType="VarChar(50)")]
+		public string website
+		{
+			get
+			{
+				return this._website;
+			}
+			set
+			{
+				if ((this._website != value))
+				{
+					this.OnwebsiteChanging(value);
+					this.SendPropertyChanging();
+					this._website = value;
+					this.SendPropertyChanged("website");
+					this.OnwebsiteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_avoir", Storage="_bon_avoirs", ThisKey="Idfournisseur", OtherKey="id_fournis")]
+		public EntitySet<bon_avoir> bon_avoirs
+		{
+			get
+			{
+				return this._bon_avoirs;
+			}
+			set
+			{
+				this._bon_avoirs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_command", Storage="_bon_commands", ThisKey="Idfournisseur", OtherKey="id_fournis")]
+		public EntitySet<bon_command> bon_commands
+		{
+			get
+			{
+				return this._bon_commands;
+			}
+			set
+			{
+				this._bon_commands.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_facture", Storage="_bon_factures", ThisKey="Idfournisseur", OtherKey="id_fournis")]
+		public EntitySet<bon_facture> bon_factures
+		{
+			get
+			{
+				return this._bon_factures;
+			}
+			set
+			{
+				this._bon_factures.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_recep", Storage="_bon_receps", ThisKey="Idfournisseur", OtherKey="id_fournis")]
+		public EntitySet<bon_recep> bon_receps
+		{
+			get
+			{
+				return this._bon_receps;
+			}
+			set
+			{
+				this._bon_receps.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_retourr", Storage="_bon_retourrs", ThisKey="Idfournisseur", OtherKey="id_fournis")]
+		public EntitySet<bon_retourr> bon_retourrs
+		{
+			get
+			{
+				return this._bon_retourrs;
+			}
+			set
+			{
+				this._bon_retourrs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_bon_avoirs(bon_avoir entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = this;
+		}
+		
+		private void detach_bon_avoirs(bon_avoir entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = null;
+		}
+		
+		private void attach_bon_commands(bon_command entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = this;
+		}
+		
+		private void detach_bon_commands(bon_command entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = null;
+		}
+		
+		private void attach_bon_factures(bon_facture entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = this;
+		}
+		
+		private void detach_bon_factures(bon_facture entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = null;
+		}
+		
+		private void attach_bon_receps(bon_recep entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = this;
+		}
+		
+		private void detach_bon_receps(bon_recep entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = null;
+		}
+		
+		private void attach_bon_retourrs(bon_retourr entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = this;
+		}
+		
+		private void detach_bon_retourrs(bon_retourr entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fournisseur = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.identification")]
 	public partial class identification : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2478,7 +4860,15 @@ namespace WindowsFormsApplication2
 		
 		private System.Nullable<int> _IdArchitecte;
 		
+		private EntitySet<bon_avoir> _bon_avoirs;
+		
 		private EntitySet<bon_command> _bon_commands;
+		
+		private EntitySet<bon_facture> _bon_factures;
+		
+		private EntitySet<bon_recep> _bon_receps;
+		
+		private EntitySet<bon_retourr> _bon_retourrs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2530,7 +4920,11 @@ namespace WindowsFormsApplication2
 		
 		public identification()
 		{
+			this._bon_avoirs = new EntitySet<bon_avoir>(new Action<bon_avoir>(this.attach_bon_avoirs), new Action<bon_avoir>(this.detach_bon_avoirs));
 			this._bon_commands = new EntitySet<bon_command>(new Action<bon_command>(this.attach_bon_commands), new Action<bon_command>(this.detach_bon_commands));
+			this._bon_factures = new EntitySet<bon_facture>(new Action<bon_facture>(this.attach_bon_factures), new Action<bon_facture>(this.detach_bon_factures));
+			this._bon_receps = new EntitySet<bon_recep>(new Action<bon_recep>(this.attach_bon_receps), new Action<bon_recep>(this.detach_bon_receps));
+			this._bon_retourrs = new EntitySet<bon_retourr>(new Action<bon_retourr>(this.attach_bon_retourrs), new Action<bon_retourr>(this.detach_bon_retourrs));
 			OnCreated();
 		}
 		
@@ -2954,6 +5348,19 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_avoir", Storage="_bon_avoirs", ThisKey="idlot", OtherKey="id_lot")]
+		public EntitySet<bon_avoir> bon_avoirs
+		{
+			get
+			{
+				return this._bon_avoirs;
+			}
+			set
+			{
+				this._bon_avoirs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_command", Storage="_bon_commands", ThisKey="idlot", OtherKey="id_lot")]
 		public EntitySet<bon_command> bon_commands
 		{
@@ -2964,6 +5371,45 @@ namespace WindowsFormsApplication2
 			set
 			{
 				this._bon_commands.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_facture", Storage="_bon_factures", ThisKey="idlot", OtherKey="id_lot")]
+		public EntitySet<bon_facture> bon_factures
+		{
+			get
+			{
+				return this._bon_factures;
+			}
+			set
+			{
+				this._bon_factures.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_recep", Storage="_bon_receps", ThisKey="idlot", OtherKey="id_lot")]
+		public EntitySet<bon_recep> bon_receps
+		{
+			get
+			{
+				return this._bon_receps;
+			}
+			set
+			{
+				this._bon_receps.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_retourr", Storage="_bon_retourrs", ThisKey="idlot", OtherKey="id_lot")]
+		public EntitySet<bon_retourr> bon_retourrs
+		{
+			get
+			{
+				return this._bon_retourrs;
+			}
+			set
+			{
+				this._bon_retourrs.Assign(value);
 			}
 		}
 		
@@ -2987,6 +5433,18 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
+		private void attach_bon_avoirs(bon_avoir entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = this;
+		}
+		
+		private void detach_bon_avoirs(bon_avoir entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = null;
+		}
+		
 		private void attach_bon_commands(bon_command entity)
 		{
 			this.SendPropertyChanging();
@@ -2994,6 +5452,42 @@ namespace WindowsFormsApplication2
 		}
 		
 		private void detach_bon_commands(bon_command entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = null;
+		}
+		
+		private void attach_bon_factures(bon_facture entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = this;
+		}
+		
+		private void detach_bon_factures(bon_facture entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = null;
+		}
+		
+		private void attach_bon_receps(bon_recep entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = this;
+		}
+		
+		private void detach_bon_receps(bon_recep entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = null;
+		}
+		
+		private void attach_bon_retourrs(bon_retourr entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = this;
+		}
+		
+		private void detach_bon_retourrs(bon_retourr entity)
 		{
 			this.SendPropertyChanging();
 			entity.identification = null;
@@ -3873,792 +6367,6 @@ namespace WindowsFormsApplication2
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bon_command")]
-	public partial class bon_command : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<System.DateTime> _date_com;
-		
-		private string _ref;
-		
-		private int _id_fournis;
-		
-		private string _desc_fournis;
-		
-		private System.Nullable<int> _id_lot;
-		
-		private string _desc_lot;
-		
-		private System.Nullable<decimal> _montant_ht;
-		
-		private System.Nullable<decimal> _montant_tva;
-		
-		private System.Nullable<decimal> _montant_ttc;
-		
-		private EntityRef<identification> _identification;
-		
-		private EntityRef<Fournisseur> _Fournisseur;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void Ondate_comChanging(System.Nullable<System.DateTime> value);
-    partial void Ondate_comChanged();
-    partial void OnrefChanging(string value);
-    partial void OnrefChanged();
-    partial void Onid_fournisChanging(int value);
-    partial void Onid_fournisChanged();
-    partial void Ondesc_fournisChanging(string value);
-    partial void Ondesc_fournisChanged();
-    partial void Onid_lotChanging(System.Nullable<int> value);
-    partial void Onid_lotChanged();
-    partial void Ondesc_lotChanging(string value);
-    partial void Ondesc_lotChanged();
-    partial void Onmontant_htChanging(System.Nullable<decimal> value);
-    partial void Onmontant_htChanged();
-    partial void Onmontant_tvaChanging(System.Nullable<decimal> value);
-    partial void Onmontant_tvaChanged();
-    partial void Onmontant_ttcChanging(System.Nullable<decimal> value);
-    partial void Onmontant_ttcChanged();
-    #endregion
-		
-		public bon_command()
-		{
-			this._identification = default(EntityRef<identification>);
-			this._Fournisseur = default(EntityRef<Fournisseur>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_com", DbType="Date")]
-		public System.Nullable<System.DateTime> date_com
-		{
-			get
-			{
-				return this._date_com;
-			}
-			set
-			{
-				if ((this._date_com != value))
-				{
-					this.Ondate_comChanging(value);
-					this.SendPropertyChanging();
-					this._date_com = value;
-					this.SendPropertyChanged("date_com");
-					this.Ondate_comChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ref", Storage="_ref", AutoSync=AutoSync.Always, DbType="VarChar(19)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public string @ref
-		{
-			get
-			{
-				return this._ref;
-			}
-			set
-			{
-				if ((this._ref != value))
-				{
-					this.OnrefChanging(value);
-					this.SendPropertyChanging();
-					this._ref = value;
-					this.SendPropertyChanged("@ref");
-					this.OnrefChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_fournis", DbType="Int NOT NULL")]
-		public int id_fournis
-		{
-			get
-			{
-				return this._id_fournis;
-			}
-			set
-			{
-				if ((this._id_fournis != value))
-				{
-					if (this._Fournisseur.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_fournisChanging(value);
-					this.SendPropertyChanging();
-					this._id_fournis = value;
-					this.SendPropertyChanged("id_fournis");
-					this.Onid_fournisChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_fournis", DbType="VarChar(100)")]
-		public string desc_fournis
-		{
-			get
-			{
-				return this._desc_fournis;
-			}
-			set
-			{
-				if ((this._desc_fournis != value))
-				{
-					this.Ondesc_fournisChanging(value);
-					this.SendPropertyChanging();
-					this._desc_fournis = value;
-					this.SendPropertyChanged("desc_fournis");
-					this.Ondesc_fournisChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lot", DbType="Int")]
-		public System.Nullable<int> id_lot
-		{
-			get
-			{
-				return this._id_lot;
-			}
-			set
-			{
-				if ((this._id_lot != value))
-				{
-					if (this._identification.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_lotChanging(value);
-					this.SendPropertyChanging();
-					this._id_lot = value;
-					this.SendPropertyChanged("id_lot");
-					this.Onid_lotChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_lot", DbType="VarChar(100)")]
-		public string desc_lot
-		{
-			get
-			{
-				return this._desc_lot;
-			}
-			set
-			{
-				if ((this._desc_lot != value))
-				{
-					this.Ondesc_lotChanging(value);
-					this.SendPropertyChanging();
-					this._desc_lot = value;
-					this.SendPropertyChanged("desc_lot");
-					this.Ondesc_lotChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ht", DbType="Money")]
-		public System.Nullable<decimal> montant_ht
-		{
-			get
-			{
-				return this._montant_ht;
-			}
-			set
-			{
-				if ((this._montant_ht != value))
-				{
-					this.Onmontant_htChanging(value);
-					this.SendPropertyChanging();
-					this._montant_ht = value;
-					this.SendPropertyChanged("montant_ht");
-					this.Onmontant_htChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_tva", DbType="Money")]
-		public System.Nullable<decimal> montant_tva
-		{
-			get
-			{
-				return this._montant_tva;
-			}
-			set
-			{
-				if ((this._montant_tva != value))
-				{
-					this.Onmontant_tvaChanging(value);
-					this.SendPropertyChanging();
-					this._montant_tva = value;
-					this.SendPropertyChanged("montant_tva");
-					this.Onmontant_tvaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montant_ttc", DbType="Money")]
-		public System.Nullable<decimal> montant_ttc
-		{
-			get
-			{
-				return this._montant_ttc;
-			}
-			set
-			{
-				if ((this._montant_ttc != value))
-				{
-					this.Onmontant_ttcChanging(value);
-					this.SendPropertyChanging();
-					this._montant_ttc = value;
-					this.SendPropertyChanged("montant_ttc");
-					this.Onmontant_ttcChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bon_command", Storage="_identification", ThisKey="id_lot", OtherKey="idlot", IsForeignKey=true)]
-		public identification identification
-		{
-			get
-			{
-				return this._identification.Entity;
-			}
-			set
-			{
-				identification previousValue = this._identification.Entity;
-				if (((previousValue != value) 
-							|| (this._identification.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._identification.Entity = null;
-						previousValue.bon_commands.Remove(this);
-					}
-					this._identification.Entity = value;
-					if ((value != null))
-					{
-						value.bon_commands.Add(this);
-						this._id_lot = value.idlot;
-					}
-					else
-					{
-						this._id_lot = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("identification");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_command", Storage="_Fournisseur", ThisKey="id_fournis", OtherKey="Idfournisseur", IsForeignKey=true)]
-		public Fournisseur Fournisseur
-		{
-			get
-			{
-				return this._Fournisseur.Entity;
-			}
-			set
-			{
-				Fournisseur previousValue = this._Fournisseur.Entity;
-				if (((previousValue != value) 
-							|| (this._Fournisseur.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fournisseur.Entity = null;
-						previousValue.bon_commands.Remove(this);
-					}
-					this._Fournisseur.Entity = value;
-					if ((value != null))
-					{
-						value.bon_commands.Add(this);
-						this._id_fournis = value.Idfournisseur;
-					}
-					else
-					{
-						this._id_fournis = default(int);
-					}
-					this.SendPropertyChanged("Fournisseur");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fournisseur")]
-	public partial class Fournisseur : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Idfournisseur;
-		
-		private string _Intitulé;
-		
-		private string _Adresse;
-		
-		private string _Qualité;
-		
-		private string _Ville;
-		
-		private string _Contact;
-		
-		private string _Cp;
-		
-		private System.Nullable<int> _RC;
-		
-		private System.Nullable<int> _ICE;
-		
-		private System.Nullable<int> _NIF;
-		
-		private System.Nullable<int> _TP;
-		
-		private string _Telephone;
-		
-		private string _Fix;
-		
-		private string _Email;
-		
-		private string _website;
-		
-		private EntitySet<bon_command> _bon_commands;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdfournisseurChanging(int value);
-    partial void OnIdfournisseurChanged();
-    partial void OnIntituléChanging(string value);
-    partial void OnIntituléChanged();
-    partial void OnAdresseChanging(string value);
-    partial void OnAdresseChanged();
-    partial void OnQualitéChanging(string value);
-    partial void OnQualitéChanged();
-    partial void OnVilleChanging(string value);
-    partial void OnVilleChanged();
-    partial void OnContactChanging(string value);
-    partial void OnContactChanged();
-    partial void OnCpChanging(string value);
-    partial void OnCpChanged();
-    partial void OnRCChanging(System.Nullable<int> value);
-    partial void OnRCChanged();
-    partial void OnICEChanging(System.Nullable<int> value);
-    partial void OnICEChanged();
-    partial void OnNIFChanging(System.Nullable<int> value);
-    partial void OnNIFChanged();
-    partial void OnTPChanging(System.Nullable<int> value);
-    partial void OnTPChanged();
-    partial void OnTelephoneChanging(string value);
-    partial void OnTelephoneChanged();
-    partial void OnFixChanging(string value);
-    partial void OnFixChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnwebsiteChanging(string value);
-    partial void OnwebsiteChanged();
-    #endregion
-		
-		public Fournisseur()
-		{
-			this._bon_commands = new EntitySet<bon_command>(new Action<bon_command>(this.attach_bon_commands), new Action<bon_command>(this.detach_bon_commands));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idfournisseur", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Idfournisseur
-		{
-			get
-			{
-				return this._Idfournisseur;
-			}
-			set
-			{
-				if ((this._Idfournisseur != value))
-				{
-					this.OnIdfournisseurChanging(value);
-					this.SendPropertyChanging();
-					this._Idfournisseur = value;
-					this.SendPropertyChanged("Idfournisseur");
-					this.OnIdfournisseurChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Intitulé", DbType="VarChar(50)")]
-		public string Intitulé
-		{
-			get
-			{
-				return this._Intitulé;
-			}
-			set
-			{
-				if ((this._Intitulé != value))
-				{
-					this.OnIntituléChanging(value);
-					this.SendPropertyChanging();
-					this._Intitulé = value;
-					this.SendPropertyChanged("Intitulé");
-					this.OnIntituléChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adresse", DbType="VarChar(100)")]
-		public string Adresse
-		{
-			get
-			{
-				return this._Adresse;
-			}
-			set
-			{
-				if ((this._Adresse != value))
-				{
-					this.OnAdresseChanging(value);
-					this.SendPropertyChanging();
-					this._Adresse = value;
-					this.SendPropertyChanged("Adresse");
-					this.OnAdresseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Qualité", DbType="VarChar(50)")]
-		public string Qualité
-		{
-			get
-			{
-				return this._Qualité;
-			}
-			set
-			{
-				if ((this._Qualité != value))
-				{
-					this.OnQualitéChanging(value);
-					this.SendPropertyChanging();
-					this._Qualité = value;
-					this.SendPropertyChanged("Qualité");
-					this.OnQualitéChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ville", DbType="VarChar(50)")]
-		public string Ville
-		{
-			get
-			{
-				return this._Ville;
-			}
-			set
-			{
-				if ((this._Ville != value))
-				{
-					this.OnVilleChanging(value);
-					this.SendPropertyChanging();
-					this._Ville = value;
-					this.SendPropertyChanged("Ville");
-					this.OnVilleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contact", DbType="VarChar(50)")]
-		public string Contact
-		{
-			get
-			{
-				return this._Contact;
-			}
-			set
-			{
-				if ((this._Contact != value))
-				{
-					this.OnContactChanging(value);
-					this.SendPropertyChanging();
-					this._Contact = value;
-					this.SendPropertyChanged("Contact");
-					this.OnContactChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cp", DbType="VarChar(50)")]
-		public string Cp
-		{
-			get
-			{
-				return this._Cp;
-			}
-			set
-			{
-				if ((this._Cp != value))
-				{
-					this.OnCpChanging(value);
-					this.SendPropertyChanging();
-					this._Cp = value;
-					this.SendPropertyChanged("Cp");
-					this.OnCpChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RC", DbType="Int")]
-		public System.Nullable<int> RC
-		{
-			get
-			{
-				return this._RC;
-			}
-			set
-			{
-				if ((this._RC != value))
-				{
-					this.OnRCChanging(value);
-					this.SendPropertyChanging();
-					this._RC = value;
-					this.SendPropertyChanged("RC");
-					this.OnRCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ICE", DbType="Int")]
-		public System.Nullable<int> ICE
-		{
-			get
-			{
-				return this._ICE;
-			}
-			set
-			{
-				if ((this._ICE != value))
-				{
-					this.OnICEChanging(value);
-					this.SendPropertyChanging();
-					this._ICE = value;
-					this.SendPropertyChanged("ICE");
-					this.OnICEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIF", DbType="Int")]
-		public System.Nullable<int> NIF
-		{
-			get
-			{
-				return this._NIF;
-			}
-			set
-			{
-				if ((this._NIF != value))
-				{
-					this.OnNIFChanging(value);
-					this.SendPropertyChanging();
-					this._NIF = value;
-					this.SendPropertyChanged("NIF");
-					this.OnNIFChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TP", DbType="Int")]
-		public System.Nullable<int> TP
-		{
-			get
-			{
-				return this._TP;
-			}
-			set
-			{
-				if ((this._TP != value))
-				{
-					this.OnTPChanging(value);
-					this.SendPropertyChanging();
-					this._TP = value;
-					this.SendPropertyChanged("TP");
-					this.OnTPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="VarChar(50)")]
-		public string Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this.OnTelephoneChanging(value);
-					this.SendPropertyChanging();
-					this._Telephone = value;
-					this.SendPropertyChanged("Telephone");
-					this.OnTelephoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fix", DbType="VarChar(50)")]
-		public string Fix
-		{
-			get
-			{
-				return this._Fix;
-			}
-			set
-			{
-				if ((this._Fix != value))
-				{
-					this.OnFixChanging(value);
-					this.SendPropertyChanging();
-					this._Fix = value;
-					this.SendPropertyChanged("Fix");
-					this.OnFixChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_website", DbType="VarChar(50)")]
-		public string website
-		{
-			get
-			{
-				return this._website;
-			}
-			set
-			{
-				if ((this._website != value))
-				{
-					this.OnwebsiteChanging(value);
-					this.SendPropertyChanging();
-					this._website = value;
-					this.SendPropertyChanged("website");
-					this.OnwebsiteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fournisseur_bon_command", Storage="_bon_commands", ThisKey="Idfournisseur", OtherKey="id_fournis")]
-		public EntitySet<bon_command> bon_commands
-		{
-			get
-			{
-				return this._bon_commands;
-			}
-			set
-			{
-				this._bon_commands.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_bon_commands(bon_command entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fournisseur = this;
-		}
-		
-		private void detach_bon_commands(bon_command entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fournisseur = null;
 		}
 	}
 }
