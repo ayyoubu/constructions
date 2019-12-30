@@ -25,9 +25,7 @@ namespace WindowsFormsApplication2
         private void button1_Click(object sender, EventArgs e)
         {
              
-       bon_command u = new bon_command();
-            panel3.Controls.Clear();
-            u.Parent = panel3;
+    
         }
 
         private void button2_Click(object sender, EventArgs e)

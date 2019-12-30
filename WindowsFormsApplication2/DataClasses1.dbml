@@ -1,9 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="construction" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=construction;Integrated Security=True" SettingsObjectName="WindowsFormsApplication2.Properties.Settings" SettingsPropertyName="constructionConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Cat_remun" Member="Cat_remuns">
-    <Type Name="Cat_remun">
-      <Column Name="idcatrem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="intitule" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+  <Table Name="dbo.Apropos" Member="Apropos">
+    <Type Name="Apropo">
+      <Column Name="Idapropos" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Qualité" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ville" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NIF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="logo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Unite" Member="Unites">
+    <Type Name="Unite">
+      <Column Name="idunite" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Architecte" Member="Architectes">
@@ -15,12 +35,6 @@
       <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Unite" Member="Unites">
-    <Type Name="Unite">
-      <Column Name="idunite" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.bien" Member="biens">
@@ -66,10 +80,29 @@
       <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Cat_remun" Member="Cat_remun1s">
-    <Type Name="Cat_remun1">
+  <Table Name="dbo.Cat_remun" Member="Cat_remuns">
+    <Type Name="Cat_remun">
       <Column Name="idcatrem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intitule" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="Idclient" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Qualité" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ville" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NIF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.code_tax" Member="code_taxes">
@@ -83,6 +116,32 @@
       <Column Name="idfamille" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="idcatbien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.identification" Member="identifications">
+    <Type Name="identification">
+      <Column Name="idlot" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Référence_Plan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Référence_lot" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Référence_de_contrat" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Datecontrat" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PérdiodeD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PérdiodeF" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Opération" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Localisation" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Total_Marché_HT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TVA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Total_Marché_TTC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Taux_de_Prorata" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Taux_de_garantie" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Taux_dassurance" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="idClient" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdMaitrete" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idsoustraitant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdBureau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdLaboratoire" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdArchitecte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="identification_bon_command" Member="bon_commands" ThisKey="idlot" OtherKey="id_lot" Type="bon_command" />
     </Type>
   </Table>
   <Table Name="dbo.labo" Member="labos">
@@ -136,43 +195,20 @@
       <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Apropos" Member="Apropos">
-    <Type Name="Apropo">
-      <Column Name="Idapropos" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Qualité" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Ville" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Cp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="RC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NIF" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="logo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Client" Member="Clients">
-    <Type Name="Client">
-      <Column Name="Idclient" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Intitulé" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Adresse" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Qualité" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Ville" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Cp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="RC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NIF" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+  <Table Name="dbo.bon_command" Member="bon_commands">
+    <Type Name="bon_command">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date_com" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ref" Type="System.String" DbType="VarChar(19)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="id_fournis" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_fournis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montant_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_tva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="montant_ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="identification_bon_command" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
+      <Association Name="Fournisseur_bon_command" Member="Fournisseur" ThisKey="id_fournis" OtherKey="Idfournisseur" Type="Fournisseur" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Fournisseur" Member="Fournisseurs">
@@ -192,31 +228,7 @@
       <Column Name="Fix" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.identification" Member="identifications">
-    <Type Name="identification">
-      <Column Name="idlot" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Référence_Plan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Référence_lot" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Référence_de_contrat" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Datecontrat" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PérdiodeD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="PérdiodeF" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Opération" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Localisation" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Total_Marché_HT" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TVA" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Total_Marché_TTC" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Taux_de_Prorata" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Taux_de_garantie" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Taux_dassurance" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="idClient" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdMaitrete" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idsoustraitant" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdBureau" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdLaboratoire" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdArchitecte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Fournisseur_bon_command" Member="bon_commands" ThisKey="Idfournisseur" OtherKey="id_fournis" Type="bon_command" />
     </Type>
   </Table>
 </Database>

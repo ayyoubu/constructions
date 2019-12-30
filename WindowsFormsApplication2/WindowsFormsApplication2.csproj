@@ -69,12 +69,6 @@
       <DependentUpon>avoir.cs</DependentUpon>
     </Compile>
     <Compile Include="Bien_model.cs" />
-    <Compile Include="bon_command.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="bon_command.Designer.cs">
-      <DependentUpon>bon_command.cs</DependentUpon>
-    </Compile>
     <Compile Include="bon_reception.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -515,9 +509,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="avoir.resx">
       <DependentUpon>avoir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bon_command.resx">
-      <DependentUpon>bon_command.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bon_reception.resx">
       <DependentUpon>bon_reception.cs</DependentUpon>

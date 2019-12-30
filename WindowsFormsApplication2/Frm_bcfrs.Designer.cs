@@ -39,8 +39,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txt_fournis = new System.Windows.Forms.TextBox();
             this.txt_lot = new System.Windows.Forms.TextBox();
-            this.combo_frns = new System.Windows.Forms.ComboBox();
-            this.comb_lot = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,6 +70,10 @@
             this.txt_montant = new System.Windows.Forms.TextBox();
             this.txt_pu = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label_id_lot = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -193,25 +195,6 @@
             this.txt_lot.Name = "txt_lot";
             this.txt_lot.Size = new System.Drawing.Size(370, 20);
             this.txt_lot.TabIndex = 20;
-            // 
-            // combo_frns
-            // 
-            this.combo_frns.FormattingEnabled = true;
-            this.combo_frns.Location = new System.Drawing.Point(161, 113);
-            this.combo_frns.Name = "combo_frns";
-            this.combo_frns.Size = new System.Drawing.Size(168, 21);
-            this.combo_frns.TabIndex = 21;
-            this.combo_frns.Text = "Choisi un fournisseur";
-            this.combo_frns.SelectedIndexChanged += new System.EventHandler(this.combo_frns_SelectedIndexChanged);
-            // 
-            // comb_lot
-            // 
-            this.comb_lot.FormattingEnabled = true;
-            this.comb_lot.Location = new System.Drawing.Point(161, 166);
-            this.comb_lot.Name = "comb_lot";
-            this.comb_lot.Size = new System.Drawing.Size(168, 21);
-            this.comb_lot.TabIndex = 22;
-            this.comb_lot.SelectedIndexChanged += new System.EventHandler(this.comb_lot_SelectedIndexChanged);
             // 
             // dateTimePicker1
             // 
@@ -343,6 +326,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label_id_lot);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button15);
             this.groupBox1.Controls.Add(this.button14);
             this.groupBox1.Controls.Add(this.txt1);
@@ -379,7 +366,7 @@
             this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(328, 81);
+            this.button14.Location = new System.Drawing.Point(328, 77);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(22, 18);
             this.button14.TabIndex = 42;
@@ -389,6 +376,7 @@
             // 
             // txt1
             // 
+            this.txt1.Enabled = false;
             this.txt1.Location = new System.Drawing.Point(154, 46);
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(168, 23);
@@ -435,6 +423,7 @@
             this.txt_ref.TabIndex = 42;
             this.txt_ref.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.txt_ref.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
+            this.txt_ref.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_ref_PreviewKeyDown);
             // 
             // txt_desc
             // 
@@ -474,6 +463,7 @@
             this.dataGridView1.TabIndex = 67;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // idcmd
             // 
@@ -509,6 +499,7 @@
             this.txt_montant.Name = "txt_montant";
             this.txt_montant.Size = new System.Drawing.Size(117, 20);
             this.txt_montant.TabIndex = 68;
+            this.txt_montant.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_montant_PreviewKeyDown);
             // 
             // txt_pu
             // 
@@ -532,6 +523,40 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(154, 75);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(168, 23);
+            this.textBox1.TabIndex = 71;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(356, 74);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(0, 19);
+            this.label14.TabIndex = 72;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(154, 130);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(168, 23);
+            this.textBox2.TabIndex = 73;
+            // 
+            // label_id_lot
+            // 
+            this.label_id_lot.AutoSize = true;
+            this.label_id_lot.Location = new System.Drawing.Point(360, 134);
+            this.label_id_lot.Name = "label_id_lot";
+            this.label_id_lot.Size = new System.Drawing.Size(0, 16);
+            this.label_id_lot.TabIndex = 74;
+            this.label_id_lot.Visible = false;
+            // 
             // Frm_bcfrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,8 +572,6 @@
             this.Controls.Add(this.txt_ref);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.comb_lot);
-            this.Controls.Add(this.combo_frns);
             this.Controls.Add(this.txt_lot);
             this.Controls.Add(this.txt_fournis);
             this.Controls.Add(this.label6);
@@ -590,8 +613,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_fournis;
         private System.Windows.Forms.TextBox txt_lot;
-        private System.Windows.Forms.ComboBox combo_frns;
-        private System.Windows.Forms.ComboBox comb_lot;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -623,5 +644,9 @@
         private System.Windows.Forms.TextBox txt_montant;
         private System.Windows.Forms.TextBox txt_pu;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label_id_lot;
     }
 }

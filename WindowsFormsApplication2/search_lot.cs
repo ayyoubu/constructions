@@ -25,6 +25,9 @@ namespace WindowsFormsApplication2
         }
         public string id;
         public string desc;
+        public string r_id;
+
+
         private void button3_Click(object sender, EventArgs e)
         {
             Frm_frs s = new Frm_frs();
@@ -53,7 +56,7 @@ namespace WindowsFormsApplication2
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("select Référence_lot 'ID' , Opération from identification f  where f.Référence_lot like '%" + textBox1.Text + "%' or f.Opération like '%" + textBox1.Text + "%'  ", c.cnx);
+                SqlCommand cmd = new SqlCommand("select idlot 'ID' , Référence_lot 'Réference',  Opération from identification f  where f.Référence_lot like '%" + textBox1.Text + "%' or f.Opération like '%" + textBox1.Text + "%'  ", c.cnx);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -76,7 +79,7 @@ namespace WindowsFormsApplication2
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("select Référence_lot 'ID' , Opération from identification  ", c.cnx);
+                SqlCommand cmd = new SqlCommand("select idlot 'ID' , Référence_lot 'Réference',  Opération from identification  ", c.cnx);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -90,13 +93,61 @@ namespace WindowsFormsApplication2
             try
             {
                 int i = dataGridView1.CurrentCell.RowIndex;
-                id = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                id = dataGridView1.Rows[i].Cells[2].Value.ToString();
                 desc = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                r_id = dataGridView1.Rows[i].Cells[0].Value.ToString();
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch { }
 
+
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int i = dataGridView1.CurrentCell.RowIndex;
+                id = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                desc = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                r_id = dataGridView1.Rows[i].Cells[0].Value.ToString();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch { }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int i = dataGridView1.CurrentCell.RowIndex;
+                id = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                desc = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                r_id = dataGridView1.Rows[i].Cells[0].Value.ToString();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch { }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int i = dataGridView1.CurrentCell.RowIndex;
+                id = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                desc = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                r_id = dataGridView1.Rows[i].Cells[0].Value.ToString();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch { }
 
         }
     }

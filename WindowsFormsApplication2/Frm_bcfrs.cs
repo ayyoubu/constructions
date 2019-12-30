@@ -22,24 +22,34 @@ namespace WindowsFormsApplication2
         {
 
         }
-
+        bool valid = false;
         private void button1_Click(object sender, EventArgs e)
         {
-           if(dataGridView1.Rows.Count>0)
+       
+            if (dataGridView1.Rows.Count > 0 && !valid)
             {
                 try
                 {
-                    DialogResult res = MessageBox.Show("Veuillez-vous évidemment valider cette opération ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (res == DialogResult.OK)
+                    DialogResult res = MessageBox.Show("Veuillez-vous évidemment valider cette opération ?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
                     {
-                       //valider
-                        //save to database
+                        valider();
+                        this.Close();
 
-                        
+
+                    }else if (res == DialogResult.No)
+                    {
+                        this.Close();
                     }
-                
+
+
                 }
                 catch { }
+            }
+            else
+            {
+                this.Close();
+              
             }
         }
 
@@ -52,8 +62,11 @@ namespace WindowsFormsApplication2
             {
                 if (s.ShowDialog() == DialogResult.OK)
                 {
-                    combo_frns.SelectedText = s.id;
-                    combo_frns.SelectedValue = s.desc;
+                    //combo_frns.SelectedText = s.id;
+                    //combo_frns.SelectedValue = s.desc;
+
+                    textBox1.Text = s.id;
+                    txt_fournis.Text = s.desc;
                 }
             }
             catch { }
@@ -161,29 +174,15 @@ namespace WindowsFormsApplication2
             try
             {
 
-                //article_usercontrol u = new article_usercontrol(txt_ref.Text,txt_desc.Text,txt_qte.Text);
-                //u.Tag = user_c;
-                //user_c++;
-                //u_list.Add(u);
-                //calc_ht();
 
-                //u.StatusUpdated += new EventHandler(MyEventHandlerFunction_StatusUpdated);
-                //u.deleted += new EventHandler(MyEventHandlerFunction_deleted);
-
-                //bien bn = dc.biens.Single(b => b.idbien == int.Parse(txt_ref.Text));
-
-                //calc_biens(Convert.ToDouble(bn.Tva), Convert.ToDouble(bn.PATTC));
                 if (!isepty())
                 {
                     if (!existed_bien(txt_ref.Text))
                     {
                         add_item();
                         calc_totals();
-                        txt_montant.Text = "";
-                        txt_pu.Text = "";
-                        txt_qte.Text = "";
-                        txt_desc.Text = "";
-                        txt_ref.Text = "";
+                        vider();
+                        valid = false;
                     }
                     else
                     {
@@ -199,6 +198,16 @@ namespace WindowsFormsApplication2
             catch { }
 
         }
+
+        private void vider()
+        {
+            txt_montant.Text = "";
+            txt_pu.Text = "";
+            txt_qte.Text = "";
+            txt_desc.Text = "";
+            txt_ref.Text = "";
+        }
+
         public bool isepty()
         {
             bool check = true;
@@ -208,8 +217,7 @@ namespace WindowsFormsApplication2
         }
         private void edit_item()
         {
-
-            int i = -1;
+            try { int i = -1;
             for (int j = 0; j < dataGridView1.Rows.Count; j++)
             {
                 if (dataGridView1.Rows[j].Cells[0].Value.ToString() == txt_ref.Text)
@@ -222,7 +230,10 @@ namespace WindowsFormsApplication2
             dataGridView1.Rows[i].Cells[2].Value = txt_qte.Text;
             dataGridView1.Rows[i].Cells[3].Value = txt_pu.Text;
             dataGridView1.Rows[i].Cells[4].Value = txt_montant.Text;
-
+            vider();
+            }
+            catch { }
+           
 
         }
 
@@ -281,7 +292,29 @@ namespace WindowsFormsApplication2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            calc_ht();
+            valider();
+           
+        }
+
+        private void valider()
+        {
+            try
+            {
+                bon_command bn = new bon_command();
+                bn.date_com = dateTimePicker1.Value;
+                bn.desc_fournis = txt_fournis.Text;
+                bn.desc_lot = txt_lot.Text;
+                bn.id_fournis = Convert.ToInt32(textBox1.Text);
+                bn.id_lot = Convert.ToInt32(label_id_lot.Text);
+                bn.montant_ht = Convert.ToDecimal(txt_total_ht.Text);
+                bn.montant_ttc = Convert.ToDecimal(txt_total_ttc.Text);
+                bn.montant_tva = Convert.ToDecimal(txt_total_tva.Text);
+
+                dc.bon_commands.InsertOnSubmit(bn);
+                dc.SubmitChanges();
+                valid = true;
+            }
+            catch { }
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -292,8 +325,13 @@ namespace WindowsFormsApplication2
                 if (s.ShowDialog() == DialogResult.OK)
                 {
 
-                    comb_lot.SelectedText = s.id;
-                    comb_lot.SelectedValue = s.desc;
+                    //comb_lot.SelectedText = s.id;
+                    //comb_lot.SelectedValue = s.desc;
+                    //comb_lot.SelectedValue = s.r_id;
+                    textBox2.Text = s.desc;
+                    txt_lot.Text = s.id;
+                    label_id_lot.Text = s.r_id;
+
                 }
             }
             catch { }
@@ -308,14 +346,14 @@ namespace WindowsFormsApplication2
             try
             {
 
-                SqlCommand cmd = new SqlCommand("select * from Fournisseur", c.cnx);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                //SqlCommand cmd = new SqlCommand("select * from Fournisseur", c.cnx);
+                //SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //DataTable dt = new DataTable();
+                //da.Fill(dt);
 
-                combo_frns.DataSource = dt;
-                combo_frns.ValueMember = "Intitulé";
-                combo_frns.DisplayMember = "Idfournisseur";
+                //combo_frns.DataSource = dt;
+                //combo_frns.ValueMember = "Intitulé";
+                //combo_frns.DisplayMember = "Idfournisseur";
             }
             catch
             { }
@@ -326,14 +364,14 @@ namespace WindowsFormsApplication2
             try
             {
 
-                SqlCommand cmd = new SqlCommand("select * from identification", c.cnx);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                //SqlCommand cmd = new SqlCommand("select * from identification", c.cnx);
+                //SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //DataTable dt = new DataTable();
+                //da.Fill(dt);
 
-                comb_lot.DataSource = dt;
-                comb_lot.ValueMember = "Opération";
-                comb_lot.DisplayMember = "Référence_lot";
+                //comb_lot.DataSource = dt;
+                //comb_lot.ValueMember = "Opération";
+                //comb_lot.DisplayMember = "Référence_lot";
             }
             catch
             { }
@@ -342,14 +380,20 @@ namespace WindowsFormsApplication2
 
         private void Frm_bcfrs_Load(object sender, EventArgs e)
         {
-            this.txt_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnterKeyPress);
+            try {     this.txt_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnterKeyPress);
+         
+                int count=0;
+            SqlCommand cmd = new SqlCommand("select * from bon_command ", c.cnx);
+            SqlDataReader dr = cmd.ExecuteReader();
+          while(  dr.Read())
+                {
 
-
-            fill_fournis();
-
-            fill_lot();
-
-
+                    count++;
+            }dr.Close();
+            txt1.Text = "BC-"+(count+1)  ;
+            }
+            catch { }
+        
         }
         private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
@@ -371,6 +415,8 @@ namespace WindowsFormsApplication2
                             txt_qte.Text = "";
                             txt_desc.Text = "";
                             txt_ref.Text = "";
+                            valid = false;
+                            vider();
                         }
                         else
                         {
@@ -396,8 +442,8 @@ namespace WindowsFormsApplication2
                     if (txt_desc.Text != "")
                     {
 
-                        string idd = txt_desc.Text;
-                        article_template f = new article_template(idd, "inti");
+                        string idd = txt_ref.Text;
+                        article_template f = new article_template(idd, "id");
 
                         if (f.ShowDialog() == DialogResult.OK)
                         {
@@ -423,12 +469,12 @@ namespace WindowsFormsApplication2
 
         private void combo_frns_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txt_fournis.Text = combo_frns.SelectedValue.ToString();
+            //txt_fournis.Text = combo_frns.SelectedValue.ToString();
         }
 
         private void comb_lot_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txt_lot.Text = comb_lot.SelectedValue.ToString();
+            //txt_lot.Text = comb_lot.SelectedValue.ToString();
 
         }
 
@@ -604,8 +650,15 @@ namespace WindowsFormsApplication2
         {
             try
             {
-                j = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows.RemoveAt(i);
+                DialogResult res = MessageBox.Show("Veuillez-vous voulez-vous vraiment supprimer ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    j = dataGridView1.CurrentCell.RowIndex;
+                    dataGridView1.Rows.RemoveAt(i);
+                    vider();
+
+                }
+               
             }
             catch { }
 
@@ -613,17 +666,63 @@ namespace WindowsFormsApplication2
 
         private void txt_qte_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            if (e.KeyData == Keys.Enter)
+
+            {
+                try
+                {
+
+
+                    if (!isepty())
+                    {
+                        if (!existed_bien(txt_ref.Text))
+                        {
+                            add_item();
+                            calc_totals();
+                            txt_montant.Text = "";
+                            txt_pu.Text = "";
+                            txt_qte.Text = "";
+                            txt_desc.Text = "";
+                            txt_ref.Text = "";
+                            valid = false;
+                            vider();
+                        }
+                        else
+                        {
+
+                            edit_item();
+                            calc_totals();
+                            vider();
+
+                        }
+                    }
+
+
+                }
+                catch { }
+
+            }
+        }
+        
+
+        private void txt_pu_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
+        }
+
+        private void txt_ref_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
             if (e.KeyData == Keys.Tab)
             {
 
                 try
                 {
 
-                    if (txt_desc.Text != "")
+                    if (txt_ref.Text != "")
                     {
 
-                        string idd = txt_desc.Text;
-                        article_template f = new article_template(idd, "inti");
+                        string idd = txt_ref.Text;
+                        article_template f = new article_template(idd, "id");
 
                         if (f.ShowDialog() == DialogResult.OK)
                         {
@@ -646,9 +745,57 @@ namespace WindowsFormsApplication2
             }
         }
 
-        private void txt_pu_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void txt_montant_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            if (e.KeyData == Keys.Enter)
 
+            {
+                try
+                {
+
+
+                    if (!isepty())
+                    {
+                        if (!existed_bien(txt_ref.Text))
+                        {
+                            add_item();
+                            calc_totals();
+                            txt_montant.Text = "";
+                            txt_pu.Text = "";
+                            txt_qte.Text = "";
+                            txt_desc.Text = "";
+                            txt_ref.Text = "";
+                            valid = false;
+                            vider();
+                        }
+                        else
+                        {
+
+                            edit_item();
+                            calc_totals();
+
+                        }
+                    }
+
+
+                }
+                catch { }
+
+            }
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                i = dataGridView1.CurrentCell.RowIndex;
+                txt_ref.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                txt_desc.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                txt_qte.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                txt_pu.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                txt_montant.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            }
+            catch { }
         }
     }
 }
