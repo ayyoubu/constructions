@@ -46,6 +46,8 @@
       <Column Name="PAHT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Tva" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="PATTC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="qte_min" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="bien_stock" Member="stocks" ThisKey="idbien" OtherKey="reff_bien" Type="stock" />
     </Type>
   </Table>
   <Table Name="dbo.bon_avoir" Member="bon_avoirs">
@@ -130,11 +132,12 @@
   </Table>
   <Table Name="dbo.bordoreau" Member="bordoreaus">
     <Type Name="bordoreau">
-      <Column Name="idtache" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TachePrimaire" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Tachesecondaire" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Tauxsecondaire" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Montantsecondaire" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_lot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="operation" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="tach_glob" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="bordoreau_tache_pre" Member="tache_pres" ThisKey="id" OtherKey="id_tachglob" Type="tache_pre" />
+      <Association Name="identification_bordoreau" Member="identification" ThisKey="id_lot" OtherKey="idlot" Type="identification" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.bureau" Member="bureaus">
@@ -196,6 +199,7 @@
       <Column Name="idfamille" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="idcatbien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Famille_stock" Member="stocks" ThisKey="idfamille" OtherKey="fam_bien" Type="stock" />
     </Type>
   </Table>
   <Table Name="dbo.Fournisseur" Member="Fournisseurs">
@@ -250,6 +254,7 @@
       <Association Name="identification_bon_facture" Member="bon_factures" ThisKey="idlot" OtherKey="id_lot" Type="bon_facture" />
       <Association Name="identification_bon_recep" Member="bon_receps" ThisKey="idlot" OtherKey="id_lot" Type="bon_recep" />
       <Association Name="identification_bon_retourr" Member="bon_retourrs" ThisKey="idlot" OtherKey="id_lot" Type="bon_retourr" />
+      <Association Name="identification_bordoreau" Member="bordoreaus" ThisKey="idlot" OtherKey="id_lot" Type="bordoreau" />
     </Type>
   </Table>
   <Table Name="dbo.labo" Member="labos">
@@ -288,7 +293,7 @@
       <Column Name="idlot" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Dt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="designation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="img" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="img" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="dbo.Poste" Member="Postes">
@@ -297,10 +302,46 @@
       <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.stock" Member="stocks">
+    <Type Name="stock">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ref_lot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="reff_bien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_bien" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="qte_stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qte_min" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cat_bien" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="fam_bien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idunite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pa_ht" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ttc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Famille_stock" Member="Famille" ThisKey="fam_bien" OtherKey="idfamille" Type="Famille" IsForeignKey="true" />
+      <Association Name="bien_stock" Member="bien" ThisKey="reff_bien" OtherKey="idbien" Type="bien" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Tach_glob" Member="Tach_globs">
     <Type Name="Tach_glob">
       <Column Name="idtachglob" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="intitule" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tache_pre" Member="tache_pres">
+    <Type Name="tache_pre">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_tachglob" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="tache_pre_tache_secon" Member="tache_secons" ThisKey="id" OtherKey="tache_pre" Type="tache_secon" />
+      <Association Name="bordoreau_tache_pre" Member="bordoreau" ThisKey="id_tachglob" OtherKey="id" Type="bordoreau" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tache_secon" Member="tache_secons">
+    <Type Name="tache_secon">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tache_pre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="desc_" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Tauxsecondaire" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Montantsecondaire" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="tache_pre_tache_secon" Member="tache_pre1" ThisKey="tache_pre" OtherKey="id" Type="tache_pre" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

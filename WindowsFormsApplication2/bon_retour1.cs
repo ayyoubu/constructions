@@ -302,14 +302,14 @@ namespace WindowsFormsApplication2
 
         private void valider()
         {
-            try
-            {
+            //try
+            //{
                 bon_retourr bn = new bon_retourr();
                 bn.date_com = dateTimePicker1.Value;
                 bn.desc_fournis = txt_fournis.Text;
                 bn.desc_lot = txt_lot.Text;
                 bn.id_fournis = Convert.ToInt32(textBox1.Text);
-                bn.id_lot = Convert.ToInt32(label_id_lot.Text);
+                bn.id_lot = Convert.ToInt32(textBox2.Text);
                 bn.montant_ht = Convert.ToDecimal(txt_total_ht.Text);
                 bn.montant_ttc = Convert.ToDecimal(txt_total_ttc.Text);
                 bn.montant_tva = Convert.ToDecimal(txt_total_tva.Text);
@@ -318,9 +318,43 @@ namespace WindowsFormsApplication2
                 dc.SubmitChanges();
                 
                 valid = true;
+                //add to stock
+                bool check_st = true;
+                stock st_test = null;
+                try
+                {
+                    st_test = dc.stocks.Single(bi => bi.reff_bien == Convert.ToInt32(dataGridView1[0, j].Value.ToString()));
 
-            }
-            catch { }
+                }
+                catch
+                {
+                    check_st = false;
+                }
+
+                if (!check_st)
+                {
+                   
+                }
+                else
+                {
+                    MessageBox.Show("stock quantité updated");
+                    if (st_test.qte_stock > 0)
+                        st_test.qte_stock -= Convert.ToInt32(dataGridView1[2, j].Value.ToString());
+                    else
+                        dc.stocks.DeleteOnSubmit(st_test);
+                    dc.SubmitChanges();
+                }
+
+                this.Close();
+            
+
+
+
+
+
+
+            //}
+            //catch { }
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -334,9 +368,9 @@ namespace WindowsFormsApplication2
                     //comb_lot.SelectedText = s.id;
                     //comb_lot.SelectedValue = s.desc;
                     //comb_lot.SelectedValue = s.r_id;
-                    textBox2.Text = s.desc;
-                    txt_lot.Text = s.id;
-                    label_id_lot.Text = s.r_id;
+                    textBox2.Text = s.r_id;
+                    txt_lot.Text = s.desc;
+  
 
                 }
             }

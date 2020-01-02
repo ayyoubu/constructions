@@ -331,7 +331,7 @@ namespace WindowsFormsApplication2
                     //comb_lot.SelectedValue = s.r_id;
                     textBox2.Text = s.desc;
                     txt_lot.Text = s.id;
-                    label_id_lot.Text = s.r_id;
+                   
 
                 }
             }

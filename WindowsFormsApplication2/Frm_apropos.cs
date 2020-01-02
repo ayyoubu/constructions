@@ -59,6 +59,9 @@ namespace WindowsFormsApplication2
         {
             try
             {
+                // only acceptec formats are pdf and image formats
+
+                //in case of image 
                 Image img = pictureBox1.Image;
                 byte[] arr;
 
@@ -113,6 +116,11 @@ namespace WindowsFormsApplication2
                     MessageBox.Show("please pick a correct image format " + ex.Message);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

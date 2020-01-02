@@ -102,9 +102,18 @@ namespace WindowsFormsApplication2
     partial void InsertPoste(Poste instance);
     partial void UpdatePoste(Poste instance);
     partial void DeletePoste(Poste instance);
+    partial void Insertstock(stock instance);
+    partial void Updatestock(stock instance);
+    partial void Deletestock(stock instance);
     partial void InsertTach_glob(Tach_glob instance);
     partial void UpdateTach_glob(Tach_glob instance);
     partial void DeleteTach_glob(Tach_glob instance);
+    partial void Inserttache_pre(tache_pre instance);
+    partial void Updatetache_pre(tache_pre instance);
+    partial void Deletetache_pre(tache_pre instance);
+    partial void Inserttache_secon(tache_secon instance);
+    partial void Updatetache_secon(tache_secon instance);
+    partial void Deletetache_secon(tache_secon instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -329,11 +338,35 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
+		public System.Data.Linq.Table<stock> stocks
+		{
+			get
+			{
+				return this.GetTable<stock>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Tach_glob> Tach_globs
 		{
 			get
 			{
 				return this.GetTable<Tach_glob>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tache_pre> tache_pres
+		{
+			get
+			{
+				return this.GetTable<tache_pre>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tache_secon> tache_secons
+		{
+			get
+			{
+				return this.GetTable<tache_secon>();
 			}
 		}
 	}
@@ -1072,6 +1105,10 @@ namespace WindowsFormsApplication2
 		
 		private System.Nullable<double> _PATTC;
 		
+		private System.Nullable<int> _qte_min;
+		
+		private EntitySet<stock> _stocks;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1090,10 +1127,13 @@ namespace WindowsFormsApplication2
     partial void OnTvaChanged();
     partial void OnPATTCChanging(System.Nullable<double> value);
     partial void OnPATTCChanged();
+    partial void Onqte_minChanging(System.Nullable<int> value);
+    partial void Onqte_minChanged();
     #endregion
 		
 		public bien()
 		{
+			this._stocks = new EntitySet<stock>(new Action<stock>(this.attach_stocks), new Action<stock>(this.detach_stocks));
 			OnCreated();
 		}
 		
@@ -1237,6 +1277,39 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qte_min", DbType="Int")]
+		public System.Nullable<int> qte_min
+		{
+			get
+			{
+				return this._qte_min;
+			}
+			set
+			{
+				if ((this._qte_min != value))
+				{
+					this.Onqte_minChanging(value);
+					this.SendPropertyChanging();
+					this._qte_min = value;
+					this.SendPropertyChanged("qte_min");
+					this.Onqte_minChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="bien_stock", Storage="_stocks", ThisKey="idbien", OtherKey="reff_bien")]
+		public EntitySet<stock> stocks
+		{
+			get
+			{
+				return this._stocks;
+			}
+			set
+			{
+				this._stocks.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1255,6 +1328,18 @@ namespace WindowsFormsApplication2
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_stocks(stock entity)
+		{
+			this.SendPropertyChanging();
+			entity.bien = this;
+		}
+		
+		private void detach_stocks(stock entity)
+		{
+			this.SendPropertyChanging();
+			entity.bien = null;
 		}
 	}
 	
@@ -3064,133 +3149,166 @@ namespace WindowsFormsApplication2
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _idtache;
+		private int _id;
 		
-		private string _TachePrimaire;
+		private System.Nullable<int> _id_lot;
 		
-		private string _Tachesecondaire;
+		private string _operation;
 		
-		private System.Nullable<double> _Tauxsecondaire;
+		private string _tach_glob;
 		
-		private System.Nullable<decimal> _Montantsecondaire;
+		private EntitySet<tache_pre> _tache_pres;
+		
+		private EntityRef<identification> _identification;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidtacheChanging(int value);
-    partial void OnidtacheChanged();
-    partial void OnTachePrimaireChanging(string value);
-    partial void OnTachePrimaireChanged();
-    partial void OnTachesecondaireChanging(string value);
-    partial void OnTachesecondaireChanged();
-    partial void OnTauxsecondaireChanging(System.Nullable<double> value);
-    partial void OnTauxsecondaireChanged();
-    partial void OnMontantsecondaireChanging(System.Nullable<decimal> value);
-    partial void OnMontantsecondaireChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onid_lotChanging(System.Nullable<int> value);
+    partial void Onid_lotChanged();
+    partial void OnoperationChanging(string value);
+    partial void OnoperationChanged();
+    partial void Ontach_globChanging(string value);
+    partial void Ontach_globChanged();
     #endregion
 		
 		public bordoreau()
 		{
+			this._tache_pres = new EntitySet<tache_pre>(new Action<tache_pre>(this.attach_tache_pres), new Action<tache_pre>(this.detach_tache_pres));
+			this._identification = default(EntityRef<identification>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idtache", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idtache
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
 			get
 			{
-				return this._idtache;
+				return this._id;
 			}
 			set
 			{
-				if ((this._idtache != value))
+				if ((this._id != value))
 				{
-					this.OnidtacheChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._idtache = value;
-					this.SendPropertyChanged("idtache");
-					this.OnidtacheChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TachePrimaire", DbType="VarChar(200)")]
-		public string TachePrimaire
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lot", DbType="Int")]
+		public System.Nullable<int> id_lot
 		{
 			get
 			{
-				return this._TachePrimaire;
+				return this._id_lot;
 			}
 			set
 			{
-				if ((this._TachePrimaire != value))
+				if ((this._id_lot != value))
 				{
-					this.OnTachePrimaireChanging(value);
+					if (this._identification.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_lotChanging(value);
 					this.SendPropertyChanging();
-					this._TachePrimaire = value;
-					this.SendPropertyChanged("TachePrimaire");
-					this.OnTachePrimaireChanged();
+					this._id_lot = value;
+					this.SendPropertyChanged("id_lot");
+					this.Onid_lotChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tachesecondaire", DbType="VarChar(200)")]
-		public string Tachesecondaire
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_operation", DbType="VarChar(500)")]
+		public string operation
 		{
 			get
 			{
-				return this._Tachesecondaire;
+				return this._operation;
 			}
 			set
 			{
-				if ((this._Tachesecondaire != value))
+				if ((this._operation != value))
 				{
-					this.OnTachesecondaireChanging(value);
+					this.OnoperationChanging(value);
 					this.SendPropertyChanging();
-					this._Tachesecondaire = value;
-					this.SendPropertyChanged("Tachesecondaire");
-					this.OnTachesecondaireChanged();
+					this._operation = value;
+					this.SendPropertyChanged("operation");
+					this.OnoperationChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tauxsecondaire", DbType="Float")]
-		public System.Nullable<double> Tauxsecondaire
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tach_glob", DbType="VarChar(500)")]
+		public string tach_glob
 		{
 			get
 			{
-				return this._Tauxsecondaire;
+				return this._tach_glob;
 			}
 			set
 			{
-				if ((this._Tauxsecondaire != value))
+				if ((this._tach_glob != value))
 				{
-					this.OnTauxsecondaireChanging(value);
+					this.Ontach_globChanging(value);
 					this.SendPropertyChanging();
-					this._Tauxsecondaire = value;
-					this.SendPropertyChanged("Tauxsecondaire");
-					this.OnTauxsecondaireChanged();
+					this._tach_glob = value;
+					this.SendPropertyChanged("tach_glob");
+					this.Ontach_globChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Montantsecondaire", DbType="Money")]
-		public System.Nullable<decimal> Montantsecondaire
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="bordoreau_tache_pre", Storage="_tache_pres", ThisKey="id", OtherKey="id_tachglob")]
+		public EntitySet<tache_pre> tache_pres
 		{
 			get
 			{
-				return this._Montantsecondaire;
+				return this._tache_pres;
 			}
 			set
 			{
-				if ((this._Montantsecondaire != value))
+				this._tache_pres.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bordoreau", Storage="_identification", ThisKey="id_lot", OtherKey="idlot", IsForeignKey=true)]
+		public identification identification
+		{
+			get
+			{
+				return this._identification.Entity;
+			}
+			set
+			{
+				identification previousValue = this._identification.Entity;
+				if (((previousValue != value) 
+							|| (this._identification.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnMontantsecondaireChanging(value);
 					this.SendPropertyChanging();
-					this._Montantsecondaire = value;
-					this.SendPropertyChanged("Montantsecondaire");
-					this.OnMontantsecondaireChanged();
+					if ((previousValue != null))
+					{
+						this._identification.Entity = null;
+						previousValue.bordoreaus.Remove(this);
+					}
+					this._identification.Entity = value;
+					if ((value != null))
+					{
+						value.bordoreaus.Add(this);
+						this._id_lot = value.idlot;
+					}
+					else
+					{
+						this._id_lot = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("identification");
 				}
 			}
 		}
@@ -3213,6 +3331,18 @@ namespace WindowsFormsApplication2
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tache_pres(tache_pre entity)
+		{
+			this.SendPropertyChanging();
+			entity.bordoreau = this;
+		}
+		
+		private void detach_tache_pres(tache_pre entity)
+		{
+			this.SendPropertyChanging();
+			entity.bordoreau = null;
 		}
 	}
 	
@@ -4176,6 +4306,8 @@ namespace WindowsFormsApplication2
 		
 		private System.Nullable<int> _idcatbien;
 		
+		private EntitySet<stock> _stocks;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4190,6 +4322,7 @@ namespace WindowsFormsApplication2
 		
 		public Famille()
 		{
+			this._stocks = new EntitySet<stock>(new Action<stock>(this.attach_stocks), new Action<stock>(this.detach_stocks));
 			OnCreated();
 		}
 		
@@ -4253,6 +4386,19 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Famille_stock", Storage="_stocks", ThisKey="idfamille", OtherKey="fam_bien")]
+		public EntitySet<stock> stocks
+		{
+			get
+			{
+				return this._stocks;
+			}
+			set
+			{
+				this._stocks.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4271,6 +4417,18 @@ namespace WindowsFormsApplication2
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_stocks(stock entity)
+		{
+			this.SendPropertyChanging();
+			entity.Famille = this;
+		}
+		
+		private void detach_stocks(stock entity)
+		{
+			this.SendPropertyChanging();
+			entity.Famille = null;
 		}
 	}
 	
@@ -4870,6 +5028,8 @@ namespace WindowsFormsApplication2
 		
 		private EntitySet<bon_retourr> _bon_retourrs;
 		
+		private EntitySet<bordoreau> _bordoreaus;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4925,6 +5085,7 @@ namespace WindowsFormsApplication2
 			this._bon_factures = new EntitySet<bon_facture>(new Action<bon_facture>(this.attach_bon_factures), new Action<bon_facture>(this.detach_bon_factures));
 			this._bon_receps = new EntitySet<bon_recep>(new Action<bon_recep>(this.attach_bon_receps), new Action<bon_recep>(this.detach_bon_receps));
 			this._bon_retourrs = new EntitySet<bon_retourr>(new Action<bon_retourr>(this.attach_bon_retourrs), new Action<bon_retourr>(this.detach_bon_retourrs));
+			this._bordoreaus = new EntitySet<bordoreau>(new Action<bordoreau>(this.attach_bordoreaus), new Action<bordoreau>(this.detach_bordoreaus));
 			OnCreated();
 		}
 		
@@ -5413,6 +5574,19 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identification_bordoreau", Storage="_bordoreaus", ThisKey="idlot", OtherKey="id_lot")]
+		public EntitySet<bordoreau> bordoreaus
+		{
+			get
+			{
+				return this._bordoreaus;
+			}
+			set
+			{
+				this._bordoreaus.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -5488,6 +5662,18 @@ namespace WindowsFormsApplication2
 		}
 		
 		private void detach_bon_retourrs(bon_retourr entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = null;
+		}
+		
+		private void attach_bordoreaus(bordoreau entity)
+		{
+			this.SendPropertyChanging();
+			entity.identification = this;
+		}
+		
+		private void detach_bordoreaus(bordoreau entity)
 		{
 			this.SendPropertyChanging();
 			entity.identification = null;
@@ -6010,7 +6196,7 @@ namespace WindowsFormsApplication2
 		
 		private string _designation;
 		
-		private string _img;
+		private System.Data.Linq.Binary _img;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -6028,7 +6214,7 @@ namespace WindowsFormsApplication2
     partial void OnDtChanged();
     partial void OndesignationChanging(string value);
     partial void OndesignationChanged();
-    partial void OnimgChanging(string value);
+    partial void OnimgChanging(System.Data.Linq.Binary value);
     partial void OnimgChanged();
     #endregion
 		
@@ -6157,8 +6343,8 @@ namespace WindowsFormsApplication2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_img", DbType="VarChar(MAX)")]
-		public string img
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_img", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary img
 		{
 			get
 			{
@@ -6284,6 +6470,390 @@ namespace WindowsFormsApplication2
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.stock")]
+	public partial class stock : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _ref_lot;
+		
+		private System.Nullable<int> _reff_bien;
+		
+		private string _desc_bien;
+		
+		private System.Nullable<int> _qte_stock;
+		
+		private System.Nullable<int> _qte_min;
+		
+		private string _cat_bien;
+		
+		private System.Nullable<int> _fam_bien;
+		
+		private System.Nullable<int> _idunite;
+		
+		private System.Nullable<decimal> _pa_ht;
+		
+		private System.Nullable<decimal> _ttc;
+		
+		private EntityRef<Famille> _Famille;
+		
+		private EntityRef<bien> _bien;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onref_lotChanging(string value);
+    partial void Onref_lotChanged();
+    partial void Onreff_bienChanging(System.Nullable<int> value);
+    partial void Onreff_bienChanged();
+    partial void Ondesc_bienChanging(string value);
+    partial void Ondesc_bienChanged();
+    partial void Onqte_stockChanging(System.Nullable<int> value);
+    partial void Onqte_stockChanged();
+    partial void Onqte_minChanging(System.Nullable<int> value);
+    partial void Onqte_minChanged();
+    partial void Oncat_bienChanging(string value);
+    partial void Oncat_bienChanged();
+    partial void Onfam_bienChanging(System.Nullable<int> value);
+    partial void Onfam_bienChanged();
+    partial void OniduniteChanging(System.Nullable<int> value);
+    partial void OniduniteChanged();
+    partial void Onpa_htChanging(System.Nullable<decimal> value);
+    partial void Onpa_htChanged();
+    partial void OnttcChanging(System.Nullable<decimal> value);
+    partial void OnttcChanged();
+    #endregion
+		
+		public stock()
+		{
+			this._Famille = default(EntityRef<Famille>);
+			this._bien = default(EntityRef<bien>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ref_lot", DbType="VarChar(100)")]
+		public string ref_lot
+		{
+			get
+			{
+				return this._ref_lot;
+			}
+			set
+			{
+				if ((this._ref_lot != value))
+				{
+					this.Onref_lotChanging(value);
+					this.SendPropertyChanging();
+					this._ref_lot = value;
+					this.SendPropertyChanged("ref_lot");
+					this.Onref_lotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_reff_bien", DbType="Int")]
+		public System.Nullable<int> reff_bien
+		{
+			get
+			{
+				return this._reff_bien;
+			}
+			set
+			{
+				if ((this._reff_bien != value))
+				{
+					if (this._bien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onreff_bienChanging(value);
+					this.SendPropertyChanging();
+					this._reff_bien = value;
+					this.SendPropertyChanged("reff_bien");
+					this.Onreff_bienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_bien", DbType="VarChar(100)")]
+		public string desc_bien
+		{
+			get
+			{
+				return this._desc_bien;
+			}
+			set
+			{
+				if ((this._desc_bien != value))
+				{
+					this.Ondesc_bienChanging(value);
+					this.SendPropertyChanging();
+					this._desc_bien = value;
+					this.SendPropertyChanged("desc_bien");
+					this.Ondesc_bienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qte_stock", DbType="Int")]
+		public System.Nullable<int> qte_stock
+		{
+			get
+			{
+				return this._qte_stock;
+			}
+			set
+			{
+				if ((this._qte_stock != value))
+				{
+					this.Onqte_stockChanging(value);
+					this.SendPropertyChanging();
+					this._qte_stock = value;
+					this.SendPropertyChanged("qte_stock");
+					this.Onqte_stockChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qte_min", DbType="Int")]
+		public System.Nullable<int> qte_min
+		{
+			get
+			{
+				return this._qte_min;
+			}
+			set
+			{
+				if ((this._qte_min != value))
+				{
+					this.Onqte_minChanging(value);
+					this.SendPropertyChanging();
+					this._qte_min = value;
+					this.SendPropertyChanged("qte_min");
+					this.Onqte_minChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cat_bien", DbType="VarChar(100)")]
+		public string cat_bien
+		{
+			get
+			{
+				return this._cat_bien;
+			}
+			set
+			{
+				if ((this._cat_bien != value))
+				{
+					this.Oncat_bienChanging(value);
+					this.SendPropertyChanging();
+					this._cat_bien = value;
+					this.SendPropertyChanged("cat_bien");
+					this.Oncat_bienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fam_bien", DbType="Int")]
+		public System.Nullable<int> fam_bien
+		{
+			get
+			{
+				return this._fam_bien;
+			}
+			set
+			{
+				if ((this._fam_bien != value))
+				{
+					if (this._Famille.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onfam_bienChanging(value);
+					this.SendPropertyChanging();
+					this._fam_bien = value;
+					this.SendPropertyChanged("fam_bien");
+					this.Onfam_bienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idunite", DbType="Int")]
+		public System.Nullable<int> idunite
+		{
+			get
+			{
+				return this._idunite;
+			}
+			set
+			{
+				if ((this._idunite != value))
+				{
+					this.OniduniteChanging(value);
+					this.SendPropertyChanging();
+					this._idunite = value;
+					this.SendPropertyChanged("idunite");
+					this.OniduniteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_ht", DbType="Money")]
+		public System.Nullable<decimal> pa_ht
+		{
+			get
+			{
+				return this._pa_ht;
+			}
+			set
+			{
+				if ((this._pa_ht != value))
+				{
+					this.Onpa_htChanging(value);
+					this.SendPropertyChanging();
+					this._pa_ht = value;
+					this.SendPropertyChanged("pa_ht");
+					this.Onpa_htChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ttc", DbType="Money")]
+		public System.Nullable<decimal> ttc
+		{
+			get
+			{
+				return this._ttc;
+			}
+			set
+			{
+				if ((this._ttc != value))
+				{
+					this.OnttcChanging(value);
+					this.SendPropertyChanging();
+					this._ttc = value;
+					this.SendPropertyChanged("ttc");
+					this.OnttcChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Famille_stock", Storage="_Famille", ThisKey="fam_bien", OtherKey="idfamille", IsForeignKey=true)]
+		public Famille Famille
+		{
+			get
+			{
+				return this._Famille.Entity;
+			}
+			set
+			{
+				Famille previousValue = this._Famille.Entity;
+				if (((previousValue != value) 
+							|| (this._Famille.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Famille.Entity = null;
+						previousValue.stocks.Remove(this);
+					}
+					this._Famille.Entity = value;
+					if ((value != null))
+					{
+						value.stocks.Add(this);
+						this._fam_bien = value.idfamille;
+					}
+					else
+					{
+						this._fam_bien = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Famille");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="bien_stock", Storage="_bien", ThisKey="reff_bien", OtherKey="idbien", IsForeignKey=true)]
+		public bien bien
+		{
+			get
+			{
+				return this._bien.Entity;
+			}
+			set
+			{
+				bien previousValue = this._bien.Entity;
+				if (((previousValue != value) 
+							|| (this._bien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._bien.Entity = null;
+						previousValue.stocks.Remove(this);
+					}
+					this._bien.Entity = value;
+					if ((value != null))
+					{
+						value.stocks.Add(this);
+						this._reff_bien = value.idbien;
+					}
+					else
+					{
+						this._reff_bien = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("bien");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tach_glob")]
 	public partial class Tach_glob : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -6345,6 +6915,384 @@ namespace WindowsFormsApplication2
 					this._intitule = value;
 					this.SendPropertyChanged("intitule");
 					this.OnintituleChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tache_pre")]
+	public partial class tache_pre : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _id_tachglob;
+		
+		private string _desc_;
+		
+		private EntitySet<tache_secon> _tache_secons;
+		
+		private EntityRef<bordoreau> _bordoreau;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onid_tachglobChanging(System.Nullable<int> value);
+    partial void Onid_tachglobChanged();
+    partial void Ondesc_Changing(string value);
+    partial void Ondesc_Changed();
+    #endregion
+		
+		public tache_pre()
+		{
+			this._tache_secons = new EntitySet<tache_secon>(new Action<tache_secon>(this.attach_tache_secons), new Action<tache_secon>(this.detach_tache_secons));
+			this._bordoreau = default(EntityRef<bordoreau>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_tachglob", DbType="Int")]
+		public System.Nullable<int> id_tachglob
+		{
+			get
+			{
+				return this._id_tachglob;
+			}
+			set
+			{
+				if ((this._id_tachglob != value))
+				{
+					if (this._bordoreau.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_tachglobChanging(value);
+					this.SendPropertyChanging();
+					this._id_tachglob = value;
+					this.SendPropertyChanged("id_tachglob");
+					this.Onid_tachglobChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_", DbType="VarChar(500)")]
+		public string desc_
+		{
+			get
+			{
+				return this._desc_;
+			}
+			set
+			{
+				if ((this._desc_ != value))
+				{
+					this.Ondesc_Changing(value);
+					this.SendPropertyChanging();
+					this._desc_ = value;
+					this.SendPropertyChanged("desc_");
+					this.Ondesc_Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tache_pre_tache_secon", Storage="_tache_secons", ThisKey="id", OtherKey="tache_pre")]
+		public EntitySet<tache_secon> tache_secons
+		{
+			get
+			{
+				return this._tache_secons;
+			}
+			set
+			{
+				this._tache_secons.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="bordoreau_tache_pre", Storage="_bordoreau", ThisKey="id_tachglob", OtherKey="id", IsForeignKey=true)]
+		public bordoreau bordoreau
+		{
+			get
+			{
+				return this._bordoreau.Entity;
+			}
+			set
+			{
+				bordoreau previousValue = this._bordoreau.Entity;
+				if (((previousValue != value) 
+							|| (this._bordoreau.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._bordoreau.Entity = null;
+						previousValue.tache_pres.Remove(this);
+					}
+					this._bordoreau.Entity = value;
+					if ((value != null))
+					{
+						value.tache_pres.Add(this);
+						this._id_tachglob = value.id;
+					}
+					else
+					{
+						this._id_tachglob = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("bordoreau");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tache_secons(tache_secon entity)
+		{
+			this.SendPropertyChanging();
+			entity.tache_pre1 = this;
+		}
+		
+		private void detach_tache_secons(tache_secon entity)
+		{
+			this.SendPropertyChanging();
+			entity.tache_pre1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tache_secon")]
+	public partial class tache_secon : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _tache_pre;
+		
+		private string _desc_;
+		
+		private System.Nullable<double> _Tauxsecondaire;
+		
+		private System.Nullable<decimal> _Montantsecondaire;
+		
+		private EntityRef<tache_pre> _tache_pre1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Ontache_preChanging(System.Nullable<int> value);
+    partial void Ontache_preChanged();
+    partial void Ondesc_Changing(string value);
+    partial void Ondesc_Changed();
+    partial void OnTauxsecondaireChanging(System.Nullable<double> value);
+    partial void OnTauxsecondaireChanged();
+    partial void OnMontantsecondaireChanging(System.Nullable<decimal> value);
+    partial void OnMontantsecondaireChanged();
+    #endregion
+		
+		public tache_secon()
+		{
+			this._tache_pre1 = default(EntityRef<tache_pre>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tache_pre", DbType="Int")]
+		public System.Nullable<int> tache_pre
+		{
+			get
+			{
+				return this._tache_pre;
+			}
+			set
+			{
+				if ((this._tache_pre != value))
+				{
+					if (this._tache_pre1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Ontache_preChanging(value);
+					this.SendPropertyChanging();
+					this._tache_pre = value;
+					this.SendPropertyChanged("tache_pre");
+					this.Ontache_preChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desc_", DbType="VarChar(200)")]
+		public string desc_
+		{
+			get
+			{
+				return this._desc_;
+			}
+			set
+			{
+				if ((this._desc_ != value))
+				{
+					this.Ondesc_Changing(value);
+					this.SendPropertyChanging();
+					this._desc_ = value;
+					this.SendPropertyChanged("desc_");
+					this.Ondesc_Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tauxsecondaire", DbType="Float")]
+		public System.Nullable<double> Tauxsecondaire
+		{
+			get
+			{
+				return this._Tauxsecondaire;
+			}
+			set
+			{
+				if ((this._Tauxsecondaire != value))
+				{
+					this.OnTauxsecondaireChanging(value);
+					this.SendPropertyChanging();
+					this._Tauxsecondaire = value;
+					this.SendPropertyChanged("Tauxsecondaire");
+					this.OnTauxsecondaireChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Montantsecondaire", DbType="Money")]
+		public System.Nullable<decimal> Montantsecondaire
+		{
+			get
+			{
+				return this._Montantsecondaire;
+			}
+			set
+			{
+				if ((this._Montantsecondaire != value))
+				{
+					this.OnMontantsecondaireChanging(value);
+					this.SendPropertyChanging();
+					this._Montantsecondaire = value;
+					this.SendPropertyChanged("Montantsecondaire");
+					this.OnMontantsecondaireChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tache_pre_tache_secon", Storage="_tache_pre1", ThisKey="tache_pre", OtherKey="id", IsForeignKey=true)]
+		public tache_pre tache_pre1
+		{
+			get
+			{
+				return this._tache_pre1.Entity;
+			}
+			set
+			{
+				tache_pre previousValue = this._tache_pre1.Entity;
+				if (((previousValue != value) 
+							|| (this._tache_pre1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tache_pre1.Entity = null;
+						previousValue.tache_secons.Remove(this);
+					}
+					this._tache_pre1.Entity = value;
+					if ((value != null))
+					{
+						value.tache_secons.Add(this);
+						this._tache_pre = value.id;
+					}
+					else
+					{
+						this._tache_pre = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tache_pre1");
 				}
 			}
 		}

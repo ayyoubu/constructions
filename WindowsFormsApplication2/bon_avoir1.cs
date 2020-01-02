@@ -308,7 +308,7 @@ namespace WindowsFormsApplication2
                 bn.desc_fournis = txt_fournis.Text;
                 bn.desc_lot = txt_lot.Text;
                 bn.id_fournis = Convert.ToInt32(textBox1.Text);
-                bn.id_lot = Convert.ToInt32(label_id_lot.Text);
+                bn.id_lot = Convert.ToInt32(textBox2.Text);
                 bn.montant_ht = Convert.ToDecimal(txt_total_ht.Text);
                 bn.montant_ttc = Convert.ToDecimal(txt_total_ttc.Text);
                 bn.montant_tva = Convert.ToDecimal(txt_total_tva.Text);

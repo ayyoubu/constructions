@@ -31,16 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idbien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Intitule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qttestk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stkalerte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categorie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Famille = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PATTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -105,72 +95,10 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idlot,
-            this.idbien,
-            this.Intitule,
-            this.Qttestk,
-            this.Stkalerte,
-            this.Categorie,
-            this.Famille,
-            this.Unite,
-            this.PAHT,
-            this.PATTC});
             this.dataGridView1.Location = new System.Drawing.Point(12, 286);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1146, 376);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // idlot
-            // 
-            this.idlot.HeaderText = "Référence Lot";
-            this.idlot.Name = "idlot";
-            // 
-            // idbien
-            // 
-            this.idbien.HeaderText = "Référence ";
-            this.idbien.Name = "idbien";
-            // 
-            // Intitule
-            // 
-            this.Intitule.HeaderText = "Intitulé du bien";
-            this.Intitule.Name = "Intitule";
-            this.Intitule.Width = 200;
-            // 
-            // Qttestk
-            // 
-            this.Qttestk.HeaderText = "Qtte Stocké";
-            this.Qttestk.Name = "Qttestk";
-            // 
-            // Stkalerte
-            // 
-            this.Stkalerte.HeaderText = "Stock Alerte";
-            this.Stkalerte.Name = "Stkalerte";
-            // 
-            // Categorie
-            // 
-            this.Categorie.HeaderText = "Catégorie";
-            this.Categorie.Name = "Categorie";
-            // 
-            // Famille
-            // 
-            this.Famille.HeaderText = "Famille";
-            this.Famille.Name = "Famille";
-            // 
-            // Unite
-            // 
-            this.Unite.HeaderText = "Unité";
-            this.Unite.Name = "Unite";
-            // 
-            // PAHT
-            // 
-            this.PAHT.HeaderText = "PA HT";
-            this.PAHT.Name = "PAHT";
-            // 
-            // PATTC
-            // 
-            this.PATTC.HeaderText = "PA TTC";
-            this.PATTC.Name = "PATTC";
             // 
             // button1
             // 
@@ -527,6 +455,7 @@
             this.Name = "Frm_stock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_stock";
+            this.Load += new System.EventHandler(this.Frm_stock_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -542,16 +471,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idlot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idbien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Intitule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qttestk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stkalerte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categorie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Famille;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unite;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PAHT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PATTC;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;

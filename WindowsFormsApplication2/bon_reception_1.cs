@@ -303,22 +303,69 @@ namespace WindowsFormsApplication2
         {
             try
             {
+                for (int j=0 ; j<dataGridView1.Rows.Count;j++)
+                {
+              
                 bon_recep bn = new bon_recep();
                 bn.date_com = dateTimePicker1.Value;
                 bn.desc_fournis = txt_fournis.Text;
                 bn.desc_lot = txt_lot.Text;
                 bn.id_fournis = Convert.ToInt32(textBox1.Text);
                 bn.id_lot = Convert.ToInt32(label_id_lot.Text);
-                bn.montant_ht = Convert.ToDecimal(txt_total_ht.Text);
-                bn.montant_ttc = Convert.ToDecimal(txt_total_ttc.Text);
-                bn.montant_tva = Convert.ToDecimal(txt_total_tva.Text);
+                    double ht = Convert.ToDouble(dataGridView1[4, j].Value.ToString());
+                    double tva = ht * 0.2;
+                    double ttc = ht + tva;
+                    bn.montant_ht =(decimal) ht;
+                    bn.montant_ttc = (decimal)ttc;
+                    bn.montant_tva = (decimal)tva;
 
-                dc.bon_receps.InsertOnSubmit(bn);
-                dc.SubmitChanges();
-                valid = true;
-                this.Close();
-
+                    dc.bon_receps.InsertOnSubmit(bn);
                
+                valid = true;
+                    //add to stock
+                    bool check_st= true;
+                    stock st_test = null;
+                try {
+                         st_test = dc.stocks.Single(bi => bi.reff_bien == Convert.ToInt32(dataGridView1[0, j].Value.ToString()));
+                        
+                    }
+                    catch
+                    { check_st = false;
+                    }
+
+                if (!check_st)
+                {
+                    MessageBox.Show("added a new item to stock");
+
+                    bien b2 = dc.biens.Single(bi => bi.idbien == Convert.ToInt32(dataGridView1[0, j].Value.ToString()));
+                    stock st = new stock();
+                    st.desc_bien = dataGridView1[1, j].Value.ToString();
+                    st.pa_ht = Convert.ToDecimal(dataGridView1[3, j].Value.ToString());
+                    st.qte_stock = Convert.ToInt32(dataGridView1[2, j].Value.ToString());
+                    st.reff_bien = Convert.ToInt32(dataGridView1[0, j].Value.ToString());
+                    st.ref_lot = textBox2.Text;
+                    st.desc_bien = b2.intitule;
+                    st.fam_bien = b2.idfamille;
+                    st.idunite = b2.idunite;
+                    st.qte_min = b2.qte_min;
+                    int idf = (int)b2.idfamille;
+                    Famille f = dc.Familles.Single(ff => ff.idfamille == idf);
+                    st.cat_bien = f.idcatbien.ToString();
+                    dc.stocks.InsertOnSubmit(st);
+                    dc.SubmitChanges();
+                }
+                else
+                {
+                    MessageBox.Show("stock quantité updated");
+                    st_test.qte_stock += Convert.ToInt32(dataGridView1[2, j].Value.ToString());                 
+                    dc.SubmitChanges();
+                }
+
+                this.Close();
+                }
+
+
+
             }
             catch { }
         }

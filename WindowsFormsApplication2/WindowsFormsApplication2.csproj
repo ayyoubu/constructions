@@ -507,6 +507,7 @@
     <Compile Include="list_maitre.Designer.cs">
       <DependentUpon>list_maitre.cs</DependentUpon>
     </Compile>
+    <Compile Include="pdf_convert.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="search_lot.cs">

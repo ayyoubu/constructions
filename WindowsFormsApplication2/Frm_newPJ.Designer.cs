@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -48,24 +49,39 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_ref = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_desc = new System.Windows.Forms.TextBox();
+            this.combo_cat = new System.Windows.Forms.ComboBox();
+            this.combo_lot = new System.Windows.Forms.ComboBox();
+            this.txt_operation = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(594, 152);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(323, 452);
+            this.groupBox1.Size = new System.Drawing.Size(227, 452);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(221, 433);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // button3
             // 
@@ -78,6 +94,7 @@
             this.button3.TabIndex = 53;
             this.button3.Text = "Importer";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -147,6 +164,7 @@
             this.button2.TabIndex = 56;
             this.button2.Text = "Ajouter";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -179,7 +197,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(929, 28);
+            this.panel1.Size = new System.Drawing.Size(1158, 28);
             this.panel1.TabIndex = 115;
             // 
             // label1
@@ -254,12 +272,12 @@
             this.label7.TabIndex = 121;
             this.label7.Text = "Opération";
             // 
-            // textBox1
+            // txt_ref
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 20);
-            this.textBox1.TabIndex = 122;
+            this.txt_ref.Location = new System.Drawing.Point(103, 90);
+            this.txt_ref.Name = "txt_ref";
+            this.txt_ref.Size = new System.Drawing.Size(151, 20);
+            this.txt_ref.TabIndex = 122;
             // 
             // dateTimePicker1
             // 
@@ -268,35 +286,35 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 123;
             // 
-            // textBox2
+            // txt_desc
             // 
-            this.textBox2.Location = new System.Drawing.Point(357, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 20);
-            this.textBox2.TabIndex = 125;
+            this.txt_desc.Location = new System.Drawing.Point(357, 92);
+            this.txt_desc.Name = "txt_desc";
+            this.txt_desc.Size = new System.Drawing.Size(222, 20);
+            this.txt_desc.TabIndex = 125;
             // 
-            // comboBox1
+            // combo_cat
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(356, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 21);
-            this.comboBox1.TabIndex = 124;
+            this.combo_cat.FormattingEnabled = true;
+            this.combo_cat.Location = new System.Drawing.Point(356, 63);
+            this.combo_cat.Name = "combo_cat";
+            this.combo_cat.Size = new System.Drawing.Size(223, 21);
+            this.combo_cat.TabIndex = 124;
             // 
-            // comboBox2
+            // combo_lot
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(695, 62);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(205, 21);
-            this.comboBox2.TabIndex = 126;
+            this.combo_lot.FormattingEnabled = true;
+            this.combo_lot.Location = new System.Drawing.Point(695, 62);
+            this.combo_lot.Name = "combo_lot";
+            this.combo_lot.Size = new System.Drawing.Size(205, 21);
+            this.combo_lot.TabIndex = 126;
             // 
-            // textBox3
+            // txt_operation
             // 
-            this.textBox3.Location = new System.Drawing.Point(695, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 20);
-            this.textBox3.TabIndex = 127;
+            this.txt_operation.Location = new System.Drawing.Point(695, 92);
+            this.txt_operation.Name = "txt_operation";
+            this.txt_operation.Size = new System.Drawing.Size(205, 20);
+            this.txt_operation.TabIndex = 127;
             // 
             // groupBox2
             // 
@@ -308,17 +326,31 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Identification";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(824, 180);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
+            this.webBrowser1.TabIndex = 129;
+            // 
             // Frm_newPJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 645);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(1158, 645);
+            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.txt_operation);
+            this.Controls.Add(this.combo_lot);
+            this.Controls.Add(this.txt_desc);
+            this.Controls.Add(this.combo_cat);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_ref);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -337,6 +369,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_newPJ";
             this.Text = "Frm_newPJ";
+            this.Load += new System.EventHandler(this.Frm_newPJ_Load);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -367,12 +402,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_ref;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_desc;
+        private System.Windows.Forms.ComboBox combo_cat;
+        private System.Windows.Forms.ComboBox combo_lot;
+        private System.Windows.Forms.TextBox txt_operation;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

@@ -255,6 +255,7 @@ namespace WindowsFormsApplication2
         {
 
         }
+      
 
         private void Frm_bien_Load(object sender, EventArgs e)
         {
