@@ -57,9 +57,9 @@ namespace WindowsFormsApplication2
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            //try
-            //{ //in case of image 
-              
+            try
+            { //in case of image 
+
                 DataClasses1DataContext dc = new DataClasses1DataContext();
                PJ p = new PJ();
 
@@ -75,8 +75,8 @@ namespace WindowsFormsApplication2
                 string path = @"C:\Image_pj";
                 pictureBox1.Image.Save(path + @"\" + combo_lot.Text + ".jpg", ImageFormat.Jpeg);
 
-            //}
-            //catch { }
+            }
+            catch { }
         }
         public static void SaveImageCapture(System.Drawing.Image image)
         {

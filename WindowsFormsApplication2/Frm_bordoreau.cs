@@ -82,13 +82,13 @@ namespace WindowsFormsApplication2
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("select * from bordoreau where id_lot like '" + combo_lot.SelectedValue + "'", c.cnx);
+                SqlCommand cmd = new SqlCommand("select * from Tache_glob where id_lot like '" + combo_lot.SelectedValue + "'", c.cnx);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 combo_glob.DataSource = dt;
-                combo_glob.DisplayMember = "tach_glob";
-                combo_glob.ValueMember = "id";
+                combo_glob.DisplayMember = "intitule";
+                combo_glob.ValueMember = "idtachglob";
             }
             catch
             { }

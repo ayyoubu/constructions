@@ -358,6 +358,17 @@ namespace WindowsFormsApplication2
         {
 
         }
+
+        private void optionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tachePrimaireToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tache_primaire1 t = new tache_primaire1();
+            t.Show();
+        }
     }
     }
     

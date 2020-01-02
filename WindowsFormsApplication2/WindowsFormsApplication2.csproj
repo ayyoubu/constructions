@@ -517,6 +517,12 @@
       <DependentUpon>search_lot.cs</DependentUpon>
     </Compile>
     <Compile Include="Sqlcon,.cs" />
+    <Compile Include="tache_primaire1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tache_primaire1.Designer.cs">
+      <DependentUpon>tache_primaire1.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -763,6 +769,9 @@
     </Compile>
     <EmbeddedResource Include="search_lot.resx">
       <DependentUpon>search_lot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tache_primaire1.resx">
+      <DependentUpon>tache_primaire1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>

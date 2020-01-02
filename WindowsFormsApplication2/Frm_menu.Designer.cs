@@ -30,7 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aProposDeLaSociétéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.catégorieDeBienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -120,6 +119,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.aProposDeLaSociétéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tachePrimaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,20 +152,14 @@
             this.toolStripSeparator5,
             this.posteToolStripMenuItem,
             this.tâcheGlobaleToolStripMenuItem,
+            this.tachePrimaireToolStripMenuItem,
             this.unitéToolStripMenuItem,
             this.codeDeTaxeToolStripMenuItem,
             this.catégoriePJToolStripMenuItem});
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
             this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.optionToolStripMenuItem.Text = "&Option";
-            // 
-            // aProposDeLaSociétéToolStripMenuItem
-            // 
-            this.aProposDeLaSociétéToolStripMenuItem.Image = global::WindowsFormsApplication2.Properties.Resources.emblemok_103757;
-            this.aProposDeLaSociétéToolStripMenuItem.Name = "aProposDeLaSociétéToolStripMenuItem";
-            this.aProposDeLaSociétéToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.aProposDeLaSociétéToolStripMenuItem.Text = "A propos de la société";
-            this.aProposDeLaSociétéToolStripMenuItem.Click += new System.EventHandler(this.aProposDeLaSociétéToolStripMenuItem_Click);
+            this.optionToolStripMenuItem.Click += new System.EventHandler(this.optionToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -837,6 +832,21 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
+            // aProposDeLaSociétéToolStripMenuItem
+            // 
+            this.aProposDeLaSociétéToolStripMenuItem.Image = global::WindowsFormsApplication2.Properties.Resources.emblemok_103757;
+            this.aProposDeLaSociétéToolStripMenuItem.Name = "aProposDeLaSociétéToolStripMenuItem";
+            this.aProposDeLaSociétéToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.aProposDeLaSociétéToolStripMenuItem.Text = "A propos de la société";
+            this.aProposDeLaSociétéToolStripMenuItem.Click += new System.EventHandler(this.aProposDeLaSociétéToolStripMenuItem_Click);
+            // 
+            // tachePrimaireToolStripMenuItem
+            // 
+            this.tachePrimaireToolStripMenuItem.Name = "tachePrimaireToolStripMenuItem";
+            this.tachePrimaireToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.tachePrimaireToolStripMenuItem.Text = "Tache Primaire";
+            this.tachePrimaireToolStripMenuItem.Click += new System.EventHandler(this.tachePrimaireToolStripMenuItem_Click);
+            // 
             // Frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,5 +965,6 @@
         private System.Windows.Forms.ToolStripMenuItem généralisationDeLotToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem tachePrimaireToolStripMenuItem;
     }
 }
